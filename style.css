@@ -1,0 +1,9 @@
+/*id takes priority when conflicting changes occur*/
+
+body{background-color:lightgrey; }
+
+.info{
+  background: pink;
+}
+/**/
+.zone{border: 2px solid;  padding: 5px;} /**/

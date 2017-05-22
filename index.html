@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app = 'EvidanceBoard'>
+  <head>
+    <meta charset="utf-8">
+    <title>Evidence Board</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id = 'board'>
+
+    </div>
+    
+    <div id = 'option' ng-controller="OptionCtrler">
+      Search: <input type="text" ng-model = 'searchInput'>
+    </div>
+
+    <div id = 'debugZone' class = 'zone'>
+      <button id = 'debugToggleButton' onclick = 'toggleDebugP()'>Debug On/Off</button>
+      <div id = 'debugInfo'>
+        <p id ='debug' class = 'info'>debug msg</p>
+        <p id ='mousePos' class = 'info'>( , )</p>
+        <p id = 'objInfo' class = 'info'>moused-over obj info</p>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><!---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src='script.js'> </script>
+
+  </body>
+</html>
