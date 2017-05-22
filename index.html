@@ -6,12 +6,17 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id = 'board'>
+    <div id = 'board' class = 'zone'>
 
     </div>
-    
-    <div id = 'option' ng-controller="OptionCtrler">
+
+    <div id = 'option' class = 'zone' ng-controller="OptionCtrler">
       Search: <input type="text" ng-model = 'searchInput'>
+      <div id = 'resultScroller' class = 'zone'>
+        <div id = 'results' class = 'zone'>
+          <p>lalalaa</p>
+        </div>
+      </div>
     </div>
 
     <div id = 'debugZone' class = 'zone'>
@@ -25,7 +30,12 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><!---->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script src='helper.js'> </script>
+
+    <script src='optionPane.js'> </script>
     <script src='script.js'> </script>
+    <script src='debug.js'> </script>
 
   </body>
 </html>

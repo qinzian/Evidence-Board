@@ -7,3 +7,45 @@ body{background-color:lightgrey; }
 }
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
+
+#board{
+  position: absolute;
+  left: 15px;
+  top: 30px;
+
+  width: 800px;
+  height:500px;
+}
+
+#option{
+  position: absolute;
+  left: 850px;
+  top: 30px;
+
+  width: 200px;
+  height:300px;
+
+  overflow: hidden;
+}
+
+#results{
+  width: 1000px;
+  height: 1000px;
+}
+
+#resultScroller{
+  overflow: auto;
+
+  position: relative;
+  top: 10px;
+
+  max-height: 100%;
+
+  border-color: cyan;
+}
+
+#debugZone{
+  position: absolute;
+  left: 855px;
+  top: 350px;
+}
