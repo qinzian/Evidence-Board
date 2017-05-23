@@ -1,7 +1,6 @@
 var board = angular.module('EvidenceBoard',[]);
 
 board.controller('OptionCtrler',function($scope){
-
 	$scope.load_img1 = function(){ //blicked button
 		$('#debug').html('loading img1');
     $scope.img1src = $scope.img1Name;
