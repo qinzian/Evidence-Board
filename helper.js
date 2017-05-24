@@ -16,3 +16,11 @@ function range(p1,p2){
   }
   return lst;
 }
+
+array.prototype.rmItem = function(t){
+  for (var i = 0; i < this.length; i++) {
+   if (this[i].equals(t)){
+     this.splice(i,1);
+   }
+  }
+}
