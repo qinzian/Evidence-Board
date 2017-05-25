@@ -1,3 +1,3 @@
 $( function() {
-    $( "#board" ).draggable();
+    $( "#bg" ).draggable({appendTo: 'body',scroll: false});
   } );

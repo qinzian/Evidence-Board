@@ -1,51 +1,5 @@
 /*id takes priority when conflicting changes occur*/
+body{background-color:lightgrey;}
 
-body{background-color:lightgrey; }
-
-.info{
-  background: pink;
-}
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
-
-#boardZone{
-  position: absolute;
-  left: 15px;
-  top: 30px;
-
-  width: 800px;
-  height:500px;
-}
-
-#optionZone{
-  position: absolute;
-  left: 850px;
-  top: 30px;
-
-  width: 200px;
-  height:300px;
-
-  overflow: hidden;
-}
-
-#resultsZone{
-  width: 1000px;
-  height: 1000px;
-}
-
-#resultScroller{
-  overflow: auto;
-
-  position: relative;
-  top: 10px;
-
-  max-height: 100%;
-
-  border-color: cyan;
-}
-
-#debugZone{
-  position: absolute;
-  left: 855px;
-  top: 350px;
-}

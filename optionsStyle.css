@@ -1,0 +1,26 @@
+#optionView{
+  position: absolute;
+  left: 850px;
+  top: 30px;
+
+  width: 200px;
+  height:300px;
+
+  overflow: hidden;
+}
+
+#resultsZone{
+  width: 1000px;
+  height: 1000px;
+}
+
+#resultContainer{
+  overflow: auto;
+
+  position: relative;
+  top: 10px;
+
+  max-height: 100%;
+
+  border-color: cyan;
+}

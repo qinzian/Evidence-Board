@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <title>Evidence Board</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="optionsStyle.css">
+    <link rel="stylesheet" href="boardStyle.css">
+    <link rel="stylesheet" href="debugStyle.css">
   </head>
   <body>
-    <div id = 'boardZone' class = 'zone'>
-      <img id = 'bg' src="pics/num5.png" alt="didn't load">
+    <div id = 'boardView' class = 'zone'>
+      <div id = 'boardContainer'>
+        <p id = 'board'>lala </p>
+      </div>
     </div>
 
-    <div id = 'optionZone' class = 'zone' ng-controller="OptionCtrler">
+    <div id = 'optionView' class = 'zone' ng-controller="OptionCtrler">
       Search: <input type="text" ng-model = 'searchInput'>
-      <div id = 'resultScroller' class = 'zone'>
+      <div id = 'resultsContainer'>
         <div id = 'resultsZone' class = 'zone'>
           <p>{{results}}</p>
         </div>

@@ -1,0 +1,9 @@
+#debugZone{
+  position: absolute;
+  left: 855px;
+  top: 350px;
+}
+
+.info{
+  background: pink;
+}
