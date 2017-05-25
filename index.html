@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id = 'board' class = 'zone'>
-
+    <div id = 'boardZone' class = 'zone'>
+      <img id = 'bg' src="pics/num5.png" alt="didn't load">
     </div>
 
-    <div id = 'option' class = 'zone' ng-controller="OptionCtrler">
+    <div id = 'optionZone' class = 'zone' ng-controller="OptionCtrler">
       Search: <input type="text" ng-model = 'searchInput'>
       <div id = 'resultScroller' class = 'zone'>
         <div id = 'resultsZone' class = 'zone'>
@@ -27,15 +27,16 @@
         <p id = 'objInfo' class = 'info'>moused-over obj info</p>
       </div>
     </div>
+  </body>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><!---->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!---->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src='helper.js'> </script>
 
     <script src='optionPane.js'> </script>
     <script src='script.js'> </script>
     <script src='debug.js'> </script>
-
-  </body>
 </html>

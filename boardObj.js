@@ -47,10 +47,6 @@ function BoardObj(t,x,y){
     return {this.w,this.h};
   }
 
-  this.update = function(){ // TODO works with the draw function
-
-  }
-
   this.getType = function(){
     return this.type;
   }

@@ -8,7 +8,7 @@ body{background-color:lightgrey; }
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
 
-#board{
+#boardZone{
   position: absolute;
   left: 15px;
   top: 30px;
@@ -17,7 +17,7 @@ body{background-color:lightgrey; }
   height:500px;
 }
 
-#option{
+#optionZone{
   position: absolute;
   left: 850px;
   top: 30px;
