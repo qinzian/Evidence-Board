@@ -1,5 +1,6 @@
-function BoardObj(t,x,y){
+function BoardObj(t,id,x,y){
   this.type = t;
+  this.id = id;
   this.val;
   this.x = x; // the top left coordinate of the obj
   this.y = y;
@@ -9,6 +10,10 @@ function BoardObj(t,x,y){
 
   this.setZ = function(){ // sets the z-index of this object
 
+  }
+
+  this.getid = function(){
+    return this.id;
   }
 
   this.getCxns = function(){
@@ -31,8 +36,12 @@ function BoardObj(t,x,y){
     }
   }
 
-  this.getPos = function(){
-    return {this.x,this.y};
+  this.getX = function(){
+    return this.x;
+  }
+
+  this.getY = function(){
+    return this.y;
   }
 
   this.setSize = funciton(w,h){

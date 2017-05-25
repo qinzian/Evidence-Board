@@ -1,11 +1,11 @@
-function Picture(src,x,y) {
-  BoardObj.call(this, "pic",x,y);
+function Picture(id,src,x,y) {
+  BoardObj.call(this,"pic",id,x,y);
 
   this.src = src;
 
 
-  this.update = function(){ // TODO works with the draw function
-
+  this.update = function(){
+    $("#"+id).style.top.
   }
 }
 Picture.prototype = Object.create(BoardObj.prototype);

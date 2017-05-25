@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <title>Evidence Board</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="optionsStyle.css">
     <link rel="stylesheet" href="boardStyle.css">
+    <link rel="stylesheet" href="optionsStyle.css">
     <link rel="stylesheet" href="debugStyle.css">
   </head>
+
+
   <body>
     <div id = 'boardView' class = 'zone'>
-      <div id = 'boardContainer'>
-        <p id = 'board'>lala </p>
+      <div id = 'boardContainer' class = 'zone'>
+        <img id = 'board' src = "pics/bg.png" onmousedown="setMousePos()" ondrag="dragBoard()">
       </div>
     </div>
 
     <div id = 'optionView' class = 'zone' ng-controller="OptionCtrler">
       Search: <input type="text" ng-model = 'searchInput'>
-      <div id = 'resultsContainer'>
-        <div id = 'resultsZone' class = 'zone'>
+      <div id = 'resultsContainer' class = 'zone'>
+        <div id = 'results' class = 'zone'>
           <p>{{results}}</p>
         </div>
       </div>
@@ -34,14 +36,14 @@
     </div>
   </body>
 
-    <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!---->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!---->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src='helper.js'> </script>
+  
 
-    <script src='optionPane.js'> </script>
-    <script src='script.js'> </script>
+    <script src='dragBoard.js'> </script>
     <script src='debug.js'> </script>
 </html>

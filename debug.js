@@ -8,8 +8,10 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 
-$(function() {//keeps track of where the mouse is
-    $('.zone').mousemove(function(e) {
-        $('#mousePos').html(strf('({},{})',[event.offsetX,event.offsetY]));
-    });
+$(function(){
+	$('.zone').mousemove(function(event){
+		$('#mousePos').html(strf('({},{})',[event.offsetX,event.offsetY]));
+	});
 });
+
+$('#debug').html('debug done loading');

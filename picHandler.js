@@ -4,3 +4,5 @@ PicHandler = function(){
 
 PicHandler.prototype = Object.create(BoardObj.prototype);
 PicHandler.prototype.constructor = PicHandler;
+
+var ph = new picHandler();

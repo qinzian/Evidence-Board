@@ -6,21 +6,15 @@
   width: 200px;
   height:300px;
 
-  overflow: hidden;
-}
-
-#resultsZone{
-  width: 1000px;
-  height: 1000px;
-}
-
-#resultContainer{
   overflow: auto;
+}
 
+#resultsContainer{
   position: relative;
   top: 10px;
 
-  max-height: 100%;
+  width: 1000px;
+  height: 1000px;
 
   border-color: cyan;
 }
