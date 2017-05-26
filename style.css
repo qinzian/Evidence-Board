@@ -3,3 +3,14 @@ body{background-color:lightgrey;}
 
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
+
+.boardObj{
+
+}
+
+#note1{
+  position:absolute;
+
+  color: yellow;
+  font-size: 50px;
+}

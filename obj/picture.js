@@ -4,8 +4,8 @@ function Picture(id,src,x,y) {
   this.src = src;
 
 
-  this.update = function(){
-    $("#"+id).style.top.
+  this.update = function(dx,dy){
+    
   }
 }
 Picture.prototype = Object.create(BoardObj.prototype);

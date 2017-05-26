@@ -1,7 +1,3 @@
-function mousedOver(){
-	$('#objInfo').html(this.toString());
-}
-
 function toggleDebugP(){
 	$('#debugInfo').children().toggle();
 }
@@ -12,6 +8,7 @@ $(function(){
 	$('.zone').mousemove(function(event){
 		$('#mousePos').html(strf('({},{})',[event.offsetX,event.offsetY]));
 	});
+	
 });
 
 $('#debug').html('debug done loading');

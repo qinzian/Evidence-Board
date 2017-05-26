@@ -13,7 +13,10 @@
   <body>
     <div id = 'boardView' class = 'zone'>
       <div id = 'boardContainer' class = 'zone'>
-        <img id = 'board' src = "pics/bg.png" onmousedown="setMousePos()" ondrag="dragBoard()">
+        <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'doneDragBoard()'>
+          <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
+          <p id = 'note1' class = 'boardObj' >lalalaal</p>
+        </div>
       </div>
     </div>
 
@@ -42,8 +45,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src='helper.js'> </script>
-  
 
-    <script src='dragBoard.js'> </script>
+
+    <script src='boardDrag.js'> </script>
+    <script src='boardObjDrag.js'> </script>
     <script src='debug.js'> </script>
 </html>
