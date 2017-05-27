@@ -5,11 +5,14 @@ function toggleOptionsP(){
 		$('#optionView').animate({
 			opacity:0
 		},400)
+		setTimeout(function(){$('#optionView').toggle()},400);
 	} else {
 		$('#optionView').animate({
 			opacity:1
 		},400)
+		$('#optionView').toggle();
 	}
+
 	showing = !showing;
 }
 

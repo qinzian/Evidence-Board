@@ -1,4 +1,7 @@
-var board = new BoardBG('board',0,0);
+$('#debug').html('begun');
+var board = new BoardBG('board');
+$('#debug').html('reached');
+
 $('#objInfo').html(board.getId());
 
 var draggingBoard = false;
@@ -10,7 +13,8 @@ function dragBoard(){
 
 function mouseLeftBoard(){
   if (draggingBoard){
-    //board.checkBoundaries();
+    board.updateRect();
+    board.checkBoundaries();
   }
   //$('#debug').html('reached final');
 }/**/

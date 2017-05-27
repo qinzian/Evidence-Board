@@ -10,7 +10,7 @@ function BoardObj(t,id){
    // the rect of the obj
   this.left;
   this.top;
-  this.w = parseInt($('#'+this.id).css('height').substring(0,$('#'+this.id).css('height').length-2));
+  this.w = parseInt($('#'+this.id).css('width').substring(0,$('#'+this.id).css('width').length-2));
   this.h = parseInt($('#'+this.id).css('height').substring(0,$('#'+this.id).css('height').length-2));
   this.right = this.left + this.w;
   this.bot = this.top + this.h;
@@ -20,6 +20,7 @@ function BoardObj(t,id){
   }
 
   this.getId = function(){
+    $('#debug').html('getting ID');
     return this.id;
   }
 
@@ -74,6 +75,7 @@ function BoardObj(t,id){
     this.left = parseInt($('#'+this.id).css('left').substring(0,$('#'+this.id).css('left').length-2));
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
+    $('#debug').html('finished init boardObj');
   }
   this.updateRect();
 
@@ -87,7 +89,6 @@ function BoardObj(t,id){
     }
     return false;
   }
-  
 }
 
 loadedScripts.push('obj');
