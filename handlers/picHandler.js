@@ -2,7 +2,9 @@ PicHandler = function(){
   Handler.call(this,"pic");
 }
 
-PicHandler.prototype = Object.create(BoardObj.prototype);
+PicHandler.prototype = Object.create(Handler.prototype);
 PicHandler.prototype.constructor = PicHandler;
 
-var ph = new picHandler();
+var ph = new PicHandler();
+
+loadedScripts.push('ph');

@@ -8,7 +8,9 @@ $(function(){
 	$('.zone').mousemove(function(event){
 		$('#mousePos').html(strf('({},{})',[event.offsetX,event.offsetY]));
 	});
-	
+
 });
 
-$('#debug').html('debug done loading');
+loadedScripts.push('debug');
+
+$('#debug').html(strf('script({}):<br>{}<br>loaded({}):<br>{}',[scripts.length,scripts,loadedScripts.length,loadedScripts]));

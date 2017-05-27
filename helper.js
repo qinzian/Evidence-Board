@@ -1,3 +1,6 @@
+var loadedScripts = [];
+var scripts = ['helper','debug','lh','nh','ph','h','boardDrag','cam','itemGen','l','n','p','obj','optionPane'];
+
 function strf(str,args){
   for (var i = 0; i  < args.length; i++) {
     str = str.replace('{}',args[i].toString());
@@ -17,10 +20,12 @@ function range(p1,p2){
   return lst;
 }
 
-array.prototype.rmItem = function(t){
-  for (var i = 0; i < this.length; i++) {
-   if (this[i].equals(t)){
-     this.splice(i,1);
+function rmItem(arr,t){
+  for (var i = 0; i < arr.length; i++) {
+   if (arr[i].equals(t)){
+     arr.splice(i,1);
    }
   }
 }
+
+loadedScripts.push('helper');

@@ -1,18 +1,25 @@
-function BoardObj(t,id,x,y){
+$('#debug').html('Loading genBoardObj');
+
+function BoardObj(t,id){
+  $('#debug').html('in BoardObj');
   this.type = t;
   this.id = id;
   this.val;
-  this.x = x; // the top left coordinate of the obj
-  this.y = y;
-  this.w;
-  this.h;
   this.cxns;
 
-  this.setZ = function(){ // sets the z-index of this object
+   // the rect of the obj
+  this.left;
+  this.top;
+  this.w = parseInt($('#'+this.id).css('height').substring(0,$('#'+this.id).css('height').length-2));
+  this.h = parseInt($('#'+this.id).css('height').substring(0,$('#'+this.id).css('height').length-2));
+  this.right = this.left + this.w;
+  this.bot = this.top + this.h;
 
+  this.setZ = function(){ // sets the z-index of this object
+    return;
   }
 
-  this.getid = function(){
+  this.getId = function(){
     return this.id;
   }
 
@@ -28,34 +35,28 @@ function BoardObj(t,id,x,y){
     this.cxns.rmItem(t);
   }
 
-  this.setPos = funciton(x,y){ // this way we can use this to set only x or y
+  this.setPos = function(x,y){ // this way we can use this to set only x or y
     if (typeof x == 'number'){
-      this.x = x;
+      this.left = x;
     } else if (typeof y == 'number'){
-      this.y = y;
+      this.top = y;
     }
   }
 
   this.getX = function(){
-    return this.x;
+    return this.left;
   }
 
   this.getY = function(){
-    return this.y;
+    return this.top;
   }
 
-  this.setSize = funciton(w,h){
-    if (typeof w == 'number'){
-      this.w = w;
-    } else if (typeof h == 'number'){
-      this.h = h;
-    }
+  this.getW = function(){
+    return this.w;
   }
-
-  this.getSize = function(){
-    return {this.w,this.h};
+  this.getH = function(){
+    return this.h;
   }
-
   this.getType = function(){
     return this.type;
   }
@@ -68,6 +69,14 @@ function BoardObj(t,id,x,y){
     this.val = t;
   }
 
+  this.updateRect = function(){
+    this.top = parseInt($('#'+this.id).css('top').substring(0,$('#'+this.id).css('top').length-2));
+    this.left = parseInt($('#'+this.id).css('left').substring(0,$('#'+this.id).css('left').length-2));
+    this.right = this.left + this.w;
+    this.bot = this.top +  this.h;
+  }
+  this.updateRect();
+
   this.toString = function(){
     return strf('{} at ({},{}), "{}"',[this.type,this.x,this.y,this.val]);
   }
@@ -78,4 +87,7 @@ function BoardObj(t,id,x,y){
     }
     return false;
   }
+  
 }
+
+loadedScripts.push('obj');

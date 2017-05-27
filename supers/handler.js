@@ -1,3 +1,5 @@
+$('#debug').html('Loading handler.js');
+
 function Handler(t){
   this.type = t;
   this.collection = [];
@@ -19,3 +21,6 @@ function Handler(t){
   }
 
 }
+
+
+loadedScripts.push('h');

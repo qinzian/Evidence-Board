@@ -11,9 +11,9 @@
 
 
   <body>
-    <div id = 'boardView' class = 'zone' onmouseout = 'doneDragBoard()'>
+    <div id = 'boardView' class = 'zone' onmouseout = 'mouseLeftBoard()'>
       <div id = 'boardContainer' class = 'zone'>
-        <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'doneDragBoard()'>
+        <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'mouseLeftBoard()'>
           <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
           <p id = 'note1' class = 'boardObj' >lalalaal</p>
         </div>
@@ -33,6 +33,7 @@
 
     <div id = 'debugZone' class = 'zone'>
       <button id = 'debugToggleButton' onclick = 'toggleDebugP()'>Debug On/Off</button>
+      <button id = 'testingButton' onclick = 'toggleDebugP()'>Do stuff</button>
       <div id = 'debugInfo'>
         <p id ='debug' class = 'info'>debug msg</p>
         <p id ='mousePos' class = 'info'>( , )</p>
@@ -46,17 +47,25 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src='helper.js'> </script>
-    <script src = 'debug/debug.js'></script>
+    <script src = 'helper.js'> </script>
 
-    <script src = 'panel.Option/optionPane.js'></script>
+    <script src = 'panel.Option/optionPane.js'></script><!---->
 
     <script src='supers/genBoardObj.js'></script>
     <script src='supers/handler.js'></script>
 
-    <script src = 'panel.Board/boardDrag.js'></script>
+    <script src='handlers/lineHandler.js'></script>
+    <script src='handlers/noteHandler.js'></script>
+    <script src='handlers/picHandler.js'></script>
+
+    <!--script src = 'panel.Board/boardDrag.js'></script><!---->
     <script src = 'panel.Board/line.js'></script>
     <script src = 'panel.Board/note.js'></script>
     <script src = 'panel.Board/picture.js'></script>
+
     <script src = 'panel.Board/camera.js'></script>
+    <script src = 'panel.Board/itemGenerator.js'></script>
+
+    <script src = 'debug/debug.js'></script>
+    <script src = 'script.js'></script>
 </html>
