@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title>Evidence Board</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boardStyle.css">
-    <link rel="stylesheet" href="optionsStyle.css">
-    <link rel="stylesheet" href="debugStyle.css">
+    <link rel="stylesheet" href="panel.Board/boardStyle.css">
+    <link rel="stylesheet" href="panel.Option/optionsStyle.css">
+    <link rel="stylesheet" href="debug/debugStyle.css">
   </head>
 
 
   <body>
-    <div id = 'boardView' class = 'zone'>
+    <div id = 'boardView' class = 'zone' onmouseout = 'doneDragBoard()'>
       <div id = 'boardContainer' class = 'zone'>
         <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'doneDragBoard()'>
           <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
@@ -29,6 +29,8 @@
       </div>
     </div>
 
+    <img id = 'optionsToggleButton' src = 'pics/num0.png' onclick = 'toggleOptionsP()'>
+
     <div id = 'debugZone' class = 'zone'>
       <button id = 'debugToggleButton' onclick = 'toggleDebugP()'>Debug On/Off</button>
       <div id = 'debugInfo'>
@@ -45,9 +47,16 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src='helper.js'> </script>
+    <script src = 'debug/debug.js'></script>
 
+    <script src = 'panel.Option/optionPane.js'></script>
 
-    <script src='boardDrag.js'> </script>
-    <script src='boardObjDrag.js'> </script>
-    <script src='debug.js'> </script>
+    <script src='supers/genBoardObj.js'></script>
+    <script src='supers/handler.js'></script>
+
+    <script src = 'panel.Board/boardDrag.js'></script>
+    <script src = 'panel.Board/line.js'></script>
+    <script src = 'panel.Board/note.js'></script>
+    <script src = 'panel.Board/picture.js'></script>
+    <script src = 'panel.Board/camera.js'></script>
 </html>
