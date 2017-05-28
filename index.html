@@ -11,25 +11,28 @@
 
 
   <body>
-    <div id = 'boardView' class = 'zone' onmouseout = 'mouseLeftBoard()'>
-      <div id = 'boardContainer' class = 'zone'>
-        <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'mouseLeftBoard()'>
-          <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
-          <p id = 'note1' class = 'boardObj' >lalalaal</p>
+    <div id = 'superDiv' class = 'zone'>
+      <div id = 'boardView' class = 'zone' onmouseout = 'mouseLeftBoard()'>
+        <div id = 'boardContainer' class = 'zone'>
+          <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'mouseLeftBoard()'>
+            <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
+            <p id = 'note1' class = 'boardObj' >lalalaal</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id = 'optionView' class = 'zone' ng-controller="OptionCtrler">
-      Search: <input type="text" ng-model = 'searchInput'>
-      <div id = 'resultsContainer' class = 'zone'>
-        <div id = 'results' class = 'zone'>
-          <p>{{results}}</p>
+      <div id = 'optionView' class = 'zone' ng-controller="OptionCtrler">
+        Search: <input type="text" ng-model = 'searchInput'>
+        <div id = 'resultsContainer' class = 'zone'>
+          <div id = 'results' class = 'zone'>
+            <p>{{results}}</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <img id = 'optionsToggleButton' src = 'pics/num0.png' onclick = 'toggleOptionsP()'>
+      <img id = 'optionsToggleButton' src = 'pics/num0.png' onclick = 'toggleOptionsP()'>
+
+    </div>
 
     <div id = 'debugZone' class = 'zone'>
       <button id = 'debugToggleButton' onclick = 'toggleDebugP()'>Debug On/Off</button>

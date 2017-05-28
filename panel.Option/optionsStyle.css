@@ -1,7 +1,7 @@
 #optionsToggleButton{
   position: relative;
-  top: 50px;
-  left:1100px;
+  left: 1080px;
+  top: -300px;
 
   width : 70px;
   height: 70px;
@@ -10,15 +10,16 @@
 }
 
 #optionView{
-  position: absolute;
-  left: 850px;
-  top: 30px;
-  left:910px;
+  position: relative;
+  top: 50px;
+  left:900px;
 
   width: 200px;
   height:300px;
 
   overflow: auto;
+
+  background-color: lightblue;
 }
 
 #resultsContainer{

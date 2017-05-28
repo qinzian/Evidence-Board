@@ -1,8 +1,4 @@
-$('#debug').html('begun');
 var board = new BoardBG('board');
-$('#debug').html('reached');
-
-$('#objInfo').html(board.getId());
 
 var draggingBoard = false;
 
