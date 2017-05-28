@@ -23,7 +23,6 @@ function BoardBG(id) {
   this.parentId = 'boardView';
   this.spacing = 0.2;
 
-
   // dimentions of the view
   this.viewW = parseInt($('#'+this.parentId).css('width').substring(0,$('#'+this.parentId).css('width').length-2));
   this.viewH = parseInt($('#'+this.parentId).css('height').substring(0,$('#'+this.parentId).css('height').length-2));

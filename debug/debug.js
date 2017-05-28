@@ -3,6 +3,9 @@ function toggleDebugP(){
 }
 //toggleDebugP(); // hide debugZone on load/**/
 
+function test(){
+	$('#optionView').toggle();
+}
 
 $(function(){
 	$('.zone').mousemove(function(event){

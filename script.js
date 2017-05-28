@@ -1,4 +1,7 @@
 var board = new BoardBG('board');
+$('#board').dblclick(function(){
+  
+});
 
 var draggingBoard = false;
 

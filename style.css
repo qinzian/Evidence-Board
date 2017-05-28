@@ -1,5 +1,5 @@
 /*id takes priority when conflicting changes occur*/
-body{background-color:lightgrey;}
+body{background-color:lightgrey; border:2px solid yellow;}
 
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
@@ -17,9 +17,20 @@ body{background-color:lightgrey;}
   height:40px;
 }
 
+#igContainer{
+  position:fixed;
+  left:100px;
+
+  background-color: red;
+  width:10px;
+  height:10px;
+}
+
 #superDiv{
-  backgound-color: red;
-  z-index: -5;
+  border: 2px solid lightyellow;
+
+  position: absolute;
+  left: 10px;
 
   height: 580px;
   width:1150px;
