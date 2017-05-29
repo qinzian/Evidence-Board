@@ -1,3 +1,14 @@
+.boardObj{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  font-size: 30px;
+  text-align: center;
+
+  background-color:lightpink;
+}
+
 #board{
   position: relative;
   border: 2px solid magenta;
@@ -6,7 +17,7 @@
 }
 
 #bg{
-
+  position:relative;
 }
 
 #boardContainer{

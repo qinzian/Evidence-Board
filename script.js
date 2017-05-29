@@ -1,10 +1,11 @@
 var board = new BoardBG('board');
-$('#board').dblclick(function(){
-  
+
+$('#bg').dblclick(function(event){
+  //$('#debug').html('doubleclicked');
+  ig.genNote(event.offsetX,event.offsetY);
 });
 
 var draggingBoard = false;
-
 
 function dragBoard(){
   draggingBoard = true;

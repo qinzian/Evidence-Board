@@ -16,7 +16,6 @@
         <div id = 'boardContainer' class = 'zone'>
           <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'mouseLeftBoard()'>
             <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
-            <p id = 'note1' class = 'boardObj' >lalalaal</p>
           </div>
         </div>
       </div>
@@ -57,14 +56,13 @@
 
     <script src = 'panel.Option/optionPane.js'></script><!---->
 
-    <script src='supers/genBoardObj.js'></script>
-    <script src='supers/handler.js'></script>
-
+    <script src='handlers/handler.js'></script>
     <script src='handlers/lineHandler.js'></script>
     <script src='handlers/noteHandler.js'></script>
     <script src='handlers/picHandler.js'></script>
 
-    <!--script src = 'panel.Board/boardDrag.js'></script><!---->
+    <script src = 'panel.Board/genBoardObj.js'></script>
+    <script src = 'panel.Board/draggableItem.js'></script>
     <script src = 'panel.Board/line.js'></script>
     <script src = 'panel.Board/note.js'></script>
     <script src = 'panel.Board/picture.js'></script>

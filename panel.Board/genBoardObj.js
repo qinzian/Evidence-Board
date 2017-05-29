@@ -1,26 +1,23 @@
 $('#debug').html('Loading genBoardObj');
 
 function BoardObj(t,id){
-  $('#debug').html('in BoardObj');
+  //$('#debug').html('in BoardObj');
   this.type = t;
   this.id = id;
   this.val;
   this.cxns;
+  this.sf = $("#"+id);
 
    // the rect of the obj
   this.left;
   this.top;
-  this.w = parseInt($('#'+this.id).css('width').substring(0,$('#'+this.id).css('width').length-2));
-  this.h = parseInt($('#'+this.id).css('height').substring(0,$('#'+this.id).css('height').length-2));
-  this.right = this.left + this.w;
-  this.bot = this.top + this.h;
-
-  this.setZ = function(){ // sets the z-index of this object
-    return;
-  }
+  this.w = parseInt(this.sf.css('width').substring(0,this.sf.css('width').length-2));
+  this.h = parseInt(this.sf.css('height').substring(0,this.sf.css('height').length-2));
+  this.right;
+  this.bot;
 
   this.getId = function(){
-    $('#debug').html('getting ID');
+    //$('#debug').html('getting ID');
     return this.id;
   }
 
@@ -71,11 +68,10 @@ function BoardObj(t,id){
   }
 
   this.updateRect = function(){
-    this.top = parseInt($('#'+this.id).css('top').substring(0,$('#'+this.id).css('top').length-2));
-    this.left = parseInt($('#'+this.id).css('left').substring(0,$('#'+this.id).css('left').length-2));
+    this.top = parseInt(this.sf.css('top').substring(0,this.sf.css('top').length-2));
+    this.left = parseInt(this.sf.css('left').substring(0,this.sf.css('left').length-2));
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
-    $('#debug').html('finished init boardObj');
   }
   this.updateRect();
 

@@ -1,15 +1,15 @@
 function toggleDebugP(){
-	$('#debugInfo').children().toggle();
+	$("#debugInfo").children().toggle();
 }
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	$('#optionView').toggle();
+	$("#objInfo").html(nh.toString());
 }
 
 $(function(){
-	$('.zone').mousemove(function(event){
-		$('#mousePos').html(strf('({},{})',[event.offsetX,event.offsetY]));
+	$(".zone").mousemove(function(event){
+		$("#mousePos").html(strf("({},{})",[event.offsetX,event.offsetY]));
 	});
 
 });

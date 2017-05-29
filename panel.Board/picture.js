@@ -1,7 +1,6 @@
 function Picture(id) {
   //$('#debug').html('in Picture');
   BoardObj.call(this,"picture",id);
-  $('#debug').html('here in Picture');
   this.src;
 
   $('#'+id).draggable();
@@ -17,7 +16,7 @@ Picture.prototype.constructor = Picture;
 
 
 function BoardBG(id) {
-  $('#debug').html('in BoardBG');
+  //$('#debug').html('in BoardBG');
   Picture.call(this,id);
 
   this.parentId = 'boardView';
@@ -26,7 +25,6 @@ function BoardBG(id) {
   // dimentions of the view
   this.viewW = parseInt($('#'+this.parentId).css('width').substring(0,$('#'+this.parentId).css('width').length-2));
   this.viewH = parseInt($('#'+this.parentId).css('height').substring(0,$('#'+this.parentId).css('height').length-2));
-  $('#debug').html('here in BoardBG');
 
   this.checkBoundaries = function(){
     //$('#debug').html(strf('t={},l={},r={},b={}',[this.top,this.left,this.right,this.bot]));
