@@ -1,12 +1,7 @@
 $('#debug').html('Loading handler.js');
 
-function Handler(t){
-  this.type = t;
+function Handler(){
   this.dict = {}; // where the boardObjs are stored, in id to obj pairs
-
-  this.getType = function(){
-    return this.type;
-  }
 
   this.getDict = function(){
     return this.dict;
@@ -30,5 +25,6 @@ function Handler(t){
   }
 }
 
+var ih = new Handler();
 
 loadedScripts.push('h');

@@ -20,7 +20,7 @@ function range(p1,p2){
   return lst;
 }
 
-function rmItem(arr,t){
+function rmFromArr(arr,t){
   for (var i = 0; i < arr.length; i++) {
    if (arr[i].equals(t)){
      arr.splice(i,1);

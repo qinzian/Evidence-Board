@@ -1,6 +1,5 @@
 function DraggableItem(t,id) {
   BoardObj.call(this, t,id);
-
   this.sf.draggable();
 }
 DraggableItem.prototype = Object.create(BoardObj.prototype);

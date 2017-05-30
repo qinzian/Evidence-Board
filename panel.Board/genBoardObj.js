@@ -1,12 +1,10 @@
-$('#debug').html('Loading genBoardObj');
-
 function BoardObj(t,id){
   //$('#debug').html('in BoardObj');
   this.type = t;
   this.id = id;
   this.val;
   this.cxns;
-  this.sf = $("#"+id);
+  this.sf = $("#"+id.toString());
 
    // the rect of the obj
   this.left;
@@ -17,7 +15,6 @@ function BoardObj(t,id){
   this.bot;
 
   this.getId = function(){
-    //$('#debug').html('getting ID');
     return this.id;
   }
 

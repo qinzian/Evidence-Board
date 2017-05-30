@@ -4,7 +4,7 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	$("#objInfo").html(nh.toString());
+	$("#objInfo").html(ih.toString());
 }
 
 $(function(){
