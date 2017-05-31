@@ -1,0 +1,84 @@
+#imZone{
+  position:absolute;
+  top:0px;
+
+  width:1200px;
+  height:600px;
+
+  background-color: rgba(0,0,255,0.5);
+
+  /*display:none;/**/
+}
+
+#imExitButton{
+  position:absolute;
+  left:580px;
+
+  width:20px;
+  height:20px;
+}
+
+#imTitle{
+  font-size:30px;
+
+  position:absolute;
+  top: -30px;
+  left:150px;
+}
+
+#imView{
+  position:relative;
+  left:250px;
+  top:100px;
+
+  background-color: yellow;
+  width:600px;
+  height:400px;
+}
+
+#imUpdateButton{
+  position: absolute;
+  left:500px;
+  top:350px;
+
+  width: 80px;
+  height: 80px;
+}
+
+#imCxnView{
+  position: absolute;
+  top:50px;
+  left:15px;
+
+  width:150px;
+  height:300px;
+
+  overflow:auto;
+}
+
+.cxns{
+  position:absolute;
+  top:0px;
+  left:40px;
+
+  height: 30px;
+  font-size: 20px;
+  background-color: lightpink;
+}
+.deleteButtons{
+  position:absolute;
+  top:0px;
+
+  height:30px;
+  width:30px;
+  font-size: 20px;
+  background-color: lightpink;
+}
+
+#imValView{
+  position: absolute;
+  left:180px;
+  top: 50px;
+  width:400px;
+  height:300px;
+}

@@ -1,12 +1,3 @@
-function toggleIM(){
-  $('#imContainer').toggle();
-}
-
-$('#bg').dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
-  //$('#debug').html('doubleclicked');
-  ig.genNote(event.offsetX,event.offsetY);
-});
-
 var selectedObjIds = {};
 var str = "";
 
@@ -39,4 +30,8 @@ $(document).keypress(function(e){
       delete selectedObjIds[id];
     }
   }
+});
+$("#bg").dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
+  //$('#debug').html('doubleclicked');
+  ig.genNote(event.offsetX,event.offsetY);
 });

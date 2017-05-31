@@ -17,15 +17,6 @@ body{background-color:lightgrey; border:2px solid yellow;}
   height:40px;
 }
 
-#igContainer{
-  position:fixed;
-  left:100px;
-
-  background-color: red;
-  width:10px;
-  height:10px;
-}
-
 #superDiv{
   border: 2px solid lightyellow;
 

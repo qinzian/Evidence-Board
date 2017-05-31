@@ -5,6 +5,7 @@
     <title>Evidence Board</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="panel.Board/boardStyle.css">
+    <link rel="stylesheet" href="panel.Board.Item/imStyle.css">
     <link rel="stylesheet" href="panel.Option/optionsStyle.css">
     <link rel="stylesheet" href="debug/debugStyle.css">
   </head>
@@ -12,6 +13,8 @@
 
   <body>
     <div id = "superDiv" class = "zone">
+
+      <!--Zone where the objs are displayed-->
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
         <div id = "boardContainer" class = "zone">
           <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()">
@@ -20,6 +23,7 @@
         </div>
       </div>
 
+      <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller="OptionCtrler">
         Search: <input type="text" ng-model = "searchInput">
         <div id = "resultsContainer" class = "zone">
@@ -32,6 +36,7 @@
 
     <img id = "optionsToggleButton" class = "zone" src = "pics/num0.png" onclick = "toggleOptionsP()">
 
+    <!--for debugging-->
     <div id = "debugZone" class = "zone">
       <button id = "debugToggleButton" onclick = "toggleDebugP()">Debug On/Off</button>
       <button id = "testingButton" onclick = "test()">Do stuff</button>
@@ -42,14 +47,27 @@
       </div>
     </div>
 
-    <div id = "imContainer" class = "zone">
-
+    <!--Initially hidden zone that manages boardObj's info in memory-->
+    <div id = "imZone" class = "zone">
+      <div id = "imView" class = "zone">
+        <button id = "imExitButton" onclick="exitIM()">X</button>
+        <p id="imTitle" class = "zone">[Title Here]</p>
+        <div id ="imCxnView" class = "zone">
+          <p id = "deleteNote100" class = "deleteButtons" onclick="rmCxn(this.id)">X</p>
+          <p id ="cxnNote100" class = "cxns">Note100</p>
+        </div>
+        <div id = "imValView" class = "zone">
+          <p id = "imp">this is the imContainer</p>
+        </div>
+        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "boardObjUpdate()">
+      </div>
     </div>
+
   </body>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!---->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--script src="https://code.jquery.com/jquery-1.12.4.js"></script><!---->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src = "helper.js"> </script>
@@ -65,8 +83,11 @@
     <script src = "panel.Board/note.js"></script>
     <script src = "panel.Board/picture.js"></script>
 
+    <script src = "panel.Board.Item/imZone.js"></script>
+    <script src = "panel.Board.Item/imInfo.js"></script>
     <script src = "panel.Board.Item/itemGenerator.js"></script>
-    <script src = "panel.Board.Item/itemManipulation.js"></script>
+    <script src = "panel.Board.Item/imVisual.js"></script>
+
 
     <script src = "panel.Option/optionPane.js"></script><!---->
     <script src = "panel.Option/camera.js"></script>

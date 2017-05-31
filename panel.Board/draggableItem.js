@@ -14,5 +14,3 @@ function DraggableItem(t,id) {
 }
 DraggableItem.prototype = Object.create(BoardObj.prototype);
 DraggableItem.prototype.constructor = DraggableItem;
-
-loadedScripts.push("draggableItem");

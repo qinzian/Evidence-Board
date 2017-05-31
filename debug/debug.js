@@ -13,7 +13,3 @@ $(function(){
 	});
 
 });
-
-loadedScripts.push('debug');
-
-$('#debug').html(strf('script({}):<br>{}<br>loaded({}):<br>{}',[scripts.length,scripts,loadedScripts.length,loadedScripts]));

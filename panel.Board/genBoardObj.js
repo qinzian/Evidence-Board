@@ -76,5 +76,3 @@ function BoardObj(t,id){
     return false;
   }
 }
-
-loadedScripts.push('obj');

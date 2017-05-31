@@ -1,5 +1,3 @@
-$('#debug').html('Loading handler.js');
-
 function Handler(){
   this.dict = {}; // where the boardObjs are stored, in id to obj pairs
 
@@ -32,5 +30,3 @@ function Handler(){
 }
 
 var ih = new Handler();
-
-loadedScripts.push('h');

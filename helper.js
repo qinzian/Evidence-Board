@@ -1,6 +1,3 @@
-var loadedScripts = [];
-var scripts = ['helper','debug','lh','nh','ph','h','boardDrag','cam','itemGen','l','n','p','obj','optionPane'];
-
 function strf(str,args){
   for (var i = 0; i  < args.length; i++) {
     str = str.replace('{}',args[i].toString());
@@ -27,5 +24,3 @@ function rmFromArr(arr,t){
    }
   }
 }
-
-loadedScripts.push('helper');

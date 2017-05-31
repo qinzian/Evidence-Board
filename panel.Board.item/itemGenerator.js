@@ -24,8 +24,9 @@ function ItemGenerator(){
     $("#"+this.id).css({left:x-40, top:y-40});
 
     $("#"+this.id).dblclick(function(){
-      $("#debug").html("doubleclicked "+this.id);
-      //itemMenu.display();
+      //$("#debug").html("doubleclicked "+this.id);
+      im.displayMenu(this.id);
+      //$("#debug").html("lala");
     });
 
     // create obj in memory
@@ -43,6 +44,6 @@ function ItemGenerator(){
 }
 
 var ig = new ItemGenerator();
-//ig.toggleIG();
 
-loadedScripts.push('itemGen');
+
+//$("#debug").html("loaded ig");

@@ -76,6 +76,3 @@ function BoardBG(id) {
 }
 BoardBG.prototype = Object.create(Picture.prototype);
 BoardBG.prototype.constructor = BoardBG;
-
-
-loadedScripts.push('p');
