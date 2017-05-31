@@ -1,3 +1,7 @@
+function toggleIM(){
+  $('#imContainer').toggle();
+}
+
 $('#bg').dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
   //$('#debug').html('doubleclicked');
   ig.genNote(event.offsetX,event.offsetY);
@@ -11,9 +15,11 @@ function clickedBoardObj(id){ // toggles between select and deselect of boardObj
   // check if the click event is caused by dragging
   if (ih.getObj(id).getDrag() == true){
     ih.getObj(id).setDrag(false);
+    return;
+  }
 
-
-  } else if (selectedObjIds.hasOwnProperty(id)){ // clicke event not from dragging
+  // click event not from dragging
+  if (selectedObjIds.hasOwnProperty(id)){
     delete selectedObjIds[id];
   } else {
     selectedObjIds[id] = undefined; // we are only using the obj to store the keys

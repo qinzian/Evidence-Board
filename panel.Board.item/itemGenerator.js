@@ -40,12 +40,6 @@ function ItemGenerator(){
 
   }
 
-
-
-  this.toggleIG = function(){
-    $('#igContainer').toggle();
-  }
-
 }
 
 var ig = new ItemGenerator();

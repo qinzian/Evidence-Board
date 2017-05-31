@@ -3,7 +3,7 @@ function BoardObj(t,id){
   this.type = t;
   this.id = id;
   this.val;
-  this.cxns;
+  this.cxns = {};
   this.sf = $("#"+id.toString());
 
    // the rect of the obj
@@ -22,36 +22,14 @@ function BoardObj(t,id){
     return this.cxns;
   }
 
-  this.addCxn = function(t){
-    return this.cxns.push(t);
+  this.addCxn = function(id){
+    return this.cxns[id] = $("#"+id.toString());
   }
 
-  this.rmCxn = function(t){
-    this.cxns.rmItem(t);
+  this.rmCxn = function(id){
+    delete this.cxns[id];
   }
 
-  this.setPos = function(x,y){ // this way we can use this to set only x or y
-    if (typeof x == 'number'){
-      this.left = x;
-    } else if (typeof y == 'number'){
-      this.top = y;
-    }
-  }
-
-  this.getX = function(){
-    return this.left;
-  }
-
-  this.getY = function(){
-    return this.top;
-  }
-
-  this.getW = function(){
-    return this.w;
-  }
-  this.getH = function(){
-    return this.h;
-  }
   this.getType = function(){
     return this.type;
   }
@@ -72,13 +50,28 @@ function BoardObj(t,id){
   }
   this.updateRect();
 
+  this.getX = function(){
+    return this.left;
+  }
+
+  this.getY = function(){
+    return this.top;
+  }
+
+  this.getW = function(){
+    return this.w;
+  }
+  this.getH = function(){
+    return this.h;
+  }
+
   this.toString = function(){
     return strf('{} at ({},{}), "{}"',[this.type,this.x,this.y,this.val]);
   }
 
-  this.equals = function(other){
+  this.equals = function(other){ // obj with same type
     if (this.type == other.getType()){
-      return this.val == other.getV();
+      return this.id == other.getId();
     }
     return false;
   }
