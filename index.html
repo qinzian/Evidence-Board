@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app = 'EvidanceBoard'>
+<html ng-app = "EvidanceBoard">
   <head>
     <meta charset="utf-8">
     <title>Evidence Board</title>
@@ -11,38 +11,38 @@
 
 
   <body>
-    <div id = 'superDiv' class = 'zone'>
-      <div id = 'boardView' class = 'zone' onmouseout = 'mouseLeftBoard()'>
-        <div id = 'boardContainer' class = 'zone'>
-          <div id = 'board' class = 'zone' ondrag = 'dragBoard()' onmouseup = 'mouseLeftBoard()'>
-            <img  id = 'bg' class = 'zone' src = "pics/cork-board.png" >
+    <div id = "superDiv" class = "zone">
+      <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
+        <div id = "boardContainer" class = "zone">
+          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()">
+            <img  id = "bg" class = "zone" src = "pics/cork-board.png" >
           </div>
         </div>
       </div>
 
-      <div id = 'optionView' class = 'zone' ng-controller="OptionCtrler">
-        Search: <input type="text" ng-model = 'searchInput'>
-        <div id = 'resultsContainer' class = 'zone'>
-          <div id = 'results' class = 'zone'>
+      <div id = "optionView" class = "zone" ng-controller="OptionCtrler">
+        Search: <input type="text" ng-model = "searchInput">
+        <div id = "resultsContainer" class = "zone">
+          <div id = "results" class = "zone">
             <p>{{results}}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <img id = 'optionsToggleButton' class = 'zone' src = 'pics/num0.png' onclick = 'toggleOptionsP()'>
+    <img id = "optionsToggleButton" class = "zone" src = "pics/num0.png" onclick = "toggleOptionsP()">
 
-    <div id = 'debugZone' class = 'zone'>
-      <button id = 'debugToggleButton' onclick = 'toggleDebugP()'>Debug On/Off</button>
-      <button id = 'testingButton' onclick = 'test()'>Do stuff</button>
-      <div id = 'debugInfo'>
-        <p id ='debug' class = 'info'>debug msg</p>
-        <p id ='mousePos' class = 'info'>( , )</p>
-        <p id = 'objInfo' class = 'info'>moused-over obj info</p>
+    <div id = "debugZone" class = "zone">
+      <button id = "debugToggleButton" onclick = "toggleDebugP()">Debug On/Off</button>
+      <button id = "testingButton" onclick = "test()">Do stuff</button>
+      <div id = "debugInfo">
+        <p id ="debug" class = "info">debug msg</p>
+        <p id ="mousePos" class = "info">( , )</p>
+        <p id = "objInfo" class = "info">moused-over obj info</p>
       </div>
     </div>
 
-    <div id = 'igContainer' class = 'zone'>
+    <div id = "igContainer" class = "zone">
 
     </div>
   </body>
@@ -52,25 +52,25 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src = 'helper.js'> </script>
+    <script src = "helper.js"> </script>
 
-    <script src = 'panel.Option/optionPane.js'></script><!---->
+    <script src="handlers/handler.js"></script>
+    <!--script src="handlers/lineHandler.js"></script>
+    <script src="handlers/noteHandler.js"></script>
+    <script src="handlers/picHandler.js"></script-->
 
-    <script src='handlers/handler.js'></script>
-    <!--script src='handlers/lineHandler.js'></script>
-    <script src='handlers/noteHandler.js'></script>
-    <script src='handlers/picHandler.js'></script-->
+    <script src = "panel.Board/genBoardObj.js"></script>
+    <script src = "panel.Board/draggableItem.js"></script>
+    <script src = "panel.Board/line.js"></script>
+    <script src = "panel.Board/note.js"></script>
+    <script src = "panel.Board/picture.js"></script>
 
-    <script src = 'panel.Board/genBoardObj.js'></script>
-    <script src = 'panel.Board/draggableItem.js'></script>
-    <script src = 'panel.Board/line.js'></script>
-    <script src = 'panel.Board/note.js'></script>
-    <script src = 'panel.Board/picture.js'></script>
-    <script src = 'panel.Board/itemSelect.js'></script>
+    <script src = "panel.Board.Item/itemGenerator.js"></script>
+    <script src = "panel.Board.Item/itemManipulation.js"></script>
 
-    <script src = 'panel.Board/camera.js'></script>
-    <script src = 'panel.Board/itemGenerator.js'></script>
+    <script src = "panel.Option/optionPane.js"></script><!---->
+    <script src = "panel.Option/camera.js"></script>
 
-    <script src = 'debug/debug.js'></script>
-    <script src = 'script.js'></script>
+    <script src = "debug/debug.js"></script>
+    <script src = "script.js"></script>
 </html>

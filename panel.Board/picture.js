@@ -3,7 +3,7 @@ function Picture(id) {
   BoardObj.call(this,"picture",id);
   this.src;
 
-  $('#'+id).draggable();
+  $("#"+id).draggable();
 
   this.setSrc = function(s){
     this.src = s;

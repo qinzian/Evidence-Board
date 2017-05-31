@@ -4,4 +4,4 @@ function Note(id) {
 Note.prototype = Object.create(DraggableItem.prototype);
 Note.prototype.constructor = Note;
 
-loadedScripts.push('n');
+loadedScripts.push("n");

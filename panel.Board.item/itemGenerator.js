@@ -12,18 +12,25 @@ function ItemGenerator(){
     //$('#debug').html(strf('double clicked @ ({},{})',[x,y]));
 
     this.id = "note" + this.noteC.toString();
+
+    // create visual
     var newElem = strf("<p id = '{}' class = 'boardObj note'"+
     "onclick = 'clickedBoardObj(this.id)'"+
     "ondrag  = 'dragBoardObj(this.id)'"+
     ">this is {}</p>",[this.id,this.id]);
-    // create visual
+
     $("#bg").after(newElem);
 
     $("#"+this.id).css({left:x-40, top:y-40});
+
+    $("#"+this.id).dblclick(function(){
+      $("#debug").html("doubleclicked "+this.id);
+      //itemMenu.display();
+    });
+
     // create obj in memory
-    var temp = new Note(this.id);
-    temp.sf.draggable();
-    //ih.addItem();
+    ih.addObj(new Note(this.id));
+
 
     this.noteC++;
     //$('#debug').html('reached end');

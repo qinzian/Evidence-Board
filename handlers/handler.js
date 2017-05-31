@@ -7,19 +7,25 @@ function Handler(){
     return this.dict;
   }
 
-  this.addItem = function(t){
-    this.dict[t.getId()] = t;
+  this.getObj = function(id){
+    if (id in this.dict){return this.dict[id]}
+    $("#debug").html("ih cannot find obj for id:"+id.toString())
+    return;
   }
 
-  this.rmItem = function(t){
+  this.addObj = function(t){
+    this.dict[t.getId()] = t; // pairs id of visual to the corresponding obj in memory
+  }
+
+  this.rmObj = function(t){
     $("#debug").html(t);
     delete this.dict[t];
   }
 
   this.toString = function(){
     var returnStr = "";
-    for (var itemID in this.dict) {
-      returnStr += itemID + " , ";
+    for (var ObjID in this.dict) {
+      returnStr += ObjID + " , ";
     }
     return returnStr;
   }
