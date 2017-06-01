@@ -48,18 +48,16 @@
     </div>
 
     <!--Initially hidden zone that manages boardObj's info in memory-->
-    <div id = "imZone" class = "zone">
+    <div id = "imZone" class = "zone hidden">
       <div id = "imView" class = "zone">
-        <button id = "imExitButton" onclick="exitIM()">X</button>
+        <button id = "imExitButton" onclick="imExitButton(false)">X</button>
         <p id="imTitle" class = "zone">[Title Here]</p>
         <div id ="imCxnView" class = "zone">
-          <p id = "deleteNote100" class = "deleteButtons" onclick="rmCxn(this.id)">X</p>
-          <p id ="cxnNote100" class = "cxns">Note100</p>
         </div>
         <div id = "imValView" class = "zone">
-          <p id = "imp">this is the imContainer</p>
+          <input id = "imTxtContainer" type="text">
         </div>
-        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "boardObjUpdate()">
+        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "imExitButton(true)">
       </div>
     </div>
 
@@ -83,10 +81,10 @@
     <script src = "panel.Board/note.js"></script>
     <script src = "panel.Board/picture.js"></script>
 
+    <script src = "panel.Board.Item/imView.js"></script>
     <script src = "panel.Board.Item/imZone.js"></script>
-    <script src = "panel.Board.Item/imInfo.js"></script>
     <script src = "panel.Board.Item/itemGenerator.js"></script>
-    <script src = "panel.Board.Item/imVisual.js"></script>
+    <script src = "panel.Board.Item/imFunctions.js"></script>
 
 
     <script src = "panel.Option/optionPane.js"></script><!---->

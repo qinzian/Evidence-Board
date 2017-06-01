@@ -23,11 +23,17 @@ function BoardObj(t,id){
   }
 
   this.addCxn = function(id){
-    return this.cxns[id] = $("#"+id.toString());
+    if (!this.cxns.hasOwnProperty(id)){
+      this.cxns[id] = $("#"+id.toString());
+    }
+    $("#debug").html("the cxn to be added already exists: "+id);
   }
 
   this.rmCxn = function(id){
-    delete this.cxns[id];
+    if (!this.cxns.hasOwnProperty(id)){
+      delete this.cxns[id];
+    }
+    $("#debug").html("the cxn to be added already exists: "+id);
   }
 
   this.getType = function(){

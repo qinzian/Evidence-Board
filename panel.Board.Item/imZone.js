@@ -1,9 +1,10 @@
-$("#cxnNote100").draggable();
+//$("#cxnNote100").draggable();
 
 function rmCxn(id){
   $("#debug").html("rm cxn with:"+id);
+  
 }
 
-function exitIM(){
-  $("#imZone").toggle();
+function imExitButton(){
+  im.exitIM();
 }

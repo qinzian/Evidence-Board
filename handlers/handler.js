@@ -6,9 +6,10 @@ function Handler(){
   }
 
   this.getObj = function(id){
-    if (id in this.dict){return this.dict[id]}
-    $("#debug").html("ih cannot find obj for id:"+id.toString())
-    return;
+    if (this.dict.hasOwnProperty(id)){
+      return this.dict[id];
+    }
+    $("#debug").html("ih cannot find obj for id:"+id.toString());
   }
 
   this.addObj = function(t){

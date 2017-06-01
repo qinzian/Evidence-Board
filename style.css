@@ -8,6 +8,10 @@ body{background-color:lightgrey; border:2px solid yellow;}
   border:2px dashed brown;
 }
 
+.hidden{
+  display:none;
+}
+
 .boardObj{
   position:absolute;
 

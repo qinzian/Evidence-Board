@@ -25,13 +25,12 @@ function ItemGenerator(){
 
     $("#"+this.id).dblclick(function(){
       //$("#debug").html("doubleclicked "+this.id);
-      im.displayMenu(this.id);
+      im.enterIM(this.id);
       //$("#debug").html("lala");
     });
 
     // create obj in memory
     ih.addObj(new Note(this.id));
-
 
     this.noteC++;
     //$('#debug').html('reached end');
