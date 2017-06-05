@@ -19,7 +19,7 @@ function ItemGenerator(){
     "ondrag  = 'dragBoardObj(this.id)'"+
     ">this is {}</p>",[this.id,this.id]);
 
-    $("#bg").after(newElem);
+    $("#board").prepend(newElem);
 
     $("#"+this.id).css({left:x-40, top:y-40});
 

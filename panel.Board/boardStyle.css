@@ -16,11 +16,10 @@
   position: relative;
   border: 2px solid magenta;
   width:inherit;
-  height:inherit
-}
+  height:inherit;
 
-#bg{
-  position:relative;
+  background-image:url("../pics/cork-board.png");
+  background-repeat:repeat;
 }
 
 #boardContainer{

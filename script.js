@@ -13,3 +13,8 @@ function mouseLeftBoard(){
   }
   //$('#debug').html('reached final');
 }/**/
+
+$("#board").dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
+  //$('#debug').html('doubleclicked');
+  ig.genNote(event.offsetX,event.offsetY);
+});
