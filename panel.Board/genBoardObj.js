@@ -2,7 +2,7 @@ function BoardObj(t,id){
   //$('#debug').html('in BoardObj');
   this.type = t;
   this.id = id;
-  this.val;
+  this.val = "";
   this.cxns = {};
   this.sf = $("#"+id.toString());
 
@@ -25,15 +25,19 @@ function BoardObj(t,id){
   this.addCxn = function(id){
     if (!this.cxns.hasOwnProperty(id)){
       this.cxns[id] = $("#"+id.toString());
+    } else {
+      $("#debug").html("the cxn to be added already exists: "+id);
     }
-    $("#debug").html("the cxn to be added already exists: "+id);
   }
 
   this.rmCxn = function(id){
-    if (!this.cxns.hasOwnProperty(id)){
+    //$("#debug").html(this.cxns.hasOwnProperty(id));
+    if (this.cxns.hasOwnProperty(id)){
       delete this.cxns[id];
+      //$("#debug").html(id+" is removed from "+this.id+"s cxns");
+    } else {
+      $("#debug").html("the cxn to be removed dne: "+id);
     }
-    $("#debug").html("the cxn to be added already exists: "+id);
   }
 
   this.getType = function(){

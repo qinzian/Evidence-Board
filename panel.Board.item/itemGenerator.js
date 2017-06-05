@@ -24,7 +24,7 @@ function ItemGenerator(){
     $("#"+this.id).css({left:x-40, top:y-40});
 
     $("#"+this.id).dblclick(function(){
-      //$("#debug").html("doubleclicked "+this.id);
+      $("#debug").html("doubleclicked "+this.id);
       im.enterIM(this.id);
       //$("#debug").html("lala");
     });

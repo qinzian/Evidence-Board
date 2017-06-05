@@ -37,6 +37,7 @@ $(document).keypress(function(e){
         ih.rmObj(id); // rm the corresponding obj from memory
         $("#"+id).remove(); // rm the corresponding obj from front end
       }
+
     } else if (String.fromCharCode(e.keyCode) == "c"){
       $("#debug").html("pressed c");
       for (var id1 in selectedObjIds) {
@@ -45,10 +46,10 @@ $(document).keypress(function(e){
 
         for (var id2 in selectedObjIds){
 
-          if (!(id2 == id1)){
+          if (!(id2.toString() == id1.toString())){
             obj1.addCxn(id2);
           }
-          $("#debug").html("reached");
+          //$("#debug").html("reached");
         }
       }
       //$("#debug").html("connected all the selected objs");
