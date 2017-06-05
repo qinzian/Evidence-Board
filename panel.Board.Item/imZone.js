@@ -7,8 +7,8 @@ function imRmCxn(dbID,currObjId){
 }
 
 function imCheckoutObj(oldID,newID){
-  $("#debug").html(strf("{} --cxn-->: {}",[oldID,newID]));
-  im.checkoutObj(oldID,newID);
+  //$("#debug").html(strf("{} --cxn-->: {}",[oldID,newID]));
+  im.checkoutObj(oldID,newID.substring(3));
 }
 
 function imExitButton(doSave){

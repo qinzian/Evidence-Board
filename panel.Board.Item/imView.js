@@ -9,6 +9,8 @@ function ItemMenu(){
 
   this.enterIM = function(id){ // loads info based on obj's info
     this.setupCurrObj(id);
+    // make im appear
+    $("#imZone").toggleClass("hidden");
 
     inIM = true;
   }
@@ -24,16 +26,15 @@ function ItemMenu(){
 
     $("#debug").html("begun");
 
-    //this.clearCurrObj(true);
-    //this.setupCurrObj(newID);
+    this.clearCurrObj(true);
+    $("#debug").html("done clearing");
+    this.setupCurrObj(newID);
+    $("#debug").html("done setup new obj"+newID);
   }
 
   this.setupCurrObj = function(id){
 
     this.currObj = ih.getObj(id);
-
-    // make im appear
-    $("#imZone").toggleClass("hidden");
 
     // load title
     $("#imTitle").html("info on Obj:" +id.toString());
@@ -47,7 +48,7 @@ function ItemMenu(){
       newDB = strf("<li id = \"db{}\" class = \"dbs\" onclick='imRmCxn(this.id,\"{}\")'>X </li>",
                     [cxnID.toString(),id.toString()]);
 
-      newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutObj(this.id,\"{}\")'>{}</li>",
+      newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutObj(\"{}\",this.id)'>{}</li>",
                     [cxnID.toString(),id.toString(),cxnID.toString()]);
       this.dbs.append(newDB);
       this.cxns.append(newCxn);
