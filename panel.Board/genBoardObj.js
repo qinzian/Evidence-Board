@@ -76,7 +76,7 @@ function BoardObj(t,id){
   }
 
   this.toString = function(){
-    return strf('{} at ({},{}), "{}"',[this.type,this.x,this.y,this.val]);
+    return strf('{} at ({},{}), "{}"',[this.id,this.x,this.y,this.val]);
   }
 
   this.equals = function(other){ // obj with same type

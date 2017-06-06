@@ -1,4 +1,4 @@
-$("#debug").html("started loading im");
+//$("#debug").html("started loading im");
 var inIM = false;
 
 function ItemMenu(){
@@ -81,4 +81,4 @@ function ItemMenu(){
 }
 
 var im = new ItemMenu();
-$("#debug").html("loaded im");
+//$("#debug").html("loaded im");
