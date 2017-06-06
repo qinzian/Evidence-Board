@@ -34,5 +34,7 @@
   position: relative;
   top: 0px;
 
+  width: 70%;
+
   border-color: cyan;
 }

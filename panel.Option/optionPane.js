@@ -1,18 +1,15 @@
 $("#debug").html("started loading optionPane");
 
-var EBapp = angular.module("Evidence-Board",[]);
 
 function OptionCtrler($scope){
+	$scope.resultsDict = [1];
+
 	$scope.updateResultsDict = function(){
-		$scope.resultsDict = ih.getDict();
+
+		$scope.resultsDict.push('e');
+		//$("#debug").html();
 	}
-
-	$("#debug").html("in ctrler");
 }
-
-EBapp.controller("OptionCtrler", OptionCtrler);
-
-
 
 
 var showing = true;

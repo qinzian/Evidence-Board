@@ -5,7 +5,7 @@
     <title>Evidence Board</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="panel.Board/boardStyle.css">
-    <link rel="stylesheet" href="panel.Board.Item/imStyle.css">
+    <link rel="stylesheet" href="panel.Board.IM/imStyle.css">
     <link rel="stylesheet" href="panel.Option/optionsStyle.css">
     <link rel="stylesheet" href="debug/debugStyle.css">
   </head>
@@ -17,7 +17,7 @@
       <!--Zone where the objs are displayed-->
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
         <div id = "boardContainer" class = "zone">
-          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()" >
+          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()" ng-controller = "IHCtrler">
           </div>
         </div>
       </div>
@@ -66,8 +66,8 @@
 
   </body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!--script src="https://code.jquery.com/jquery-1.12.4.js"></script><!---->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -78,16 +78,18 @@
     <script src="handlers/noteHandler.js"></script>
     <script src="handlers/picHandler.js"></script-->
 
-    <script src = "panel.Board/genBoardObj.js"></script>
-    <script src = "panel.Board/draggableItem.js"></script>
-    <script src = "panel.Board/line.js"></script>
-    <script src = "panel.Board/note.js"></script>
-    <script src = "panel.Board/picture.js"></script>
+    <script src = "panel.Board.Item/genBoardObj.js"></script>
+    <script src = "panel.Board.Item/draggableItem.js"></script>
+    <script src = "panel.Board.Item/note.js"></script>
+    <script src = "panel.Board.Item/line.js"></script>
+    <script src = "panel.Board.Item/picture.js"></script>
 
-    <script src = "panel.Board.Item/imView.js"></script>
-    <script src = "panel.Board.Item/imZone.js"></script>
+    <script src = "panel.Board.IM/imView.js"></script>
+    <script src = "panel.Board.IM/imZone.js"></script>
     <script src = "panel.Board.Item/itemGenerator.js"></script>
-    <script src = "panel.Board.Item/imFunctions.js"></script>
+
+    <script src = "panel.Board/onBoardFunctions.js"></script>
+    <script src = "panel.Board/IHCtrler.js"></script>
 
 
     <script src = "panel.Option/optionPane.js"></script><!---->

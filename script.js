@@ -18,3 +18,13 @@ $("#board").dblclick(function(event){ // creates a note obj in both back and fro
   //$('#debug').html('doubleclicked');
   ig.genNote(event.offsetX,event.offsetY);
 });
+
+$("#board .boardObj").dblclick(function(e) {
+  e.stopPropagation();
+});
+
+
+//angular stuff---------------------------------------------------------------
+var EBapp = angular.module("Evidence-Board",[]);
+EBapp.controller("OptionCtrler", OptionCtrler);
+EBapp.controller("IHCtrler",IHCtrler);
