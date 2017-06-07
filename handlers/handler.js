@@ -9,7 +9,7 @@ function Handler(){
     if (this.dict.hasOwnProperty(id)){
       return this.dict[id];
     }
-    $("#debug").html("ih cannot find obj for id:"+id.toString());
+    log("ih cannot find obj for id:"+id.toString());
   }
 
   this.addObj = function(t){
@@ -17,7 +17,7 @@ function Handler(){
   }
 
   this.rmObj = function(t){
-    $("#debug").html(t);
+    //log(t);
     delete this.dict[t];
   }
 

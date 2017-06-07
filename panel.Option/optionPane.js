@@ -1,4 +1,4 @@
-$("#debug").html("started loading optionPane");
+log("started loading optionPane");
 
 
 function OptionCtrler($scope, ResultsService){
@@ -26,4 +26,4 @@ function toggleOptionsP(){
 	showing = !showing;
 }
 
-$("#debug").html("loaded optionPane");
+log("loaded optionPane");

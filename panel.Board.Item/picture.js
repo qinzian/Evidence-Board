@@ -1,5 +1,5 @@
 function Picture(id) {
-  //$('#debug').html('in Picture');
+  //log('in Picture');
   BoardObj.call(this,"picture",id);
   this.src;
 
@@ -16,7 +16,7 @@ Picture.prototype.constructor = Picture;
 
 
 function BoardBG(id) {
-  //$('#debug').html('in BoardBG');
+  //log('in BoardBG');
   Picture.call(this,id);
 
   this.parentId = 'boardView';
@@ -27,7 +27,7 @@ function BoardBG(id) {
   this.viewH = parseInt($('#'+this.parentId).css('height').substring(0,$('#'+this.parentId).css('height').length-2));
 
   this.checkBoundaries = function(){
-    //$('#debug').html(strf('t={},l={},r={},b={}',[this.top,this.left,this.right,this.bot]));
+    //log(strf('t={},l={},r={},b={}',[this.top,this.left,this.right,this.bot]));
 
     // check for combo boundary breakers
 

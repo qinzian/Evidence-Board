@@ -1,4 +1,4 @@
-//$("#debug").html("started loading im");
+//log("started loading im");
 var inIM = false;
 
 function ItemMenu(){
@@ -24,12 +24,12 @@ function ItemMenu(){
 
   this.checkoutObj = function(oldID,newID){
 
-    $("#debug").html("begun");
+    log("begun");
 
     this.clearCurrObj(true);
-    $("#debug").html("done clearing");
+    log("done clearing");
     this.setupCurrObj(newID);
-    $("#debug").html("done setup new obj"+newID);
+    log("done setup new obj"+newID);
   }
 
   this.setupCurrObj = function(id){
@@ -40,7 +40,7 @@ function ItemMenu(){
     $("#imTitle").html("info on Obj:" +id.toString());
 
     // load value stored in obj
-    //$("#debug").html("text is length of:"+this.currObj.getV().length);
+    //log("text is length of:"+this.currObj.getV().length);
     this.txt.text(this.currObj.getV());
 
     // load cxns
@@ -59,7 +59,7 @@ function ItemMenu(){
     $(".cxns").remove();
     $(".dbs").remove();
 
-    //$("#debug").html(doSave.toString());
+    //log(doSave.toString());
     if (doSave){
       this.currObj.setV(this.txt.text());
     }
@@ -67,7 +67,7 @@ function ItemMenu(){
 
   this.rmCxn = function(targetObjId,currObjId){
     this.currObj.rmCxn(targetObjId);
-    //$("#debug").html(cxnId.substring(3));
+    //log(cxnId.substring(3));
     ih.getObj(targetObjId).rmCxn(currObjId);
     $("#cxn"+targetObjId).remove();
     $("#db"+targetObjId).remove();
@@ -81,4 +81,4 @@ function ItemMenu(){
 }
 
 var im = new ItemMenu();
-//$("#debug").html("loaded im");
+//log("loaded im");

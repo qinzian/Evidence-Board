@@ -3,7 +3,7 @@ var board = new BoardBG('board');
 var draggingBoard = false;
 
 $("#board").dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
-  //$('#debug').html('doubleclicked board');
+  //log('doubleclicked board');
 
   if (!inIM){ // event.stopPropagation didn't work well, so I'm resorting to this
     ig.genNote(event.offsetX,event.offsetY);
@@ -19,7 +19,7 @@ function mouseLeftBoard(){
     board.updateRect();
     board.checkBoundaries();
   }
-  //$('#debug').html('reached final');
+  //log('reached final');
 }/**/
 
 var selectedObjIds = {};
@@ -62,7 +62,7 @@ $(document).keypress(function(e){
       }
 
     } else if (String.fromCharCode(e.keyCode) == "c"){
-      $("#debug").html("pressed c");
+      log("pressed c");
       for (var id1 in selectedObjIds) {
         $("#"+id1.toString()).toggleClass("selected"); // deselect the objs
         obj1 = ih.getObj(id1);
@@ -72,10 +72,10 @@ $(document).keypress(function(e){
           if (!(id2.toString() == id1.toString())){
             obj1.addCxn(id2);
           }
-          //$("#debug").html("reached");
+          //log("reached");
         }
       }
-      //$("#debug").html("connected all the selected objs");
+      //log("connected all the selected objs");
     }
     clearSelection();
   }
@@ -85,5 +85,5 @@ function clearSelection(){
   for (var id in selectedObjIds) {
     delete selectedObjIds[id];
   }
-  //$("#debug").html("cleared");
+  //log("cleared");
 }

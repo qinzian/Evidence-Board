@@ -9,7 +9,7 @@ function ItemGenerator(){
   }
 
   this.genNote = function(x,y){
-    //$('#debug').html(strf('double clicked @ ({},{})',[x,y]));
+    //log(strf('double clicked @ ({},{})',[x,y]));
 
     this.id = "note" + this.noteC.toString();
 
@@ -24,16 +24,16 @@ function ItemGenerator(){
     $("#"+this.id).css({left:x-40, top:y-40});
 
     $("#"+this.id).dblclick(function(){
-      $("#debug").html("doubleclicked "+this.id);
+      log("doubleclicked "+this.id);
       im.enterIM(this.id);
-      //$("#debug").html("lala");
+      //log("lala");
     });
 
     // create obj in memory
     ih.addObj(new Note(this.id));
 
     this.noteC++;
-    //$('#debug').html('reached end');
+    //log('reached end');
   }
 
   this.genPic = function(x,y){
@@ -45,4 +45,4 @@ function ItemGenerator(){
 var ig = new ItemGenerator();
 
 
-//$("#debug").html("loaded ig");
+//log("loaded ig");
