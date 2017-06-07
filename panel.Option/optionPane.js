@@ -1,14 +1,10 @@
 $("#debug").html("started loading optionPane");
 
 
-function OptionCtrler($scope){
-	$scope.resultsDict = [1];
+function OptionCtrler($scope, ResultsService){
+	$scope.resultsService = ResultsService;
 
-	$scope.updateResultsDict = function(){
-
-		$scope.resultsDict.push('e');
-		//$("#debug").html();
-	}
+	$scope.testLst = [1,2,3,'#',4,5,6,7,'d'];
 }
 
 

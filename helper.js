@@ -24,3 +24,7 @@ function rmFromArr(arr,t){
    }
   }
 }
+
+function log(msg){
+  $("#debug").html(msg);
+}

@@ -1,8 +1,31 @@
+var board = new BoardBG('board');
+
+var draggingBoard = false;
+
+$("#board").dblclick(function(event){ // creates a note obj in both back and front end around the cursor pos
+  //$('#debug').html('doubleclicked board');
+
+  if (!inIM){ // event.stopPropagation didn't work well, so I'm resorting to this
+    ig.genNote(event.offsetX,event.offsetY);
+  }
+});
+
+function dragBoard(){
+  draggingBoard = true;
+}
+
+function mouseLeftBoard(){
+  if (draggingBoard){
+    board.updateRect();
+    board.checkBoundaries();
+  }
+  //$('#debug').html('reached final');
+}/**/
+
 var selectedObjIds = {};
 var str = "";
 
 function clickedBoardObj(id){ // toggles between select and deselect of boardObj
-
   // check if the click event is caused by dragging
   if (ih.getObj(id).getDrag() == true){
     ih.getObj(id).setDrag(false);

@@ -10,7 +10,7 @@ function test(){
 		tmp+=id+", "
 	}
 	$("#objInfo").html(tmp);
-	//$("#debug").html("lala");
+	//log("lala");
 }
 
 $(function(){

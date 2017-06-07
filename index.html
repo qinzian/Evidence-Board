@@ -18,15 +18,17 @@
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
         <div id = "boardContainer" class = "zone">
           <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()" ng-controller = "IHCtrler">
+            <!--p class = "info">{{resultsService.searchInput}}</p><!-->
           </div>
         </div>
       </div>
 
       <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller = "OptionCtrler">
-        Search: <input type="text" ng-model = "searchInput">{{searchInput}}
+        Search: <!--input type="text" ng-model = "resultsService.searchInput">{{resultsService.searchInput}}<!-->
+        <input type="text">
         <ul id = "resultsContainer" class = "zone">
-          <li id = "resultList" ng-repeat = "a in resultsDict | filter: searchInput">
+          <li id = "resultList" ng-repeat = "a in testLst">
             {{a}}
           </li><!---->
         </ul>
