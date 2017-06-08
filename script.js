@@ -1,7 +1,8 @@
+log("begun");
+
+
 //angular stuff---------------------------------------------------------------
 var EBapp = angular.module("Evidence-Board",[]);
-
-EBapp.factory("ResultsService", ResultsService);
 
 function ResultsService(){
   var factory = {};
@@ -10,13 +11,16 @@ function ResultsService(){
     return ih;
   }
 
-  factory.inputTxt = "";
+  factory.inputTxt = "factory.inputTxt here";
+  factory.selectedObjIds={};
 
   return factory;
-});
+};
 
+EBapp.factory("ResultsService", ResultsService);
 
 EBapp.controller("OptionCtrler", OptionCtrler);
 EBapp.controller("IHCtrler",IHCtrler);
+
 
 log("done loading script.js");

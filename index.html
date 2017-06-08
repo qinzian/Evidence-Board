@@ -17,16 +17,15 @@
       <!--Zone where the objs are displayed-->
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
         <div id = "boardContainer" class = "zone">
-          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()" ng-controller = "IHCtrler">
-            <!--p class = "info">{{resultsService.searchInput}}</p><!-->
+          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
+           ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)">
           </div>
         </div>
       </div>
 
       <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller = "OptionCtrler">
-        Search: <!--input type="text" ng-model = "resultsService.searchInput">{{resultsService.searchInput}}<!-->
-        <input type="text">
+        Search: <input type="text" ng-model = "data.inputTxt">{{data.inputTxt}}<!---->
         <ul id = "resultsContainer" class = "zone">
           <li id = "resultList" ng-repeat = "a in testLst">
             {{a}}
@@ -88,7 +87,6 @@
 
     <script src = "panel.Board.IM/imView.js"></script>
     <script src = "panel.Board.IM/imZone.js"></script>
-    <script src = "panel.Board.Item/itemGenerator.js"></script>
 
     <script src = "panel.Board/onBoardFunctions.js"></script>
     <script src = "panel.Board/IHCtrler.js"></script>

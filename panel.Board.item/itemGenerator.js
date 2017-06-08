@@ -14,20 +14,21 @@ function ItemGenerator(){
     this.id = "note" + this.noteC.toString();
 
     // create visual
-    var newElem = strf("<p id = '{}' class = 'boardObj note'"+
-    "onclick = 'clickedBoardObj(this.id)'"+
-    "ondrag  = 'dragBoardObj(this.id)'"+
+    var newElem = strf("<p id = '{}' class = 'boardObj note'  "+
+    "ng-click = 'clickedBoardObj(this.id)'  "+
+    "ng-dblclick = 'dblclickedBoardObj(this.id)'  "+
+    "ondrag  = 'dragBoardObj(this.id)'  "+
     ">this is {}</p>",[this.id,this.id]);
+
+    var btnhtml = '<button type="button" ng-click="addButton()">Click Me</button>';
+    var temp = $compile(btnhtml)($scope);
+
+    //Let's say you have element with id 'foo' in which you want to create a button
+    angular.element(document.getElementById('foo')).append(temp);
 
     $("#board").prepend(newElem);
 
     $("#"+this.id).css({left:x-40, top:y-40});
-
-    $("#"+this.id).dblclick(function(){
-      log("doubleclicked "+this.id);
-      im.enterIM(this.id);
-      //log("lala");
-    });
 
     // create obj in memory
     ih.addObj(new Note(this.id));

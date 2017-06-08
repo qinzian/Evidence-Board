@@ -2,9 +2,11 @@ log("started loading optionPane");
 
 
 function OptionCtrler($scope, ResultsService){
-	$scope.resultsService = ResultsService;
+	$scope.data = ResultsService;
 
 	$scope.testLst = [1,2,3,'#',4,5,6,7,'d'];
+
+	
 }
 
 
