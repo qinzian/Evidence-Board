@@ -1,4 +1,4 @@
-log("begun");
+//log("begun");
 
 
 //angular stuff---------------------------------------------------------------
@@ -11,7 +11,7 @@ function ResultsService(){
     return ih;
   }
 
-  factory.inputTxt = "factory.inputTxt here";
+  factory.inputTxt = "";
   factory.selectedObjIds={};
 
   return factory;
@@ -23,4 +23,4 @@ EBapp.controller("OptionCtrler", OptionCtrler);
 EBapp.controller("IHCtrler",IHCtrler);
 
 
-log("done loading script.js");
+//log("done loading script.js");

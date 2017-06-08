@@ -19,8 +19,9 @@ function range(p1,p2){
 
 function rmFromArr(arr,t){
   for (var i = 0; i < arr.length; i++) {
-   if (arr[i].equals(t)){
+   if (arr[i] == t){
      arr.splice(i,1);
+     return;
    }
   }
 }

@@ -18,7 +18,7 @@ function ItemGenerator(){
     "ng-click = 'clickedBoardObj(this.id)'  "+
     "ng-dblclick = 'dblclickedBoardObj(this.id)'  "+
     "ondrag  = 'dragBoardObj(this.id)'  "+
-    ">this is {}</p>",[this.id,this.id]);
+    ">{}</p>",[this.id,this.id]);
 
     var btnhtml = '<button type="button" ng-click="addButton()">Click Me</button>';
     var temp = $compile(btnhtml)($scope);

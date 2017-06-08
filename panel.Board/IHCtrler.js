@@ -8,7 +8,7 @@ function IHCtrler($scope, ResultsService, $compile){
   }
 
   $scope.genNote = function(x,y){
-		log('generating note');
+		//log('generating note');
 
     var id = "note" + $scope.noteC.toString();
 
@@ -26,7 +26,7 @@ function IHCtrler($scope, ResultsService, $compile){
     $("#"+id).css({left:x-40, top:y-40});
 
     // create obj in memory
-    ih.addObj(new Note(id));
+    ih.addObj(id);
 
     $scope.noteC++;
     //log('reached end');/**/
@@ -59,7 +59,7 @@ function IHCtrler($scope, ResultsService, $compile){
 	}
 
 	$scope.dblclickedBoardObj = function(id){ // creates a note obj in both back and front end around the cursor pos
-		log("doubleclicked "+id.toString());
+		//log("doubleclicked "+id.toString());
 		im.enterIM(id);
 		//log("lala");
 	}

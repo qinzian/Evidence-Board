@@ -1,5 +1,6 @@
 function Handler(){
   this.dict = {}; // where the boardObjs are stored, in id to obj pairs
+  this.dict.keys = [];
 
   this.getDict = function(){
     return this.dict;
@@ -12,21 +13,26 @@ function Handler(){
     log("ih cannot find obj for id:"+id.toString());
   }
 
-  this.addObj = function(t){
-    this.dict[t.getId()] = t; // pairs id of visual to the corresponding obj in memory
+  this.addObj = function(id){
+    if (this.dict.hasOwnProperty(id)){
+      log("obj with id: "+id+" already exists, cannot add");
+    } else {
+      this.dict.keys.push(id);
+      this.dict[id] = new Note(id); // pairs id of visual to the corresponding obj in memory
+    }
   }
 
-  this.rmObj = function(t){
-    //log(t);
-    delete this.dict[t];
+  this.rmObj = function(id){
+    if (this.dict.hasOwnProperty(id)){
+      //rmFromArr(this.dict.keys,id);
+      delete this.dict[id];
+    } else {
+      log("obj with id: "+id+" DNE cannot rm");
+    }
   }
 
   this.toString = function(){
-    var returnStr = "";
-    for (var ObjID in this.dict) {
-      returnStr += ObjID + " , ";
-    }
-    return returnStr;
+    return strf("IH: {} objs, id: {}",[this.dict.length,this.getKeys()]);
   }
 }
 

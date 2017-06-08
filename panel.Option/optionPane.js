@@ -1,12 +1,11 @@
-log("started loading optionPane");
+//log("started loading optionPane");
 
 
 function OptionCtrler($scope, ResultsService){
 	$scope.data = ResultsService;
 
-	$scope.testLst = [1,2,3,'#',4,5,6,7,'d'];
-
-	
+	$scope.resultsList = ResultsService.getIH().getDict().keys;
+	//$scope.resultsList = [1,2,3,'#',4,5,6,7,'d'];
 }
 
 
@@ -28,4 +27,4 @@ function toggleOptionsP(){
 	showing = !showing;
 }
 
-log("loaded optionPane");
+//log("loaded optionPane");
