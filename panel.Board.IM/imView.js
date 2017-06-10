@@ -4,13 +4,15 @@ var inIM = false;
 function ItemMenu(){
   this.currObj;
   this.txt = $("#imTxtContainer");
+  this.title=$("#imTitle");
   this.cxns= $("#imCxnView");
   this.dbs= $("#imDBView");
+  this.zone=$("#imZone");
 
   this.enterIM = function(id){ // loads info based on obj's info
     this.setupCurrObj(id);
     // make im appear
-    $("#imZone").toggleClass("hidden");
+    this.zone.toggleClass("hidden");
 
     inIM = true;
   }
@@ -18,7 +20,7 @@ function ItemMenu(){
   this.exitIM = function(doSave){ // resets the imView to init state
     this.clearCurrObj(doSave);
 
-    $("#imZone").toggleClass("hidden");
+    this.zone.toggleClass("hidden");
     inIM = false;
   }
 
@@ -26,6 +28,7 @@ function ItemMenu(){
 
     log("begun");
 
+    // the boolean arg determines whether the last obj viewed will save its changes
     this.clearCurrObj(true);
     log("done clearing");
     this.setupCurrObj(newID);
@@ -33,14 +36,13 @@ function ItemMenu(){
   }
 
   this.setupCurrObj = function(id){
-
     this.currObj = ih.getObj(id);
 
     // load title
-    $("#imTitle").html("info on Obj:" +id.toString());
+    //log("loading title for objID:"+id+"<br> title: "+this.currObj.getTitle());
+    this.title.text(this.currObj.getTitle());
 
     // load value stored in obj
-    //log("text is length of:"+this.currObj.getV().length);
     this.txt.text(this.currObj.getV());
 
     // load cxns
@@ -62,6 +64,7 @@ function ItemMenu(){
     //log(doSave.toString());
     if (doSave){
       this.currObj.setV(this.txt.text());
+      this.currObj.setTitle(this.title.text());
     }
   }
 

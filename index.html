@@ -45,7 +45,7 @@
       <div id = "debugInfo">
         <p id ="debug" class = "info">debug msg</p>
         <p id ="mousePos" class = "info">( , )</p>
-        <p id = "objInfo" class = "info">moused-over obj info</p>
+        <p id = "objInfo" class = "info">display stuff from testingButton</p>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
     <div id = "imZone" class = "zone hidden">
       <div id = "imView" class = "zone">
         <button id = "imExitButton" onclick="imExitButton(false)">X</button>
-        <input id="imTitle" class = "zone" value = "[Title Here]">
+        <textarea id="imTitle" class = "zone" placeholder = "[Title Here]"></textarea>
         <div id = "imCxnTable" class = "zone">
           <ul id = "imDBView" class = "zone">
           </ul>
@@ -61,7 +61,7 @@
           </ol>
         </div>
         <div id = "imValView" class = "zone">
-          <textarea id = "imTxtContainer">these texts should be replaced by init</textarea>
+          <textarea id = "imTxtContainer" placeholder = "[Text Here]"></textarea>
         </div>
         <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "imExitButton(true)">
       </div>

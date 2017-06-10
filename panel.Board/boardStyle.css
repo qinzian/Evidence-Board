@@ -9,6 +9,10 @@
   background-color:lightpink;
 }
 
+.note{
+  overflow:hidden;
+}
+
 .selected{
   border: dashed brown;
 }
