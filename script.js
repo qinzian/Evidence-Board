@@ -4,7 +4,7 @@
 //angular stuff---------------------------------------------------------------
 var EBapp = angular.module("Evidence-Board",[]);
 
-function ResultsService(){
+function SharedService(){
   var factory = {};
 
   factory.getIH = function(){
@@ -12,12 +12,12 @@ function ResultsService(){
   }
 
   factory.inputTxt = "";
-  factory.selectedObjIds={};
+  factory.focusedOnBoard = false;
 
   return factory;
 };
 
-EBapp.factory("ResultsService", ResultsService);
+EBapp.factory("SharedService", SharedService);
 
 EBapp.controller("OptionCtrler", OptionCtrler);
 EBapp.controller("IHCtrler",IHCtrler);

@@ -18,7 +18,8 @@
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
         <div id = "boardContainer" class = "zone">
           <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
-           ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)">
+           ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)"
+           ng-keypress = "pressedKey($event)" ng-focus = "focusBoard(true)">
           </div>
         </div>
       </div>

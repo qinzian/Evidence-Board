@@ -4,12 +4,7 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	var tmp = "";
-	var obj = ih.getObj("note0").getCxns();
-	for (var id in obj) {
-		tmp+=id+", "
-	}
-	$("#objInfo").html(tmp);
+	$("#objInfo").html(ih.getDict().keys.toString());
 	//log("lala");
 }
 

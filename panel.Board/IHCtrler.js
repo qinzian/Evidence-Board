@@ -1,5 +1,5 @@
 
-function IHCtrler($scope, ResultsService, $compile){
+function IHCtrler($scope, SharedService, $compile){
 	$scope.noteC = 0;
   $scope.picC  = 0;
 
@@ -17,7 +17,7 @@ function IHCtrler($scope, ResultsService, $compile){
     "ng-click = 'clickedBoardObj({})'  "+
     "ng-dblclick = 'dblclickedBoardObj({})'  "+
     "ondrag  = 'dragBoardObj(this.id)'  "+
-    ">this is {}</p>",[id,"\""+id+"\"","\""+id+"\"",id]);
+    ">{}</p>",[id,"\""+id+"\"","\""+id+"\"",id]);
 
   	var temp = $compile(newElem)($scope);
 
@@ -37,7 +37,7 @@ function IHCtrler($scope, ResultsService, $compile){
 		$scope.picC++;
   }
 
-	$scope.data = ResultsService;
+	$scope.data = SharedService;
 
 	$scope.selectedObjIds = {};
 
@@ -56,6 +56,8 @@ function IHCtrler($scope, ResultsService, $compile){
 	    $scope.selectedObjIds[id] = undefined; // we are only using the obj to store the keys
 	  }
 	  $("#"+id.toString()).toggleClass("selected");/**/
+
+		$scope.data.focusedOnBoard = true;
 	}
 
 	$scope.dblclickedBoardObj = function(id){ // creates a note obj in both back and front end around the cursor pos
@@ -71,9 +73,9 @@ function IHCtrler($scope, ResultsService, $compile){
 	  }/**/
 	}
 
-	/*
-	$(document).keypress(function(e){
-	  if(!inIM){ // don't check keypress if user is in imView
+	$scope.pressedKey = function(e){
+		log("focused on board:"+ $scope.data.focusedOnBoard);
+	  if(!inIM && $scope.data.focusedOnBoard){ // don't check keypress if user is in imView
 	    var obj1;
 
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
@@ -86,28 +88,31 @@ function IHCtrler($scope, ResultsService, $compile){
 	        }
 
 	        ih.rmObj(id); // rm the corresponding obj from memory
-	        $("#"+id).remove(); // rm the corresponding obj from front end
+	        $("#"+id).remove(); // rm the corresponding element
 	      }
 
 	    } else if (String.fromCharCode(e.keyCode) == "c"){
 	      log("pressed c");
 	      for (var id1 in $scope.selectedObjIds) {
+					log("stopped at: "+id1)
 	        $("#"+id1.toString()).toggleClass("selected"); // deselect the objs
+
 	        obj1 = ih.getObj(id1);
 
-	        for (var id2 in selectedObjIds){
+	        for (var id2 in $scope.selectedObjIds){
 
 	          if (!(id2.toString() == id1.toString())){
 	            obj1.addCxn(id2);
 	          }
-	          //log("reached");
+	          log("reached");
 	        }
 	      }
-	      //log("connected all the selected objs");
+	      log("connected all the selected objs");
 	    }
 	    $scope.clearSelection();
-	  }
-	});*/
+			$scope.focusedOnBoard = false;
+	  }/**/
+	}
 
 	$scope.clearSelection = function(){
 	  for (var id in $scope.selectedObjIds) {
@@ -115,7 +120,9 @@ function IHCtrler($scope, ResultsService, $compile){
 	  }
 	}
 
-	//log("done IHCtrler init");
+
+	$(document).keypress(function(e){$scope.pressedKey(e)});
+	log("done IHCtrler init");
 }
 
 //log("done loading IHCtrler");

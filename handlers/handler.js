@@ -26,6 +26,7 @@ function Handler(){
     if (this.dict.hasOwnProperty(id)){
       //rmFromArr(this.dict.keys,id);
       delete this.dict[id];
+      rmFromArr(this.dict.keys,id);
     } else {
       log("obj with id: "+id+" DNE cannot rm");
     }
