@@ -19,14 +19,15 @@
         <div id = "boardContainer" class = "zone">
           <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
            ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)"
-           ng-keypress = "pressedKey($event)" ng-focus = "focusBoard(true)">
+           ng-keypress = "pressedKey($event)">
           </div>
         </div>
       </div>
 
       <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller = "OptionCtrler">
-        Search: <input type="text" ng-model = "data.inputTxt">{{data.inputTxt}}<!---->
+        Search: <input type="text" ng-model = "data.inputTxt"
+        ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">{{data.inputTxt}}<!---->
         <ul id = "resultsContainer" class = "zone">
           <li id = "resultList" ng-repeat = "a in resultsList | filter: data.inputTxt">
             {{a}}
@@ -52,7 +53,7 @@
     <div id = "imZone" class = "zone hidden">
       <div id = "imView" class = "zone">
         <button id = "imExitButton" onclick="imExitButton(false)">X</button>
-        <p id="imTitle" class = "zone">[Title Here]</p>
+        <input id="imTitle" class = "zone" value = "[Title Here]">
         <div id = "imCxnTable" class = "zone">
           <ul id = "imDBView" class = "zone">
           </ul>
@@ -60,7 +61,7 @@
           </ol>
         </div>
         <div id = "imValView" class = "zone">
-          <textarea id = "imTxtContainer">lalalaa</textarea>
+          <textarea id = "imTxtContainer">these texts should be replaced by init</textarea>
         </div>
         <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "imExitButton(true)">
       </div>

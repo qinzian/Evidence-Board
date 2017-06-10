@@ -3,14 +3,14 @@
 
 function OptionCtrler($scope, SharedService){
 	$scope.data = SharedService;
-	
+
 	$scope.resultsList = $scope.data.getIH().getDict().keys;
 	//$scope.resultsList = [1,2,3,'#',4,5,6,7,'d'];
 
-	/*$scope.focusedOnSearch = function(b){
-		$scope.data.searching = b;
-		log("focusedOnSearch: "+b);
-	}*/
+	$scope.focusBoard = function(b){
+		$scope.data.focusedOnBoard = b;
+		log("focusedOnBoard: "+b);
+	}/**/
 }
 
 

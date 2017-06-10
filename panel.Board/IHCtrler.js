@@ -74,12 +74,12 @@ function IHCtrler($scope, SharedService, $compile){
 	}
 
 	$scope.pressedKey = function(e){
-		log("focused on board:"+ $scope.data.focusedOnBoard);
+		log("inIM: "+inIM+"<br>focused on board:"+ $scope.data.focusedOnBoard);
 	  if(!inIM && $scope.data.focusedOnBoard){ // don't check keypress if user is in imView
 	    var obj1;
 
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
-				log("pressed x");
+				//log("pressed x");
 	      for (var id in $scope.selectedObjIds) {
 	        // this obj should also be rm from other's cxns
 	        obj1 = ih.getObj(id);
@@ -88,13 +88,12 @@ function IHCtrler($scope, SharedService, $compile){
 	        }
 
 	        ih.rmObj(id); // rm the corresponding obj from memory
-	        $("#"+id).remove(); // rm the corresponding element
+	        $("#"+id).remove(); // rm the corresponding
 	      }
 
 	    } else if (String.fromCharCode(e.keyCode) == "c"){
-	      log("pressed c");
+	      //log("pressed c");
 	      for (var id1 in $scope.selectedObjIds) {
-					log("stopped at: "+id1)
 	        $("#"+id1.toString()).toggleClass("selected"); // deselect the objs
 
 	        obj1 = ih.getObj(id1);
@@ -104,10 +103,9 @@ function IHCtrler($scope, SharedService, $compile){
 	          if (!(id2.toString() == id1.toString())){
 	            obj1.addCxn(id2);
 	          }
-	          log("reached");
 	        }
 	      }
-	      log("connected all the selected objs");
+	      //log("connected all the selected objs");
 	    }
 	    $scope.clearSelection();
 			$scope.focusedOnBoard = false;
@@ -120,6 +118,9 @@ function IHCtrler($scope, SharedService, $compile){
 	  }
 	}
 
+	$scope.testing = function(a){
+		log("test func with arg:"+a);
+	}
 
 	$(document).keypress(function(e){$scope.pressedKey(e)});
 	log("done IHCtrler init");
