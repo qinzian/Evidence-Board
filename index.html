@@ -29,9 +29,9 @@
         Search: <input type="text" ng-model = "data.inputTxt"
         ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">{{data.inputTxt}}<!---->
         <ul id = "resultsContainer" class = "zone">
-          <li id = {{a}} class = "resultList" ng-click = "clickedResult($event)"
-          ng-repeat = "a in resultsList | filter: data.inputTxt">
-            {{a}}
+          <li id = {{titleToId[title]}} class = "resultList" ng-click = "clickedResult($event)"
+          ng-repeat = "title in resultsList | filter: data.inputTxt">
+            {{title}}
           </li><!---->
         </ul>
       </div>

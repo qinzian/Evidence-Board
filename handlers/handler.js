@@ -1,40 +1,71 @@
 function Handler(){
-  this.dict = {}; // where the boardObjs are stored, in id to obj pairs
-  this.dict.keys = [];
+  this.idToObj = {}; // dict of id : obj
+  this.titleToId = {}; // dict of title : ids
+  this.titles = [];
 
   this.getDict = function(){
-    return this.dict;
+    return this.idToObj;
+  }
+
+  this.getTitles = function(){
+    return this.titles;
+  }
+
+  this.getTitlesDict = function(){
+    return this.titleToId;
   }
 
   this.getObj = function(id){
-    if (this.dict.hasOwnProperty(id)){
-      return this.dict[id];
+    if (this.idToObj.hasOwnProperty(id)){
+      return this.idToObj[id];
     }
     log("ih cannot find obj for id:"+id.toString());
   }
 
   this.addObj = function(id){
-    if (this.dict.hasOwnProperty(id)){
+    if (this.idToObj.hasOwnProperty(id)){
       log("obj with id: "+id+" already exists, cannot add");
     } else {
-      this.dict.keys.push(id);
-      this.dict[id] = new Note(id); // pairs id of visual to the corresponding obj in memory
+      this.idToObj[id] = new Note(id); // pairs id of visual to the corresponding obj in memory
+      this.titleToId[id] = id; // starting titles are same as id
+      this.titles.push(id);
     }
   }
 
   this.rmObj = function(id){
-    if (this.dict.hasOwnProperty(id)){
-      //rmFromArr(this.dict.keys,id);
-      delete this.dict[id];
-      rmFromArr(this.dict.keys,id);
+    if (this.idToObj.hasOwnProperty(id)){
+      var t = this.idToObj[id].getTitle();
+
+      rmFromArr(this.titles,t);
+      delete this.titleToId[t];
+      delete this.idToObj[id];
     } else {
       log("obj with id: "+id+" DNE cannot rm");
     }
   }
 
-  this.toString = function(){
-    return strf("IH: {} objs, id: {}",[this.dict.length,this.getKeys()]);
+  this.updateObjTitle = function(id,newTitle){
+    log("called");
+    var currId;
+    for(var t in this.titleToId){
+      currId = this.titleToId[t];
+      if(currId == id){
+        rpFromArr(this.titles,t,newTitle); // args (arr,oldTitle,newTitle)
+        delete this.titleToId[t];
+        this.titleToId[newTitle] = id;
+        return;
+      }
+    }
   }
+
+  this.toString = function(){
+    var tmp;
+    for (var title in this.titleToId) {
+      tmp += title+", ";
+    }
+    return strf("IH: {} objs, titles: {}",[this.idToObj.length,tmp]);
+  }
+  //log("done ih init");
 }
 
 var ih = new Handler();

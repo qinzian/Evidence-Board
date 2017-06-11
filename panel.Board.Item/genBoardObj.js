@@ -42,6 +42,8 @@ function BoardObj(t,id){
   }
 
   this.setTitle = function(s){
+    ih.updateObjTitle(this.id,s); // args: (id, newTitle)
+
     this.title = s;
     this.sf.html(this.title);
   }

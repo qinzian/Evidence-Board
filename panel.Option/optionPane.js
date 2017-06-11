@@ -4,12 +4,15 @@
 function OptionCtrler($scope, SharedService){
 	$scope.data = SharedService;
 
-	$scope.resultsList = $scope.data.getIH().getDict().keys;
+	$scope.resultsList = $scope.data.getIH().getTitles();
+	$scope.titleToId = $scope.data.getIH().getTitlesDict();
 	//$scope.resultsList = [1,2,3,'#',4,5,6,7,'d'];
 
 	$scope.focusBoard = function(b){
 		$scope.data.focusedOnBoard = b;
-		log("focusedOnBoard: "+b);
+		//log("focusedOnBoard: "+b);
+
+		//log($scope.resultsList["note1"]);
 	}/**/
 
 	$scope.clickedResult = function(e){

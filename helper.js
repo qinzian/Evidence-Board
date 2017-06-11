@@ -18,11 +18,18 @@ function range(p1,p2){
 }
 
 function rmFromArr(arr,t){
-  for (var i = 0; i < arr.length; i++) {
-   if (arr[i] == t){
-     arr.splice(i,1);
-     return;
-   }
+  var i = arr.indexOf(t);
+
+  if (i > -1){
+    arr.splice(i,1);
+  }
+}
+
+function rpFromArr(arr,oldItem,newItem){
+  var i = arr.indexOf(oldItem);
+
+  if (i > -1){
+    arr[i] = newItem;
   }
 }
 
