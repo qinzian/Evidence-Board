@@ -1,12 +1,14 @@
 .boardObj{
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 
   font-size: 30px;
   text-align: center;
 
   background-color:lightpink;
+
+  border: 3px solid darkgreen;
 }
 
 .note{
@@ -14,7 +16,7 @@
 }
 
 .selected{
-  border: dashed brown;
+  border: 5px dashed brown;
 }
 
 #board{

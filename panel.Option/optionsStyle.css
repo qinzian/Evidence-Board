@@ -22,7 +22,7 @@
   background-color: lightblue;
 }
 
-#resultList{
+.resultList{
   position: relative;
 
   left: 20px;

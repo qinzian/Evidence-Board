@@ -23,7 +23,7 @@ function IHCtrler($scope, SharedService, $compile){
 
     angular.element(document.getElementById("board")).append(temp);
 
-    $("#"+id).css({left:x-40, top:y-40});
+    $("#"+id).css({left:x-40, top:y-80});
 
     // create obj in memory
     ih.addObj(id);
@@ -42,7 +42,9 @@ function IHCtrler($scope, SharedService, $compile){
 	$scope.selectedObjIds = {};
 
 	$scope.clickedBoardObj = function(id){ // toggles between select and deselect of boardObj
-		log('clicked board obj: '+id.toString());
+		log(id+"is dragging:"+ih.getObj(id).getDrag());
+		ih.getObj(id).updateRect();
+
 	  // check if the click event is caused by dragging
 	  if (ih.getObj(id).getDrag() == true){
 	    ih.getObj(id).setDrag(false);

@@ -11,6 +11,20 @@ function OptionCtrler($scope, SharedService){
 		$scope.data.focusedOnBoard = b;
 		log("focusedOnBoard: "+b);
 	}/**/
+
+	$scope.clickedResult = function(e){
+		log("clicked: "+e.target.id.toString());
+
+		var clickedObj = ih.getObj(e.target.id.toString());
+		var pos = {x:clickedObj.getX(),y:clickedObj.getY()};
+
+		// shift the whole board so that the obj will be in view
+		$scope.boardCentreAt(pos);
+	}
+
+	$scope.boardCentreAt = function(pos){
+		log("x: "+pos.x +" <br> y: "+pos.y);
+	}
 }
 
 

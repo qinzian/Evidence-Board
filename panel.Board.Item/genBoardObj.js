@@ -67,8 +67,9 @@ function BoardObj(t,id){
     this.left = parseInt(this.sf.css('left').substring(0,this.sf.css('left').length-2));
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
+    //log("done updating");
   }
-  this.updateRect();
+  this.updateRect(); // update the attr right after the obj is created
 
   this.getX = function(){
     return this.left;
