@@ -22,19 +22,23 @@
 #board{
   position: relative;
   border: 2px solid magenta;
+
   width:inherit;
   height:inherit;
+
+  left:0px;
+  top:0px;
 
   background-image:url("../pics/cork-board.png");
   background-repeat:repeat;
 }
 
 #boardContainer{
-  width: 2000px;
-  height: 2000px;
-
+  width:2000px;
+  height:2000px;
   overflow: hidden;
 }
+
 #boardView{
   position: absolute;
   left: 15px;

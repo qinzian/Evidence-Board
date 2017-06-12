@@ -4,7 +4,7 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	$("#objInfo").html(ih.getDict().keys.toString());
+	$("#objInfo").html(board.toString());
 	//log("lala");
 }
 

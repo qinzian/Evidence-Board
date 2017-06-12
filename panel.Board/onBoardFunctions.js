@@ -11,6 +11,7 @@ function mouseLeftBoard(){
   if (draggingBoard){
     board.updateRect();
     board.checkBoundaries();
+    draggingBoard = false;
   }
   //log('reached final');
 }/**/

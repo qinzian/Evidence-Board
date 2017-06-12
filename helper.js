@@ -33,6 +33,17 @@ function rpFromArr(arr,oldItem,newItem){
   }
 }
 
+function subString(s,begin, end){
+  if (typeof end == "undefined"){
+    end = s.length;
+  }
+  if(end < 0){
+    return s.substring(begin,s.length+end);
+  } else {
+    return s.substring(begin,end);
+  }
+}
+
 function log(msg){
   $("#debug").html(msg);
 }

@@ -1,5 +1,5 @@
 function BoardObj(t,id){
-  //log('in BoardObj');
+  //log("in BoardObj");
   this.type = t;
   this.id = id;
   this.val = "";
@@ -10,8 +10,8 @@ function BoardObj(t,id){
    // the rect of the obj
   this.left;
   this.top;
-  this.w = parseInt(this.sf.css('width').substring(0,this.sf.css('width').length-2));
-  this.h = parseInt(this.sf.css('height').substring(0,this.sf.css('height').length-2));
+  this.w = parseInt(this.sf.css("width").substring(0,this.sf.css("width").length-2));
+  this.h = parseInt(this.sf.css("height").substring(0,this.sf.css("height").length-2));
   this.right;
   this.bot;
 
@@ -65,8 +65,8 @@ function BoardObj(t,id){
   }
 
   this.updateRect = function(){
-    this.top = parseInt(this.sf.css('top').substring(0,this.sf.css('top').length-2));
-    this.left = parseInt(this.sf.css('left').substring(0,this.sf.css('left').length-2));
+    this.top = parseInt(this.sf.css("top").substring(0,this.sf.css("top").length-2));
+    this.left = parseInt(this.sf.css("left").substring(0,this.sf.css("left").length-2));
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
     //log("done updating");
@@ -89,7 +89,7 @@ function BoardObj(t,id){
   }
 
   this.toString = function(){
-    return strf('{} at ({},{}), "{}"',[this.id,this.x,this.y,this.val]);
+    return strf("{} at ({},{}), \"{}\"",[this.id,this.left,this.top,this.val]);
   }
 
   this.equals = function(other){ // obj with same type

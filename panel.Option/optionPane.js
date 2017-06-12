@@ -11,22 +11,33 @@ function OptionCtrler($scope, SharedService){
 	$scope.focusBoard = function(b){
 		$scope.data.focusedOnBoard = b;
 		//log("focusedOnBoard: "+b);
-
-		//log($scope.resultsList["note1"]);
 	}/**/
 
 	$scope.clickedResult = function(e){
 		log("clicked: "+e.target.id.toString());
 
 		var clickedObj = ih.getObj(e.target.id.toString());
-		var pos = {x:clickedObj.getX(),y:clickedObj.getY()};
 
 		// shift the whole board so that the obj will be in view
-		$scope.boardCentreAt(pos);
+		$scope.boardCentreAtObj(clickedObj);
 	}
 
-	$scope.boardCentreAt = function(pos){
-		log("x: "+pos.x +" <br> y: "+pos.y);
+	$scope.boardCentreAtObj = function(clickedObj){
+		var pos = {x:clickedObj.getX(),y:clickedObj.getY()};
+
+		//log("x: "+pos.x +" <br> y: "+pos.y);
+
+		var x_shift = board.viewW/2-pos.x-160;
+		var y_shift = board.viewH/2-pos.y-160;
+		$("#board").animate({
+			top:y_shift+"px",
+			left:x_shift+"px"
+		},800);/**/
+
+		board.updateRect();
+		log("updatedRect");
+    board.checkBoundaries();
+		log("checked Bound");
 	}
 }
 
@@ -37,12 +48,12 @@ function toggleOptionsP(){
 	if(showing){
 		$("#optionView").animate({
 			opacity:0
-		},400)
+		},400);
 		setTimeout(function(){$("#optionView").toggle()},400);
 	} else {
 		$("#optionView").animate({
 			opacity:1
-		},400)
+		},400);
 		$("#optionView").toggle();
 	}
 
