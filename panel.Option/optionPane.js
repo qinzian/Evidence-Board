@@ -20,6 +20,12 @@ function OptionCtrler($scope, SharedService){
 
 		// shift the whole board so that the obj will be in view
 		$scope.boardCentreAtObj(clickedObj);
+
+		// this will bring the note up to the front in case it was buried
+		$("#"+e.target.id.toString()).addClass("located");/**/
+		setTimeout(function(){
+			$("#"+e.target.id.toString()).removeClass("located");/**/
+		}, 2000);
 	}
 
 	$scope.boardCentreAtObj = function(clickedObj){
@@ -33,8 +39,6 @@ function OptionCtrler($scope, SharedService){
 			top:y_shift+"px",
 			left:x_shift+"px"
 		},800);/**/
-
-		
 	}
 }
 

@@ -18,3 +18,8 @@
 .selected{
   border: 5px dashed brown;
 }
+
+.located{
+  background-color:pink;
+  z-index: 9;
+}
