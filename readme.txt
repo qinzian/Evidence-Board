@@ -7,4 +7,7 @@ pictures credits / src:
 		http://stockfresh.com/files/f/flariv/m/74/621623_stock-photo-background-cork-board.jpg
 
 	-pics
-		post it note (http://694.gvs.arnes.si/OS_Svecina/wp-content/uploads/2015/03/post-its.jpg)
+		
+
+* github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
+  try to download the whole package or clone the repo to run it
