@@ -33,6 +33,8 @@ function OptionCtrler($scope, SharedService){
 			top:y_shift+"px",
 			left:x_shift+"px"
 		},800);/**/
+
+		
 	}
 }
 

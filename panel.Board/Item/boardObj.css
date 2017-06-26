@@ -1,0 +1,20 @@
+.boardObj{
+  position: absolute;
+  width: 130px;
+  height: 130px;
+
+  font-size: 30px;
+  text-align: center;
+
+  background-color:lightpink;
+
+  border: 3px solid darkgreen;
+}
+
+.note{
+  overflow:hidden;
+}
+
+.selected{
+  border: 5px dashed brown;
+}

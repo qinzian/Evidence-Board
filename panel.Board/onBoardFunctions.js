@@ -15,7 +15,3 @@ function mouseLeftBoard(){
   }
   //log('reached final');
 }/**/
-
-function dragBoardObj(id){
-  ih.getObj(id).setDrag(true);
-}

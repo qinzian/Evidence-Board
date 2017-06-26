@@ -45,6 +45,8 @@ function IHCtrler($scope, SharedService, $compile){
 		log(id+"is dragging:"+ih.getObj(id).getDrag());
 		ih.getObj(id).updateRect();
 
+		$("#objInfo").html(ih.getObj(id).toString());
+
 	  // check if the click event is caused by dragging
 	  if (ih.getObj(id).getDrag() == true){
 	    ih.getObj(id).setDrag(false);
@@ -125,7 +127,10 @@ function IHCtrler($scope, SharedService, $compile){
 	}
 
 	$(document).keypress(function(e){$scope.pressedKey(e)});
-	log("done IHCtrler init");
+	//log("done IHCtrler init");
 }
 
+function dragBoardObj(id){
+  ih.getObj(id).setDrag(true);
+}
 //log("done loading IHCtrler");
