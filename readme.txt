@@ -11,3 +11,7 @@ pictures credits / src:
 
 * github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
   try to download the whole package or clone the repo to run it
+
+Next v3.4:
+ while dragging obj, adjust the board so user do not have to stop dragging to 
+ readjust the board to move obj to off screen locations
