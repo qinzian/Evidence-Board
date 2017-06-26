@@ -35,8 +35,8 @@ function ItemMenu(){
     log("done setup new obj"+newID);
   }
 
-  this.setupCurrObj = function(id){
-    this.currObj = ih.getObj(id);
+  this.setupCurrObj = function(currObjId){
+    this.currObj = ih.getObj(currObjId);
 
     // load title
     //log("loading title for objID:"+id+"<br> title: "+this.currObj.getTitle());
@@ -46,12 +46,14 @@ function ItemMenu(){
     this.txt.text(this.currObj.getV());
 
     // load cxns
-    for (var cxnID in this.currObj.getCxns()) {
+    for (var cxnObjID in this.currObj.getCxns()) {
       newDB = strf("<li id = \"db{}\" class = \"dbs\" onclick='imRmCxn(this.id,\"{}\")'>X </li>",
-                    [cxnID.toString(),id.toString()]);
+                    [cxnObjID.toString(),currObjId.toString()]);
 
       newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutObj(\"{}\",this.id)'>{}</li>",
-                    [cxnID.toString(),id.toString(),cxnID.toString()]);
+                    [cxnObjID.toString(),currObjId.toString(),ih.getObj(cxnObjID).getTitle()]);
+
+      // update the display of cxns
       this.dbs.append(newDB);
       this.cxns.append(newCxn);
     }
@@ -69,17 +71,21 @@ function ItemMenu(){
   }
 
   this.rmCxn = function(targetObjId,currObjId){
+    // removes both obj from each other's cxn list
     this.currObj.rmCxn(targetObjId);
-    //log(cxnId.substring(3));
+
     ih.getObj(targetObjId).rmCxn(currObjId);
+
+    // rm the display of cxn on the imView
     $("#cxn"+targetObjId).remove();
     $("#db"+targetObjId).remove();
 
+    /*
     var tmp = "";
   	for (var id in this.currObj.getCxns()) {
   		tmp+=id+", "
   	}
-  	$("#objInfo").html(tmp);
+  	$("#objInfo").html(tmp); /**/
   }
 }
 
