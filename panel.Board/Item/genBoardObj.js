@@ -10,8 +10,8 @@ function BoardObj(t,id){
    // the rect of the obj
   this.left;
   this.top;
-  this.w = parseInt(this.sf.css("width").substring(0,this.sf.css("width").length-2));
-  this.h = parseInt(this.sf.css("height").substring(0,this.sf.css("height").length-2));
+  this.w = parseInt(subString(this.sf.css("width"),0,-2));
+  this.h = parseInt(subString(this.sf.css("height"),0,-2));
   this.right;
   this.bot;
 
@@ -65,8 +65,8 @@ function BoardObj(t,id){
   }
 
   this.updateRect = function(){
-    this.top = parseInt(this.sf.css("top").substring(0,this.sf.css("top").length-2));
-    this.left = parseInt(this.sf.css("left").substring(0,this.sf.css("left").length-2));
+    this.top = parseInt(subString(this.sf.css("top"),0,-2));
+    this.left = parseInt(subString(this.sf.css("left"),0,-2));
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
     //log("done updating");
