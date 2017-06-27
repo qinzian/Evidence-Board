@@ -8,7 +8,11 @@ function DraggableItem(t,id) {
   this.setDrag = function(d){
     this.drag = d;
 
-    if(this.drag){
+    if (this.type !== "note"){
+      return;
+    }
+
+    if(this.drag){ // alter appearence of notes when dragging
       $("#"+this.id).addClass("located");/**/
     } else {
       $("#"+this.id).removeClass("located");/**/

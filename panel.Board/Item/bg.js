@@ -1,23 +1,6 @@
-function Picture(id) {
-  //log('in Picture');
-  BoardObj.call(this,"picture",id);
-  this.src;
-
-  $("#"+id).draggable();
-
-  this.setSrc = function(s){
-    this.src = s;
-  }
-}
-Picture.prototype = Object.create(BoardObj.prototype);
-Picture.prototype.constructor = Picture;
-
-
-
-
 function BoardBG(id) {
   //log('in BoardBG');
-  Picture.call(this,id);
+  DraggableItem.call(this,"bg",id);
 
   this.parentId = 'boardView';
   this.spacing = 0.2;
@@ -73,5 +56,5 @@ function BoardBG(id) {
   }
   /**/
 }
-BoardBG.prototype = Object.create(Picture.prototype);
+BoardBG.prototype = Object.create(draggableItem.prototype);
 BoardBG.prototype.constructor = BoardBG;

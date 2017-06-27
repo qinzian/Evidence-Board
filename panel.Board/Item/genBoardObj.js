@@ -70,6 +70,7 @@ function BoardObj(t,id){
     this.right = this.left + this.w;
     this.bot = this.top +  this.h;
     //log("done updating");
+    //$("#objInfo").html(strf('t={},l={},w={},h={}',[this.top,this.left,this.w,this.h]));
   }
   this.updateRect(); // update the attr right after the obj is created
 

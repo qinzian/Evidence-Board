@@ -29,6 +29,7 @@ function Handler(){
       this.idToObj[id] = new Note(id); // pairs id of visual to the corresponding obj in memory
       this.titleToId[id] = id; // starting titles are same as id
       this.titles.push(id);
+      //log("added a note with id:"+id);
     }
   }
 

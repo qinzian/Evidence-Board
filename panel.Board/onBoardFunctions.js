@@ -1,17 +1,21 @@
 var board = new BoardBG('board');
 
-var draggingBoard = false;
-
 
 function dragBoard(){
-  draggingBoard = true;
+  board.setDrag(true);
 }
 
 function mouseLeftBoard(){
-  if (draggingBoard){
+  if (board.getDrag()){
     board.updateRect();
     board.checkBoundaries();
-    draggingBoard = false;
+    board.setDrag(false);
   }
   //log('reached final');
 }/**/
+
+function dragBoardObj(id){
+	var obj = ih.getObj(id);
+  obj.setDrag(true);
+	obj.updateRect();
+}
