@@ -17,5 +17,4 @@ function mouseLeftBoard(){
 function dragBoardObj(id){
 	var obj = ih.getObj(id);
   obj.setDrag(true);
-	obj.updateRect();
 }

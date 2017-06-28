@@ -4,21 +4,8 @@ body{background-color:lightgrey; border:2px solid yellow;}
 /**/
 .zone{border: 2px solid;  padding: 5px;} /**/
 
-.selected{
-  border:2px dashed brown;
-}
-
 .hidden{
   display:none;
-}
-
-.boardObj{
-  position:absolute;
-
-  font-size: 30px;
-
-  width: 40px;
-  height:40px;
 }
 
 #superDiv{

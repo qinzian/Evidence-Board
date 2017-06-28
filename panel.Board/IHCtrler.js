@@ -1,16 +1,15 @@
 
 function IHCtrler($scope, SharedService, $compile){
 	$scope.noteC = 0;
-  $scope.picC  = 0;
+	$scope.lineC = 0;
 
-  $scope.genLine = function (obj1,obj2,x,y){
-		return;
-  }
+	$scope.genLine(id1,id2){
+		ig.genLine(id1,id2,$scope.lineC);
+		$scope.lineC++;
+	}
 
-  $scope.genNote = function(x,y){
-		//log('generating note');
-
-    var id = "note" + $scope.noteC.toString();
+	$scope.genNote = function(x,y){
+		var id = "note" + $scope.noteC.toString();
 
     // create visual
     var newElem = strf("<p id = '{}' class = 'boardObj note'  "+
@@ -19,23 +18,16 @@ function IHCtrler($scope, SharedService, $compile){
     "ondrag  = 'dragBoardObj(this.id)'  "+
     ">{}</p>",[id,"\""+id+"\"","\""+id+"\"",id]);
 
-  	var temp = $compile(newElem)($scope);
+    var temp = $compile(newElem)($scope);
 
     angular.element(document.getElementById("board")).append(temp);
 
     $("#"+id).css({left:x-40, top:y-80});
 
-    // create obj in memory
-    ih.addObj(id);
+		ig.genNote(id);
 
-    $scope.noteC++;
-    //log('reached end');/**/
-  }
-
-  $scope.genPic = function(x,y){
-		log("generating pic");
-		$scope.picC++;
-  }
+		$scope.noteC++;
+	}
 
 	$scope.data = SharedService;
 
@@ -105,7 +97,10 @@ function IHCtrler($scope, SharedService, $compile){
 	        for (var id2 in $scope.selectedObjIds){
 
 	          if (!(id2.toString() == id1.toString())){
-	            obj1.addCxn(id2);
+							if (obj1.getCxns().indexOf(id2) !== -1){
+								obj1.addCxn(id2);
+								generateLines(id1,id2);
+							}
 	          }
 	        }
 	      }
