@@ -1,7 +1,6 @@
 function Line(id) {
-  log("in Line() constructor");
   BoardObj.call(this, "line",id);
-  log("passed");
+  
   this.orientation = 0; // angle of rotation from vertical in degrees
   this.p1 = {x:0,y:0};
   this.p2 = {x:0,y:0};

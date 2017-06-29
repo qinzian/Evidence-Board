@@ -2,14 +2,14 @@
 
 function ItemGenerator(){
   this.genLine = function(id1,id2,lineC){
+    // creating obj in memory
+    lh.addObj(lineId);
+
     // creating visual component of line
     var lineId = "line"+lineC.toString();
     var newElem = strf("<img id = \"{}\" class = \"line\" src = \"pics/line.png\">",
                       [lineId]);
     $("#board").append(newElem);
-
-    // creating obj in memory
-    lh.addObj(lineId);
     //-------------------------orienting-the-visual-line-properly-------------
     var lineObj = lh.getObj(lineId);
 
@@ -20,7 +20,7 @@ function ItemGenerator(){
     var l1 = obj1.getRect();
     var l2 = obj2.getRect();
     var pts = this.gen2Pts(l1,l2);
-    log(strf("({},{}),({},{})",[pts[0].x,pts[0].y,pts[1].x,pts[1].y]));
+    //log(strf("({},{}),({},{})",[pts[0].x,pts[0].y,pts[1].x,pts[1].y]));
     lineObj.updatePt1(pts[0]);
     lineObj.updatePt2(pts[1]);
     lineObj.updateDraw();
