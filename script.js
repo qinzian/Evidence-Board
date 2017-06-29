@@ -1,5 +1,3 @@
-//log("begun");
-
 
 //angular stuff---------------------------------------------------------------
 var EBapp = angular.module("Evidence-Board",[]);

@@ -23,6 +23,7 @@ function Handler(){
   }
 
   this.addObj = function(id){
+    log("ih.addObj()");
     if (this.idToObj.hasOwnProperty(id)){
       log("obj with id: "+id+" already exists, cannot add");
     } else {

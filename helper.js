@@ -44,6 +44,10 @@ function subString(s,begin, end){
   }
 }
 
+function radToDeg(r){
+  return r*180/Math.PI;
+}
+
 function log(msg){
   $("#debug").html(msg);
 }

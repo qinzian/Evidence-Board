@@ -1,5 +1,18 @@
 LineHandler = function(){
   Handler.call(this,"line");
+
+  this.addObj = function(id){
+    log("lineh.addObj()");
+    if (this.idToObj.hasOwnProperty(id)){
+      log("obj with id: "+id+" already exists, cannot add");
+    } else {
+      log("else block");
+      var tmp = new Line(id);
+      log("reached");
+      this.idToObj[id] = tmp;
+      //log("added a line with id:"+id);
+    }
+  }
 }
 
 LineHandler.prototype = Object.create(Handler.prototype);

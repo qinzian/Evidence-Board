@@ -3,8 +3,10 @@ function toggleDebugP(){
 }
 //toggleDebugP(); // hide debugZone on load/**/
 
+var angle = 0;
 function test(){
-	$("#objInfo").html(board.toString());
+	angle+=10;
+	$("#line0").rotate(angle);
 	//log("lala");
 }
 

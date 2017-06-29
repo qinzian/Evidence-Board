@@ -3,7 +3,7 @@ function BoardObj(t,id){
   this.type = t;
   this.id = id;
   this.val = "";
-  this.cxns = {};
+  this.cxns = {}; // id to element obj
   this.sf = $("#"+id.toString());
   this.title = id.toString(); // all title has default value
 
@@ -74,19 +74,8 @@ function BoardObj(t,id){
   }
   this.updateRect(); // update the attr right after the obj is created
 
-  this.getX = function(){
-    return this.left;
-  }
-
-  this.getY = function(){
-    return this.top;
-  }
-
-  this.getW = function(){
-    return this.w;
-  }
-  this.getH = function(){
-    return this.h;
+  this.getRect = function(){
+    return {x:this.left, y:this.top,w:this.w,h:this.h};
   }
 
   this.toString = function(){

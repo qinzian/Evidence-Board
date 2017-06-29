@@ -1,18 +1,20 @@
-
 function IHCtrler($scope, SharedService, $compile){
 	$scope.noteC = 0;
 	$scope.lineC = 0;
 
-	$scope.genLine(id1,id2){
+	$scope.genLine = function(id1,id2){
+		log("called genLine()");
 		ig.genLine(id1,id2,$scope.lineC);
 		$scope.lineC++;
+		//log("finished genLine()");
 	}
 
 	$scope.genNote = function(x,y){
+		log("called genNote");
 		var id = "note" + $scope.noteC.toString();
 
     // create visual
-    var newElem = strf("<p id = '{}' class = 'boardObj note'  "+
+    var newElem = strf("<p id = '{}' class = 'note'  "+
     "ng-click = 'clickedBoardObj({})'  "+
     "ng-dblclick = 'dblclickedBoardObj({})'  "+
     "ondrag  = 'dragBoardObj(this.id)'  "+
@@ -23,6 +25,7 @@ function IHCtrler($scope, SharedService, $compile){
     angular.element(document.getElementById("board")).append(temp);
 
     $("#"+id).css({left:x-40, top:y-80});
+
 
 		ig.genNote(id);
 
@@ -70,7 +73,7 @@ function IHCtrler($scope, SharedService, $compile){
 	}
 
 	$scope.pressedKey = function(e){
-		log("inIM: "+inIM+"<br>focused on board:"+ $scope.data.focusedOnBoard);
+		//log("inIM: "+inIM+"<br>focused on board:"+ $scope.data.focusedOnBoard);
 	  if(!inIM && $scope.data.focusedOnBoard){ // don't check keypress if user is in imView
 	    var obj1;
 
@@ -97,13 +100,13 @@ function IHCtrler($scope, SharedService, $compile){
 	        for (var id2 in $scope.selectedObjIds){
 
 	          if (!(id2.toString() == id1.toString())){
-							if (obj1.getCxns().indexOf(id2) !== -1){
+							if (!obj1.getCxns().hasOwnProperty(id2)){
 								obj1.addCxn(id2);
-								generateLines(id1,id2);
+								$scope.genLine(id1,id2);
 							}
 	          }
-	        }
-	      }
+	        } // inner for loop
+	      } // outter for loop
 	      //log("connected all the selected objs");
 	    }
 	    $scope.clearSelection();

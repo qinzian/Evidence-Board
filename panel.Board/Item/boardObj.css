@@ -1,4 +1,4 @@
-.boardObj{
+.note{
   position: absolute;
   width: 130px;
   height: 130px;
@@ -9,10 +9,19 @@
   background-color:lightpink;
 
   border: 3px solid darkgreen;
+
+  overflow:hidden;
 }
 
-.note{
-  overflow:hidden;
+.line{
+  position:absolute;
+  left:400px;
+  top:50px;
+
+  height:500px;
+  width:10px;
+
+  border:1px solid yellow;
 }
 
 .selected{

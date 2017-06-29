@@ -21,6 +21,8 @@
           <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
            ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)"
            ng-keypress = "pressedKey($event)">
+           <img id = "lines" class = "line" src = "pics/line.png"><!---->
+           <img id = "notes" class = "note" src = "pics/pic0.png"><!---->
           </div>
         </div>
       </div>
@@ -28,7 +30,7 @@
       <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller = "OptionCtrler">
         Search: <input type="text" ng-model = "data.inputTxt"
-        ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">{{data.inputTxt}}<!---->
+        ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">{{data.inputTxt}}
         <ul id = "resultsContainer" class = "zone">
           <li id = {{titleToId[title]}} class = "resultList" ng-click = "clickedResult($event)"
           ng-repeat = "title in resultsList | filter: data.inputTxt">
@@ -45,6 +47,7 @@
       <button id = "debugToggleButton" onclick = "toggleDebugP()">Debug On/Off</button>
       <button id = "testingButton" onclick = "test()">Do stuff</button>
       <div id = "debugInfo">
+        <input id = "debugInput" class = "info">
         <p id ="debug" class = "info">debug msg</p>
         <p id ="mousePos" class = "info">( , )</p>
         <p id = "objInfo" class = "info">display stuff from testingButton</p>
@@ -74,12 +77,13 @@
     <script src="onlineScripts/jquery-2.2.4.js"></script>
     <script src="onlineScripts/angular-1.6.4.js"></script>
     <script src="onlineScripts/jquery-ui.js"></script>
+    <script src="onlineScripts/jquery-rotate.js"></script>
 
     <script src = "helper.js"> </script>
 
     <script src="handlers/handler.js"></script>
-    <!--script src="handlers/lineHandler.js"></script>
-    <script src="handlers/noteHandler.js"></script>
+    <script src="handlers/lineHandler.js"></script>
+    <!--script src="handlers/noteHandler.js"></script>
     <script src="handlers/picHandler.js"></script-->
 
     <script src = "panel.Board/Item/genBoardObj.js"></script>
@@ -87,12 +91,12 @@
     <script src = "panel.Board/Item/note.js"></script>
     <script src = "panel.Board/Item/line.js"></script>
     <script src = "panel.Board/Item/bg.js"></script>
+    <script src = "panel.Board/Item/itemGenerator.js"></script>
 
     <script src = "panel.Board.IM/imView.js"></script>
     <script src = "panel.Board.IM/imZone.js"></script>
 
     <script src = "panel.Board/onBoardFunctions.js"></script>
-    <script src = "panel.Board/itemGenerator.js"></script>
     <script src = "panel.Board/IHCtrler.js"></script>
 
 
