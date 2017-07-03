@@ -7,7 +7,7 @@ LineHandler = function(){
       log("obj with id: "+id+" already exists, cannot add");
     } else {
       log("else block");
-      var tmp = new Line(id);
+      var tmp = new Line("line100");
       log("reached");
       this.idToObj[id] = tmp;
       //log("added a line with id:"+id);

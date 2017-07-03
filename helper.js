@@ -51,3 +51,6 @@ function radToDeg(r){
 function log(msg){
   $("#debug").html(msg);
 }
+function logxy(pt){
+  log(strf("({},{})",[pt.x,pt.y]));
+}
