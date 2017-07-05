@@ -3,7 +3,7 @@ function IHCtrler($scope, SharedService, $compile){
 	$scope.lineC = 0;
 
 	$scope.genLine = function(id1,id2){
-		log("called genLine()");
+		//log("called genLine()");
 		ig.genLine(id1,id2,$scope.lineC);
 		$scope.lineC++;
 		//log("finished genLine()");
@@ -34,7 +34,7 @@ function IHCtrler($scope, SharedService, $compile){
 
 	$scope.data = SharedService;
 
-	$scope.selectedObjIds = {};
+	$scope.selectedObjIds = [];
 
 	$scope.clickedBoardObj = function(id){ // toggles between select and deselect of boardObj
 		log(id+"is dragging:"+ih.getObj(id).getDrag());
@@ -49,10 +49,10 @@ function IHCtrler($scope, SharedService, $compile){
 	  }
 
 	  // click event not from dragging => normal clicking
-	  if ($scope.selectedObjIds.hasOwnProperty(id)){
-	    delete $scope.selectedObjIds[id];
+	  if ($scope.selectedObjIds.contains(id)){ // id already selected
+	    rmFromArr($scope.selectedObjIds,id);
 	  } else {
-	    $scope.selectedObjIds[id] = undefined; // we are only using the obj to store the keys
+	    $scope.selectedObjIds.push(id);
 	  }
 	  $("#"+id.toString()).toggleClass("selected");/**/
 
@@ -79,45 +79,56 @@ function IHCtrler($scope, SharedService, $compile){
 
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
 				//log("pressed x");
-	      for (var id in $scope.selectedObjIds) {
+	      for (var i in $scope.selectedObjIds){
+					var id = $scope.selectedObjIds[i];
+
 	        // this obj should also be rm from other's cxns
 	        obj1 = ih.getObj(id);
 	        for (var cxnId in obj1.getCxns()){
 	          ih.getObj(cxnId).rmCxn(id);
 	        }
+					/*
+					for (var lineId in lh.getLines(id){
+						lh.rmObj(lineId);
+						$("#"+lineId).remove(); // rm the corresponding
+					}/**/
 
 	        ih.rmObj(id); // rm the corresponding obj from memory
 	        $("#"+id).remove(); // rm the corresponding
 	      }
+				$scope.clearSelection();
 
 	    } else if (String.fromCharCode(e.keyCode) == "c"){
 	      //log("pressed c");
-	      for (var id1 in $scope.selectedObjIds) {
+	      for (var i1 = 0; i1 < $scope.selectedObjIds.length; i1++) {
+					var id1 = $scope.selectedObjIds[i1];
+
 	        $("#"+id1.toString()).toggleClass("selected"); // deselect the objs
 
 	        obj1 = ih.getObj(id1);
+	        for (var i2 = i1+1; i2 < $scope.selectedObjIds.length; i2++){
+						var id2 = $scope.selectedObjIds[i2];
+						obj1.addCxn(id2); // add cxn will update cxn in both objs
 
-	        for (var id2 in $scope.selectedObjIds){
+						$scope.genLine(id1,id2);
 
-	          if (!(id2.toString() == id1.toString())){
-							if (!obj1.getCxns().hasOwnProperty(id2)){
-								obj1.addCxn(id2);
-								$scope.genLine(id1,id2);
-							}
-	          }
 	        } // inner for loop
 	      } // outter for loop
-	      //log("connected all the selected objs");
-	    }
-	    $scope.clearSelection();
+				$scope.clearSelection();
+
+	    } else if (String.fromCharCode(e.keyCode) == "v"){
+				/*
+				for (var i = 0; i < $scope.selectedObjIds.length; i++) {
+					ig.drawLines($scope.selectedObjIds[i]);
+				}*/
+			}
+
 			$scope.focusedOnBoard = false;
 	  }/**/
 	}
 
 	$scope.clearSelection = function(){
-	  for (var id in $scope.selectedObjIds) {
-	    delete $scope.selectedObjIds[id];
-	  }
+	  $scope.selectedObjIds.length = 0;
 	}
 
 	$scope.testing = function(a){

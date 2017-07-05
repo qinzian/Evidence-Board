@@ -12,6 +12,7 @@ function BoardObj(t,id){
   this.top;
   this.w = parseInt(subString(this.sf.css("width"),0,-2));
   this.h = parseInt(subString(this.sf.css("height"),0,-2));
+
   this.right;
   this.bot;
 
@@ -26,6 +27,8 @@ function BoardObj(t,id){
   this.addCxn = function(id){
     if (!this.cxns.hasOwnProperty(id)){
       this.cxns[id] = $("#"+id.toString());
+      log("added");
+      ih.getObj(id).addCxn(this.id);
     } else {
       log("the cxn to be added already exists: "+id);
     }

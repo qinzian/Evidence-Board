@@ -1,7 +1,7 @@
 function Line(id) {
-  log("line constructor");
+  //log("line constructor");
   BoardObj.call(this, "line",id);
-  log("done call to parent obj");
+  //log("done call to parent obj");
 
   this.orientation = 0; // angle of rotation from vertical in degrees
   this.p1 = {x:0,y:0};
@@ -20,6 +20,14 @@ function Line(id) {
 
   this.getPt2str = function(){
     return strf("x: {}<br>y: {}",[this.p2.x,this.p2.y]);
+  }
+
+  this.addCxn = function(id){
+    if (!this.cxns.hasOwnProperty(id)){
+      this.cxns[id] = $("#"+id.toString());
+    } else {
+      log("the cxn to be added to "+this.id+" already exists: "+id);
+    }
   }
 
   this.absDistance = function(p1,p2){
@@ -54,7 +62,7 @@ function Line(id) {
     this.sf.rotate(this.orientation);
     //log("ended with orientation:"+this.orientation);/**/
   }
-  log("done line init");
+  //log("done line init");
 }
 Line.prototype = Object.create(BoardObj.prototype);
 Line.prototype.constructor = Line;

@@ -33,6 +33,16 @@ function rpFromArr(arr,oldItem,newItem){
   }
 }
 
+Array.prototype.contains = function(obj) {
+    var i = this.length;
+    while (i--) {
+        if (this[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function subString(s,begin, end){
   if (typeof end == "undefined"){
     end = s.length;

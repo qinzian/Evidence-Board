@@ -2,20 +2,28 @@
 
 function ItemGenerator(){
   this.genLine = function(id1,id2,lineC){
-    // creating obj in memory
-    lh.addObj(lineId);
+    var lineId = "line"+lineC.toString();
+
+    if (lh.lineExists(id1,id2)){
+      return;
+    }
+    lh.updateNoteToLines(id1,id2,lineId);
+    lh.updateLineCxn(id1,id2,lineId);
 
     // creating visual component of line
-    var lineId = "line"+lineC.toString();
     var newElem = strf("<img id = \"{}\" class = \"line\" src = \"pics/line.png\">",
                       [lineId]);
     $("#board").append(newElem);
+
+    // creating obj in memory
+    lh.addObj(lineId);
+
     //-------------------------orienting-the-visual-line-properly-------------
     var lineObj = lh.getObj(lineId);
 
     var obj1 = ih.getObj(id1);
     var obj2 = ih.getObj(id2);
-    log("done getting objs");
+    //log("done getting objs");
 
     var l1 = obj1.getRect();
     var l2 = obj2.getRect();
@@ -29,6 +37,7 @@ function ItemGenerator(){
   this.genNote = function(noteId){
     // create obj in memory
     ih.addObj(noteId);
+    lh.updateNoteToLines(noteId,noteId,"default"); // does the init for the note to lines obj
   }
 
   this.gen2Pts = function(l1,l2){ // picks out two points along 2 lines
