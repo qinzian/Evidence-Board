@@ -27,7 +27,7 @@ function ItemGenerator(){
   this.genNote = function(noteId){
     // create obj in memory
     ih.addObj(noteId);
-    lh.updateNoteToLines(noteId,noteId,"default"); // does the init for the note to lines obj
+    lh.updateNoteToLines(noteId,noteId); // does the init for the note to lines obj
   }
 
   this.gen2Pts = function(l1,l2){ // picks out two points along 2 lines

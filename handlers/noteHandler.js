@@ -13,15 +13,7 @@ NoteHandler = function(){
     var lineIds = lh.getLines(noteId);
     var lineId;
 
-    // update the lh.noteToLines and lh.idToObj
-    lh.rmNote(noteId);
-
-    for (var i =0; i<lineIds.length; i++){
-      lineId = lineIds[i];
-
-      lh.rmLine(lineId);
-      $("#"+lineId).remove(); // rm the corresponding element
-    }/**/
+    lh.rmNoteEntry(noteId);
 
     //log("done lines");
     this.rmNote(noteId); // rm the corresponding obj from memory

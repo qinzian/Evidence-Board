@@ -34,7 +34,6 @@ function Handler(){
   }
 
   this.rmObj = function(id){
-    alert(id);
     if (this.idToObj.hasOwnProperty(id)){
       delete this.idToObj[id];
     } else {

@@ -73,7 +73,10 @@ function ItemMenu(){
   this.rmCxn = function(targetObjId,currObjId){
     // removes both obj from each other's cxn list
     this.currObj.rmCxn(targetObjId);
+    ih.getObj(targetObjId).rmCxn(currObjId);
 
+    // removes lines from both notes
+    this.currObj.rmCxn(targetObjId);
     ih.getObj(targetObjId).rmCxn(currObjId);
 
     // rm the display of cxn on the imView

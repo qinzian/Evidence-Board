@@ -19,7 +19,7 @@ LineHandler = function(){
       this.noteToLines[id2] = [];
     }
 
-    if (lineId == "default"){
+    if (typeof lineId == "undefined"){
       return;
     }
 
@@ -32,50 +32,65 @@ LineHandler = function(){
   }
 
   this.updateLineCxn = function(id1,id2,lineId){
-    //log(objToString(this.idToObj));
     this.idToObj[lineId].addCxn(id1);
     this.idToObj[lineId].addCxn(id2);
   }
 
-  this.lineExists = function(id1,id2){
-    for (var lineId in this.idToObj){
-      var line = this.idToObj[lineId];
-      if (line.getCxns().hasOwnProperty(id1) && line.getCxns().hasOwnProperty(id2)){
-        return true;
+  this.getLine = function(id1,id2){
+    var shorterList = id1;
+    if (this.noteToLines[id1].length > this.noteToLines[id2].length){
+      shorterList = id2;
+    } // loop through shorter list to find common item
+
+    for (var i = 0; i< this.noteToLines[shorterList].length;i++){
+      var lineId = this.noteToLines[shorterList][i];
+      var lineCxns = this.idToObj[lineId].getCxns();
+
+      if (lineCxns.hasOwnProperty(id1) && lineCxns.hasOwnProperty(id2)){
+        //alert("found cxn");
+        return lineId;
       }
     }
-    return false;
+    log("There exists no line connecting: "+id1+" and "+id2);
+    return -1;
+  }
+
+  this.lineExists = function(id1,id2){
+    return (typeof this.getLine(id1,id2) == "string");
   }
 
   this.getLines = function(noteId){
     return this.noteToLines[noteId];
   }
 
-  this.rmNote = function(noteId){ // delete lines appearing in both noteId entry and other entries
-    if (this.noteToLines.hasOwnProperty(noteId)){
-      var cxnsToDelete = this.noteToLines[noteId];
+  this.rmNoteEntry = function(deleteNoteId){ // delete lines appearing in both noteId entry and other entries
+    if (this.noteToLines.hasOwnProperty(deleteNoteId)){
+      var linesToDelete = this.noteToLines[deleteNoteId];
 
-      var noteCxnIds = ih.getObj(noteId).getCxns(); // all other entries
+      for (var i = 0; i < linesToDelete.length; i++) {
+        var lineId = linesToDelete[i];
 
-      for (var noteCxnId in noteCxnIds){// deleting all cxnLines appearing in the other entries
-        for (var i = 0; i < cxnsToDelete.length; i++) {
-          this.rmCxn(noteCxnId,cxnsToDelete[i]);
-        } // loop through all cxnLines to delete
+        for (var noteId in this.idToObj[lineId].getCxns()){// each line knows 2 notes
+          if (noteId !== deleteNoteId){
+            this.rmCxnLine(noteId,lineId);
+            //alert(noteId+""+lineId);
+          }
+        }
+        this.rmObj(lineId);
+      } // loop through all cxnLines to delete
 
-      } // loop through all notes in cxn to noteId
-
-      delete this.noteToLines[noteId];// delete all lines in entry: noteId
+      delete this.noteToLines[noteId];// delete entire entry: noteId
 
     } else {
       log("lh.rmNote(): cannot rm note with id: '"+id+"' b/c DNE");
     }
   }
 
-  this.rmLine = function(lineId){
-    this.rmObj(lineId);
+  this.rmCxn = function(n1,n2){
+
   }
 
-  this.rmCxn = function(noteId,lineId){
+  this.rmCxnLine = function(noteId,lineId){
     if (this.noteToLines.hasOwnProperty(noteId)){
       if (this.noteToLines[noteId].contains(lineId)){
         rmFromArr(this.noteToLines[noteId],lineId);
