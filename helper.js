@@ -58,9 +58,18 @@ function radToDeg(r){
   return r*180/Math.PI;
 }
 
+function objToString(obj){
+  var tmp = "";
+  for (var i in obj) {
+    tmp+= strf("{}:{}<br>",[i,obj[i]]);
+  }
+  return tmp;
+}
+
 function log(msg){
   $("#debug").html(msg);
 }
+
 function logxy(pt){
   log(strf("({},{})",[pt.x,pt.y]));
 }
