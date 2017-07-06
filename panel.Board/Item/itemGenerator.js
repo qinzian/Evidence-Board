@@ -5,12 +5,12 @@ function ItemGenerator(){
     var lineId = "line"+lineC.toString();
 
     if (lh.lineExists(id1,id2)){
-      log("exists");
+      //log("exists");
       return;
     }
 
     // creating visual component of line
-    var newElem = strf("<img id = \"{}\" class = \"line\" src = \"pics/line.png\">",
+    var newElem = strf("<img id = \"{}\" class = \"line  hidden\" src = \"pics/line.png\">",
                       [lineId]);
     $("#board").append(newElem);
 
@@ -20,20 +20,6 @@ function ItemGenerator(){
     lh.updateNoteToLines(id1,id2,lineId);
 
     lh.updateLineCxn(id1,id2,lineId);
-    //-------------------------orienting-the-visual-line-properly-------------
-    var lineObj = lh.getObj(lineId);
-
-    var obj1 = ih.getObj(id1);
-    var obj2 = ih.getObj(id2);
-    //log("done getting objs");
-
-    var l1 = obj1.getRect();
-    var l2 = obj2.getRect();
-    var pts = this.gen2Pts(l1,l2);
-    //log(strf("({},{}),({},{})",[pts[0].x,pts[0].y,pts[1].x,pts[1].y]));
-    lineObj.updatePt1(pts[0]);
-    lineObj.updatePt2(pts[1]);
-    lineObj.updateDraw();
   }
 
   this.genNote = function(noteId){
@@ -48,6 +34,39 @@ function ItemGenerator(){
     tmp.push({x:l1.x+ parseInt(Math.random()*l1.w),y:l1.y+l1.h});
     tmp.push({x:l2.x+ parseInt(Math.random()*l2.w),y:l2.y+l2.h});
     return tmp;
+  }
+
+  this.drawLines = function(noteId){
+    log("begun with noteId:"+noteId);
+
+    var lineIds = lh.getLines(noteId)
+    var lineId;
+    var lineObj;
+
+    var currNote = ih.getObj(noteId);
+    var cxnIds = currNote.getCxns();
+    var currCxn;
+    var pts;
+
+    var i = 1;
+    for (var currCxnId in cxnIds){ // the 0th index line is "default", skip it
+      log("in loop");
+      lineId = lineIds[i];
+
+      lineObj = lh.getObj(lineId);
+      log("reached");
+      currCxn = ih.getObj(currCxnId);
+
+      pts = this.gen2Pts(currNote.getRect(),currCxn.getRect());
+
+      //log(strf("({},{}),({},{})",[pts[0].x,pts[0].y,pts[1].x,pts[1].y]));
+      lineObj.updatePt1(pts[0]);
+      lineObj.updatePt2(pts[1]);
+      lineObj.updateDraw();
+
+      lineObj.sf.toggleClass("hidden");
+      i++;
+    }
   }
 }
 

@@ -78,7 +78,7 @@ function IHCtrler($scope, SharedService, $compile){
 
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
 				//log("pressed x");
-	      for (var i in $scope.selectedObjIds){
+	      for (var i = 0; i < $scope.selectedObjIds.length; i++){
 					var id = $scope.selectedObjIds[i];
 
 	        // this obj should also be rm from other's cxns
@@ -95,38 +95,44 @@ function IHCtrler($scope, SharedService, $compile){
 	        ih.rmObj(id); // rm the corresponding obj from memory
 	        $("#"+id).remove(); // rm the corresponding
 	      }
-				$scope.clearSelection();
+				$scope.clearSelection(false);
 
 	    } else if (String.fromCharCode(e.keyCode) == "c"){
 	      //log("pressed c");
 	      for (var i1 = 0; i1 < $scope.selectedObjIds.length; i1++) {
 					var id1 = $scope.selectedObjIds[i1];
 
-	        $("#"+id1.toString()).toggleClass("selected"); // deselect the objs
-
 	        obj1 = ih.getObj(id1);
 	        for (var i2 = i1+1; i2 < $scope.selectedObjIds.length; i2++){
 						var id2 = $scope.selectedObjIds[i2];
 						obj1.addCxn(id2); // add cxn will update cxn in both objs
 
-						$scope.genLine(id1,id2);
+						//$scope.genLine(id1,id2);
 	        } // inner for loop
 	      } // outter for loop
-				$scope.clearSelection();
+				$scope.clearSelection(true);
 
 	    } else if (String.fromCharCode(e.keyCode) == "v"){
-				/*
+				//log("pressed v");
+				var noteId;
 				for (var i = 0; i < $scope.selectedObjIds.length; i++) {
-					ig.drawLines($scope.selectedObjIds[i]);
-				}*/
+					noteId = $scope.selectedObjIds[i];
+					ig.drawLines(noteId);
+				}/**/
+				$scope.clearSelection(true);
 			}
-
 			$scope.focusedOnBoard = false;
 	  }/**/
 	}
 
-	$scope.clearSelection = function(){
+	$scope.clearSelection = function(deselectNote){
 	  $scope.selectedObjIds.length = 0;
+		if (deselectNote){
+			for (var i = 0; i < $scope.selectedObjIds.length; i++) {
+				$("#"+$scope.selectedObjIds[i]).removeClass("selected");
+			}
+
+		}
 	}
 
 	$scope.testing = function(a){
