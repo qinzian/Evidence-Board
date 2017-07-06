@@ -4,12 +4,12 @@ LineHandler = function(){
   this.noteToLines = {};
 
   this.addObj = function(id){
-    //log("lineh.addObj()");
+    log("lineh.addObj()");
     if (this.idToObj.hasOwnProperty(id)){
       log("obj with id: "+id+" already exists, cannot add");
     } else {
       this.idToObj[id] = new Line(id);
-      //log("added a line with id:"+id);
+      log("added a line with id:"+id);
     }
   }
 
@@ -29,8 +29,9 @@ LineHandler = function(){
   }
 
   this.updateLineCxn = function(id1,id2,lineId){
+    //log(objToString(this.idToObj));
     this.idToObj[lineId].addCxn(id1);
-    this.idToObj[lineId].addCxn(id1);
+    this.idToObj[lineId].addCxn(id2);
   }
 
   this.lineExists = function(id1,id2){
@@ -52,5 +53,3 @@ LineHandler.prototype = Object.create(Handler.prototype);
 LineHandler.prototype.constructor = LineHandler;
 
 var lh = new LineHandler();
-
-loadedScripts.push('lh');

@@ -1,19 +1,13 @@
 //log("started loading ig");
 
 function ItemGenerator(){
-  var t="";
   this.genLine = function(id1,id2,lineC){
     var lineId = "line"+lineC.toString();
 
     if (lh.lineExists(id1,id2)){
+      log("exists");
       return;
     }
-    lh.updateNoteToLines(id1,id2,lineId);
-    //log("lala");
-    lh.updateLineCxn(id1,id2,lineId);
-
-    t+=objToString(lineId.getCxns());
-    log(t);
 
     // creating visual component of line
     var newElem = strf("<img id = \"{}\" class = \"line\" src = \"pics/line.png\">",
@@ -23,6 +17,9 @@ function ItemGenerator(){
     // creating obj in memory
     lh.addObj(lineId);
 
+    lh.updateNoteToLines(id1,id2,lineId);
+
+    lh.updateLineCxn(id1,id2,lineId);
     //-------------------------orienting-the-visual-line-properly-------------
     var lineObj = lh.getObj(lineId);
 

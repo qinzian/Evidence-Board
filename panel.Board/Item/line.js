@@ -27,7 +27,7 @@ function Line(id) {
     if (!this.cxns.hasOwnProperty(id)){
       this.cxns[id] = $("#"+id.toString());
     } else {
-      //log("the cxn to be added to "+this.id+" already exists: "+id);
+      log("the cxn to be added to "+this.id+" already exists: "+id);
     }
   }
 

@@ -26,7 +26,6 @@ function IHCtrler($scope, SharedService, $compile){
 
     $("#"+id).css({left:x-40, top:y-80});
 
-
 		ig.genNote(id);
 
 		$scope.noteC++;
@@ -111,7 +110,6 @@ function IHCtrler($scope, SharedService, $compile){
 						obj1.addCxn(id2); // add cxn will update cxn in both objs
 
 						$scope.genLine(id1,id2);
-
 	        } // inner for loop
 	      } // outter for loop
 				$scope.clearSelection();

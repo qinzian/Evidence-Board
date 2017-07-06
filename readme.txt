@@ -14,3 +14,8 @@ pictures credits / src:
 
 Next v3.5:
  makes lines appear to be connecting notes that are connected
+ display lines on keypress 'v'
+ 
+issues:
+ not locating
+ handlers relationship not proper (i.e. shouldn't be instantiating the super class ih, should use nh instead)

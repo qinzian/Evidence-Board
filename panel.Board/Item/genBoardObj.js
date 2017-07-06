@@ -27,10 +27,9 @@ function BoardObj(t,id){
   this.addCxn = function(id){
     if (!this.cxns.hasOwnProperty(id)){
       this.cxns[id] = $("#"+id.toString());
-      log("added");
       ih.getObj(id).addCxn(this.id);
     } else {
-      log("the cxn to be added already exists: "+id);
+      log("the cxn to be added to "+this.id+" already exists: "+id);
     }
   }
 
