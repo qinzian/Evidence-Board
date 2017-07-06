@@ -10,8 +10,10 @@ function ItemGenerator(){
     }
 
     // creating visual component of line
-    var newElem = strf("<img id = \"{}\" class = \"line  hidden\" src = \"pics/line.png\">",
-                      [lineId]);
+    var newElem = strf("<img id = \"{}\" class = \"line hidden\" "+
+                       "src = \"pics/line.png\" "+
+                       "onclick = logObj(this.id)>"
+                      ,[lineId]);
     $("#board").append(newElem);
 
     // creating obj in memory
@@ -48,13 +50,14 @@ function ItemGenerator(){
     var currCxn;
     var pts;
 
-    var i = 1;
-    for (var currCxnId in cxnIds){ // the 0th index line is "default", skip it
-      log("in loop");
+    //logObj(lineIds);
+    var i = 0;
+    for (var currCxnId in cxnIds){
+      //log("in loop");
       lineId = lineIds[i];
 
       lineObj = lh.getObj(lineId);
-      log("reached");
+      //log("reached");
       currCxn = ih.getObj(currCxnId);
 
       pts = this.gen2Pts(currNote.getRect(),currCxn.getRect());
@@ -64,8 +67,16 @@ function ItemGenerator(){
       lineObj.updatePt2(pts[1]);
       lineObj.updateDraw();
 
-      lineObj.sf.toggleClass("hidden");
+      lineObj.sf.removeClass("hidden");
       i++;
+    } // loop ends
+    log("done drawLines()");
+  }
+
+  this.hideAllLines = function(){
+    var dict = lh.getDict();
+    for (var lineId in dict){
+      dict[lineId].sf.addClass("hidden");
     }
   }
 }

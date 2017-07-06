@@ -19,12 +19,12 @@ function Handler(){
     if (this.idToObj.hasOwnProperty(id)){
       return this.idToObj[id];
     }
-    log("ih cannot find obj for id:"+id.toString());
+    log("ih cannot find obj with id:"+id.toString());
   }
 
   this.addObj = function(id){
     if (this.idToObj.hasOwnProperty(id)){
-      log("obj with id: "+id+" already exists, cannot add");
+      log("obj with id: '"+id+"' already exists, cannot add");
     } else {
       this.idToObj[id] = new Note(id); // pairs id of visual to the corresponding obj in memory
       this.titleToId[id] = id; // starting titles are same as id
@@ -34,19 +34,15 @@ function Handler(){
   }
 
   this.rmObj = function(id){
+    alert(id);
     if (this.idToObj.hasOwnProperty(id)){
-      var t = this.idToObj[id].getTitle();
-
-      rmFromArr(this.titles,t);
-      delete this.titleToId[t];
       delete this.idToObj[id];
     } else {
-      log("obj with id: "+id+" DNE cannot rm");
+      log("cannot rm obj with id: '"+id+"' b/c DNE");
     }
   }
 
   this.updateObjTitle = function(id,newTitle){
-    log("called");
     var currId;
     for(var t in this.titleToId){
       currId = this.titleToId[t];
@@ -68,5 +64,3 @@ function Handler(){
   }
   //log("done ih init");
 }
-
-var ih = new Handler();

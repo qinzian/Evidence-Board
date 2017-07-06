@@ -17,6 +17,7 @@ function IHCtrler($scope, SharedService, $compile){
     var newElem = strf("<p id = '{}' class = 'note'  "+
     "ng-click = 'clickedBoardObj({})'  "+
     "ng-dblclick = 'dblclickedBoardObj({})'  "+
+		"ng-mousedown = 'mousedownObj()'  "+
     "ondrag  = 'dragBoardObj(this.id)'  "+
     ">{}</p>",[id,"\""+id+"\"","\""+id+"\"",id]);
 
@@ -35,11 +36,15 @@ function IHCtrler($scope, SharedService, $compile){
 
 	$scope.selectedObjIds = [];
 
+	$scope.mousedownObj = function(){
+		ig.hideAllLines();
+	}
+
 	$scope.clickedBoardObj = function(id){ // toggles between select and deselect of boardObj
 		log(id+"is dragging:"+ih.getObj(id).getDrag());
 		ih.getObj(id).updateRect();
 
-		$("#objInfo").html(ih.getObj(id).toString());
+		logObj(ih.getObj(id));
 
 	  // check if the click event is caused by dragging
 	  if (ih.getObj(id).getDrag() == true){
@@ -79,21 +84,7 @@ function IHCtrler($scope, SharedService, $compile){
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
 				//log("pressed x");
 	      for (var i = 0; i < $scope.selectedObjIds.length; i++){
-					var id = $scope.selectedObjIds[i];
-
-	        // this obj should also be rm from other's cxns
-	        obj1 = ih.getObj(id);
-	        for (var cxnId in obj1.getCxns()){
-	          ih.getObj(cxnId).rmCxn(id);
-	        }
-					/*
-					for (var lineId in lh.getLines(id){
-						lh.rmObj(lineId);
-						$("#"+lineId).remove(); // rm the corresponding
-					}/**/
-
-	        ih.rmObj(id); // rm the corresponding obj from memory
-	        $("#"+id).remove(); // rm the corresponding
+					ih.deleteNote($scope.selectedObjIds[i]);
 	      }
 				$scope.clearSelection(false);
 
@@ -107,7 +98,7 @@ function IHCtrler($scope, SharedService, $compile){
 						var id2 = $scope.selectedObjIds[i2];
 						obj1.addCxn(id2); // add cxn will update cxn in both objs
 
-						//$scope.genLine(id1,id2);
+						$scope.genLine(id1,id2);
 	        } // inner for loop
 	      } // outter for loop
 				$scope.clearSelection(true);
@@ -126,13 +117,12 @@ function IHCtrler($scope, SharedService, $compile){
 	}
 
 	$scope.clearSelection = function(deselectNote){
-	  $scope.selectedObjIds.length = 0;
 		if (deselectNote){
 			for (var i = 0; i < $scope.selectedObjIds.length; i++) {
 				$("#"+$scope.selectedObjIds[i]).removeClass("selected");
 			}
-
 		}
+		$scope.selectedObjIds.length = 0;
 	}
 
 	$scope.testing = function(a){

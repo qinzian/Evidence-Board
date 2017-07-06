@@ -38,7 +38,7 @@ function Line(id) {
   }
 
   this.updateDraw = function(){
-    $("#objInfo").html(strf("({},{}),({},{})",[this.p1.x,this.p1.y,this.p2.x,this.p2.y]));
+    //$("#objInfo").html(strf("({},{}),({},{})",[this.p1.x,this.p1.y,this.p2.x,this.p2.y]));
     // set length of line
 
     this.h = this.absDistance(this.p1,this.p2);

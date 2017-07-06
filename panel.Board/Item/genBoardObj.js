@@ -29,7 +29,7 @@ function BoardObj(t,id){
       this.cxns[id] = $("#"+id.toString());
       ih.getObj(id).addCxn(this.id);
     } else {
-      log("the cxn to be added to "+this.id+" already exists: "+id);
+      log("the cxn to be added to '"+this.id+"' already exists: "+id);
     }
   }
 
@@ -39,7 +39,7 @@ function BoardObj(t,id){
       delete this.cxns[id];
       //log(id+" is removed from "+this.id+"s cxns");
     } else {
-      log("the cxn to be removed dne: "+id);
+      log("BoardObj.rmCxn(): the cxn to be removed from '"+this.id+"'dne: "+id);
     }
   }
 

@@ -70,6 +70,10 @@ function log(msg){
   $("#debug").html(msg);
 }
 
+function logObj(obj){
+  $("#objInfo").html(obj.toString());
+}
+
 function logxy(pt){
   log(strf("({},{})",[pt.x,pt.y]));
 }
