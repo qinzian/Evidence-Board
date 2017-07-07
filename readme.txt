@@ -12,10 +12,12 @@ pictures credits / src:
 * github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
   try to download the whole package or clone the repo to run it
 
-Next v3.6:
- deleting cxn in im window will also delete the cxn lines
+Next v3.7:
+ - have proper use of handler (move methods from ih to nh, and use nh)
+
+ - IM: after hopping to another note via cxn table, can use a back button to go to previous note
+
+ - take picture of the board with all the connecting lines?
  
 issues:
- not locating properly in the optionPane window, may be due to i switched to local angularjs script
-
  handlers relationship not proper (i.e. shouldn't be instantiating the super class ih, should use nh instead)
