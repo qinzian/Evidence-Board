@@ -1,8 +1,7 @@
 //$("#cxnNote100").draggable();
 
 function imRmCxn(dbID,currObjId){
-  log(strf("rm cxn with: {} and {}",[dbID,currObjId]));
-
+  //log(strf("rm cxn with: {} and {}",[dbID,currObjId]));
   im.rmCxn(subString(dbID,2),currObjId); // convert the dbId to corresponding cxnId
 }
 

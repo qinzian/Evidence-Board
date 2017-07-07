@@ -36,18 +36,19 @@ LineHandler = function(){
     this.idToObj[lineId].addCxn(id2);
   }
 
-  this.getLine = function(id1,id2){
+  this.getCxnLine = function(id1,id2){
+    //alert(id1+id2);
     var shorterList = id1;
     if (this.noteToLines[id1].length > this.noteToLines[id2].length){
       shorterList = id2;
     } // loop through shorter list to find common item
 
+    //alert("lh.getCxnLine(): "+this.noteToLines[shorterList]);
     for (var i = 0; i< this.noteToLines[shorterList].length;i++){
       var lineId = this.noteToLines[shorterList][i];
       var lineCxns = this.idToObj[lineId].getCxns();
 
       if (lineCxns.hasOwnProperty(id1) && lineCxns.hasOwnProperty(id2)){
-        //alert("found cxn");
         return lineId;
       }
     }
@@ -56,7 +57,7 @@ LineHandler = function(){
   }
 
   this.lineExists = function(id1,id2){
-    return (typeof this.getLine(id1,id2) == "string");
+    return (typeof this.getCxnLine(id1,id2) == "string");
   }
 
   this.getLines = function(noteId){
@@ -79,7 +80,7 @@ LineHandler = function(){
         this.rmObj(lineId);
       } // loop through all cxnLines to delete
 
-      delete this.noteToLines[noteId];// delete entire entry: noteId
+      delete this.noteToLines[deleteNoteId];// delete entire entry: noteId
 
     } else {
       log("lh.rmNote(): cannot rm note with id: '"+id+"' b/c DNE");
@@ -87,10 +88,16 @@ LineHandler = function(){
   }
 
   this.rmCxn = function(n1,n2){
+    alert(n1+n2);
+    var cxnLine = this.getCxnLine(n1,n2);
+    alert("lh.rmCxn():"+cxnLine);
+    this.rmCxnLine(n1,cxnLine);
+    this.rmCxnLine(n2,cxnLine);
 
+    this.rmObj(cxnLine);
   }
 
-  this.rmCxnLine = function(noteId,lineId){
+  this.rmCxnLine = function(noteId,lineId){ // only alters the this.noteTolines
     if (this.noteToLines.hasOwnProperty(noteId)){
       if (this.noteToLines[noteId].contains(lineId)){
         rmFromArr(this.noteToLines[noteId],lineId);
@@ -100,7 +107,9 @@ LineHandler = function(){
     } else {
       log("lh.rmCxn(): specified note with id: '"+noteId+"' DNE");
     }
+    log("done rmCxnLine()");
   }
+
 }
 
 LineHandler.prototype = Object.create(Handler.prototype);

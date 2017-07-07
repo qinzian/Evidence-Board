@@ -25,14 +25,11 @@ function ItemMenu(){
   }
 
   this.checkoutObj = function(oldID,newID){
-
-    log("begun");
-
     // the boolean arg determines whether the last obj viewed will save its changes
     this.clearCurrObj(true);
-    log("done clearing");
+    //log("done clearing");
     this.setupCurrObj(newID);
-    log("done setup new obj"+newID);
+    //log("done setup new obj"+newID);
   }
 
   this.setupCurrObj = function(currObjId){
@@ -76,19 +73,11 @@ function ItemMenu(){
     ih.getObj(targetObjId).rmCxn(currObjId);
 
     // removes lines from both notes
-    this.currObj.rmCxn(targetObjId);
-    ih.getObj(targetObjId).rmCxn(currObjId);
-
+    lh.rmCxn(targetObjId,currObjId);
+    //alert("done");
     // rm the display of cxn on the imView
     $("#cxn"+targetObjId).remove();
     $("#db"+targetObjId).remove();
-
-    /*
-    var tmp = "";
-  	for (var id in this.currObj.getCxns()) {
-  		tmp+=id+", "
-  	}
-  	$("#objInfo").html(tmp); /**/
   }
 }
 
