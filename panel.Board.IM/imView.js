@@ -42,13 +42,18 @@ function ItemMenu(){
     // load value stored in obj
     this.txt.text(this.currObj.getV());
 
-    // load cxns
+    // load cxns table
+    var tmp = "";
     for (var cxnObjID in this.currObj.getCxns()) {
       newDB = strf("<li id = \"db{}\" class = \"dbs\" onclick='imRmCxn(this.id,\"{}\")'>X </li>",
                     [cxnObjID.toString(),currObjId.toString()]);
 
+      tmp = nh.getObj(cxnObjID).getTitle().split("\n");
+      if (tmp.length > 1){
+        tmp = tmp[0] + "  ..."; // this keeps the display of the cxns' title to single line
+      }
       newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutObj(\"{}\",this.id)'>{}</li>",
-                    [cxnObjID.toString(),currObjId.toString(),nh.getObj(cxnObjID).getTitle()]);
+                    [cxnObjID.toString(),currObjId.toString(),tmp]);
 
       // update the display of cxns
       this.dbs.append(newDB);

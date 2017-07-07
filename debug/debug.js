@@ -4,7 +4,7 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	log(lh.toString());
+	log($("#debugInput2").text().indexOf("\n"));
 }
 
 $(function(){
