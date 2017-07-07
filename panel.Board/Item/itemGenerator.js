@@ -26,7 +26,7 @@ function ItemGenerator(){
 
   this.genNote = function(noteId){
     // create obj in memory
-    ih.addObj(noteId);
+    nh.addObj(noteId);
     lh.updateNoteToLines(noteId,noteId); // does the init for the note to lines obj
   }
 
@@ -45,7 +45,7 @@ function ItemGenerator(){
     var lineId;
     var lineObj;
 
-    var currNote = ih.getObj(noteId);
+    var currNote = nh.getObj(noteId);
     var cxnIds = currNote.getCxns();
     var currCxn;
     var pts;
@@ -58,7 +58,7 @@ function ItemGenerator(){
 
       lineObj = lh.getObj(lineId);
       //log("reached");
-      currCxn = ih.getObj(currCxnId);
+      currCxn = nh.getObj(currCxnId);
 
       pts = this.gen2Pts(currNote.getRect(),currCxn.getRect());
 

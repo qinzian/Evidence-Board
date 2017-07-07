@@ -33,7 +33,7 @@ function ItemMenu(){
   }
 
   this.setupCurrObj = function(currObjId){
-    this.currObj = ih.getObj(currObjId);
+    this.currObj = nh.getObj(currObjId);
 
     // load title
     //log("loading title for objID:"+id+"<br> title: "+this.currObj.getTitle());
@@ -48,7 +48,7 @@ function ItemMenu(){
                     [cxnObjID.toString(),currObjId.toString()]);
 
       newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutObj(\"{}\",this.id)'>{}</li>",
-                    [cxnObjID.toString(),currObjId.toString(),ih.getObj(cxnObjID).getTitle()]);
+                    [cxnObjID.toString(),currObjId.toString(),nh.getObj(cxnObjID).getTitle()]);
 
       // update the display of cxns
       this.dbs.append(newDB);
@@ -70,7 +70,7 @@ function ItemMenu(){
   this.rmCxn = function(targetObjId,currObjId){
     // removes both obj from each other's cxn list
     this.currObj.rmCxn(targetObjId);
-    ih.getObj(targetObjId).rmCxn(currObjId);
+    nh.getObj(targetObjId).rmCxn(currObjId);
 
     // removes lines from both notes
     lh.rmCxn(targetObjId,currObjId);

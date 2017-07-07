@@ -36,4 +36,4 @@ NoteHandler = function(){
 NoteHandler.prototype = Object.create(Handler.prototype);
 NoteHandler.prototype.constructor = NoteHandler;
 
-var ih = new NoteHandler();
+var nh = new NoteHandler();

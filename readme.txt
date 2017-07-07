@@ -12,12 +12,9 @@ pictures credits / src:
 * github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
   try to download the whole package or clone the repo to run it
 
-Next v3.7:
- - have proper use of handler (move methods from ih to nh, and use nh)
-
+Next v3.8:
  - IM: after hopping to another note via cxn table, can use a back button to go to previous note
 
+ - IM: reformat IM to account for super long titles
+
  - take picture of the board with all the connecting lines?
- 
-issues:
- handlers relationship not proper (i.e. shouldn't be instantiating the super class ih, should use nh instead)

@@ -6,7 +6,7 @@ function SharedService(){
   var factory = {};
 
   factory.getIH = function(){
-    return ih;
+    return nh;
   }
 
   factory.tempBringForward = function(id){

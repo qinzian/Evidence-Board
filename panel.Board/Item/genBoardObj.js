@@ -27,7 +27,7 @@ function BoardObj(t,id){
   this.addCxn = function(id){
     if (!this.cxns.hasOwnProperty(id)){
       this.cxns[id] = $("#"+id.toString());
-      ih.getObj(id).addCxn(this.id);
+      nh.getObj(id).addCxn(this.id);
     } else {
       log("the cxn to be added to '"+this.id+"' already exists: "+id);
     }
@@ -44,7 +44,7 @@ function BoardObj(t,id){
   }
 
   this.setTitle = function(s){
-    ih.updateObjTitle(this.id,s); // args: (id, newTitle)
+    nh.updateObjTitle(this.id,s); // args: (id, newTitle)
 
     this.title = s;
     this.sf.html(this.title);

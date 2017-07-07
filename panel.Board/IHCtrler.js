@@ -41,14 +41,14 @@ function IHCtrler($scope, SharedService, $compile){
 	}
 
 	$scope.clickedBoardObj = function(id){ // toggles between select and deselect of boardObj
-		log(id+"is dragging:"+ih.getObj(id).getDrag());
-		ih.getObj(id).updateRect();
+		log(id+"is dragging:"+nh.getObj(id).getDrag());
+		nh.getObj(id).updateRect();
 
-		logObj(ih.getObj(id));
+		logObj(nh.getObj(id));
 
 	  // check if the click event is caused by dragging
-	  if (ih.getObj(id).getDrag() == true){
-	    ih.getObj(id).setDrag(false);
+	  if (nh.getObj(id).getDrag() == true){
+	    nh.getObj(id).setDrag(false);
 	    return;
 	  }
 
@@ -88,7 +88,7 @@ function IHCtrler($scope, SharedService, $compile){
 	    if (String.fromCharCode(e.keyCode) == "x"){ // delete selectedObjIds
 				//log("pressed x");
 	      for (var i = 0; i < $scope.selectedObjIds.length; i++){
-					ih.deleteNote($scope.selectedObjIds[i]);
+					nh.deleteNote($scope.selectedObjIds[i]);
 	      }
 				$scope.clearSelection(false);
 
@@ -97,7 +97,7 @@ function IHCtrler($scope, SharedService, $compile){
 	      for (var i1 = 0; i1 < $scope.selectedObjIds.length; i1++) {
 					var id1 = $scope.selectedObjIds[i1];
 
-	        obj1 = ih.getObj(id1);
+	        obj1 = nh.getObj(id1);
 	        for (var i2 = i1+1; i2 < $scope.selectedObjIds.length; i2++){
 						var id2 = $scope.selectedObjIds[i2];
 						obj1.addCxn(id2); // add cxn will update cxn in both objs
