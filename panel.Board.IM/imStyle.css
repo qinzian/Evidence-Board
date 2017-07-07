@@ -10,11 +10,21 @@
   z-index:10;
 }
 
-#imExitButton{
+#imBackButton{
   position:absolute;
-  left:580px;
+  left:480px;
+  top: 45px;
 
-  width:20px;
+  width:40px;
+  height:20px;
+}
+
+#imForwardButton{
+  position:absolute;
+  left:540px;
+  top: 45px;
+
+  width:40px;
   height:20px;
 }
 
@@ -33,7 +43,7 @@
   width:100%;
   height:100%;
 
-  font-size: 15px;
+  font-size: 25px;
 }
 
 #imView{
@@ -48,32 +58,39 @@
 
 #imUpdateButton{
   position: absolute;
-  left:500px;
-  top:350px;
+  left:480px;
+  top:360px;
 
   width: 80px;
   height: 80px;
 }
 
+#imValView{
+  position: absolute;
+  top:45px;
+  left:10px;
+
+  width:450px;
+  height:320px;
+}
+
 #imCxnTable{
   position:absolute;
-  top:65px;
-  left:20px;
+
+  left:480px;
+  top: 85px;
 
   width: 100px;
-  height:300px;
+  height:250px;
 
-  overflow:auto;
+  overflow-x:auto;
 }
 #imCxnView{
   position: absolute;
   top:0px;
   left:25px;
 
-  width:60px;
-
   list-style-type: none;
-  overflow-x: auto;
 }
 
 #imDBView{
@@ -84,13 +101,4 @@
   width:10px;
 
   list-style-type: none;
-}
-
-
-#imValView{
-  position: absolute;
-  left:140px;
-  top: 65px;
-  width:450px;
-  height:300px;
 }

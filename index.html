@@ -2,7 +2,7 @@
 <html ng-app = "Evidence-Board">
   <head>
     <meta charset="utf-8">
-    <title>Evidence Board v3.3</title>
+    <title>Evidence Board v3.8</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="panel.Board/boardStyle.css">
     <link rel="stylesheet" href="panel.Board/Item/boardObj.css">
@@ -54,9 +54,10 @@
     </div>
 
     <!--Initially hidden zone that manages boardObj's info in memory-->
-    <div id = "imZone" class = "zone hidden">
+    <div id = "imZone" class = "zone hidden" onkeypress="checkExitIm()">
       <div id = "imView" class = "zone">
-        <button id = "imExitButton" onclick="imExitButton(false)">X</button>
+        <img id = "imBackButton" class = "zone" onclick="imBackButton()" src = "pics/pic0.png">
+        <img id = "imForwardButton" class = "zone" onclick="imForwardButton()" src = "pics/pic1.png">
         <textarea id="imTitle" class = "zone" placeholder = "[Title Here]"></textarea>
         <div id = "imCxnTable" class = "zone">
           <ul id = "imDBView" class = "zone">
@@ -67,7 +68,7 @@
         <div id = "imValView" class = "zone">
           <textarea id = "imTxtContainer" placeholder = "[Text Here]"></textarea>
         </div>
-        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "imExitButton(true)">
+        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "exitIm(true)">
       </div>
     </div>
 
