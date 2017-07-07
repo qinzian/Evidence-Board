@@ -76,6 +76,10 @@ function IHCtrler($scope, SharedService, $compile){
 	  }/**/
 	}
 
+	$scope.clickedLine = function(lineId){
+		//TODO do stuff;
+	}
+
 	$scope.pressedKey = function(e){
 		//log("inIM: "+inIM+"<br>focused on board:"+ $scope.data.focusedOnBoard);
 	  if(!inIM && $scope.data.focusedOnBoard){ // don't check keypress if user is in imView

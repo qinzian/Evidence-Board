@@ -9,6 +9,13 @@ function SharedService(){
     return ih;
   }
 
+  factory.tempBringForward = function(id){
+		$("#"+id.toString()).addClass("located");/**/
+		setTimeout(function(){
+			$("#"+id.toString()).removeClass("located");/**/
+		}, 2000);
+  }
+
   factory.inputTxt = "";
   factory.focusedOnBoard = false;
 

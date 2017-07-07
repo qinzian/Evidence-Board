@@ -12,9 +12,9 @@ function ItemGenerator(){
     // creating visual component of line
     var newElem = strf("<img id = \"{}\" class = \"line hidden\" "+
                        "src = \"pics/line.png\" "+
-                       "onclick = logObj(this.id)>"
+                       "ng-click = clickedLine(this.id)>"
                       ,[lineId]);
-    $("#board").append(newElem);
+    $("#board").prepend(newElem);
 
     // creating obj in memory
     lh.addObj(lineId);
