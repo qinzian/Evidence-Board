@@ -15,6 +15,6 @@ pictures credits / src:
 Next v3.8:
  - IM: after hopping to another note via cxn table, can use a back button to go to previous note
 
- - IM: reformat IM to account for super long titles
+ - IM: reformat IM to account for super long titles; re-design the layout of IM window
 
  - take picture of the board with all the connecting lines?

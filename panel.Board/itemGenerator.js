@@ -4,7 +4,7 @@ function ItemGenerator(){
   this.genLine = function(id1,id2,lineC){
     var lineId = "line"+lineC.toString();
 
-    if (lh.lineExists(id1,id2)){
+    if (lh.lineExistsBetween(id1,id2)){
       //log("exists");
       return;
     }
@@ -20,8 +20,6 @@ function ItemGenerator(){
     lh.addObj(lineId);
 
     lh.updateNoteToLines(id1,id2,lineId);
-
-    lh.updateLineCxn(id1,id2,lineId);
   }
 
   this.genNote = function(noteId){
@@ -41,7 +39,7 @@ function ItemGenerator(){
   this.drawLines = function(noteId){
     log("begun with noteId:"+noteId);
 
-    var lineIds = lh.getLines(noteId)
+    var lineIds = lh.getLinesForNote(noteId)
     var lineId;
     var lineObj;
 

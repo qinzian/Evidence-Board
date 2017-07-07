@@ -4,8 +4,7 @@ function toggleDebugP(){
 //toggleDebugP(); // hide debugZone on load/**/
 
 function test(){
-	logObj(objToString(lh.noteToLines));
-	log(objToString(lh.getDict()));
+	log(lh.toString());
 }
 
 $(function(){

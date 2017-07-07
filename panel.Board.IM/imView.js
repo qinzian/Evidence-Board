@@ -73,7 +73,7 @@ function ItemMenu(){
     nh.getObj(targetObjId).rmCxn(currObjId);
 
     // removes lines from both notes
-    lh.rmCxn(targetObjId,currObjId);
+    lh.rmLineBetweenNotes(targetObjId,currObjId);
     //alert("done");
     // rm the display of cxn on the imView
     $("#cxn"+targetObjId).remove();

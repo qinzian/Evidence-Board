@@ -1,5 +1,5 @@
 LineHandler = function(){
-  Handler.call(this,"line");
+  Handler.call(this);
 
   this.noteToLines = {};
 
@@ -8,6 +8,14 @@ LineHandler = function(){
       log("lh.addObj(): obj with id: '"+id+"' already exists, cannot add");
     } else {
       this.idToObj[id] = new Line(id);
+    }
+  }
+
+  this.rmObj = function(id){
+    if (this.idToObj.hasOwnProperty(id)){
+      delete this.idToObj[id];
+    } else {
+      log("cannot rm obj with id: '"+id+"' b/c DNE");
     }
   }
 
@@ -20,30 +28,26 @@ LineHandler = function(){
     }
 
     if (typeof lineId == "undefined"){
-      return;
+      return; // this function is called for init purposes, so no need to continue
     }
 
-    if (!this.noteToLines[id1].contains(lineId)){
+    if (!(this.noteToLines[id1].contains(lineId)&&this.noteToLines[id2].contains(lineId))){
       this.noteToLines[id1].push(lineId);
-    }
-    if (!this.noteToLines[id2].contains(lineId)){
       this.noteToLines[id2].push(lineId);
+      this.idToObj[lineId].addCxn(id1);
+      this.idToObj[lineId].addCxn(id2);
+    } else {
+      log("lh.updateNoteToLines(): for some reason one of the note entries already contain lineId:"+lineId);
     }
   }
 
-  this.updateLineCxn = function(id1,id2,lineId){
-    this.idToObj[lineId].addCxn(id1);
-    this.idToObj[lineId].addCxn(id2);
-  }
-
-  this.getCxnLine = function(id1,id2){
+  this.getConnectingLine = function(id1,id2){
     //alert(id1+id2);
     var shorterList = id1;
     if (this.noteToLines[id1].length > this.noteToLines[id2].length){
       shorterList = id2;
     } // loop through shorter list to find common item
 
-    //alert("lh.getCxnLine(): "+this.noteToLines[shorterList]);
     for (var i = 0; i< this.noteToLines[shorterList].length;i++){
       var lineId = this.noteToLines[shorterList][i];
       var lineCxns = this.idToObj[lineId].getCxns();
@@ -56,11 +60,11 @@ LineHandler = function(){
     return -1;
   }
 
-  this.lineExists = function(id1,id2){
-    return (typeof this.getCxnLine(id1,id2) == "string");
+  this.lineExistsBetween = function(id1,id2){
+    return (typeof this.getConnectingLine(id1,id2) == "string");
   }
 
-  this.getLines = function(noteId){
+  this.getLinesForNote = function(noteId){
     return this.noteToLines[noteId];
   }
 
@@ -73,7 +77,7 @@ LineHandler = function(){
 
         for (var noteId in this.idToObj[lineId].getCxns()){// each line knows 2 notes
           if (noteId !== deleteNoteId){
-            this.rmCxnLine(noteId,lineId);
+            this.rmLineFromNote(noteId,lineId);
             //alert(noteId+""+lineId);
           }
         }
@@ -87,17 +91,17 @@ LineHandler = function(){
     }
   }
 
-  this.rmCxn = function(n1,n2){
-    alert(n1+n2);
-    var cxnLine = this.getCxnLine(n1,n2);
-    alert("lh.rmCxn():"+cxnLine);
-    this.rmCxnLine(n1,cxnLine);
-    this.rmCxnLine(n2,cxnLine);
+  this.rmLineBetweenNotes = function(n1,n2){
+    //alert(n1+n2);
+    var cxnLine = this.getConnectingLine(n1,n2);
+    //alert("lh.rmCxn():"+cxnLine);
+    this.rmLineFromNote(n1,cxnLine);
+    this.rmLineFromNote(n2,cxnLine);
 
     this.rmObj(cxnLine);
   }
 
-  this.rmCxnLine = function(noteId,lineId){ // only alters the this.noteTolines
+  this.rmLineFromNote = function(noteId,lineId){ // only alters the this.noteTolines
     if (this.noteToLines.hasOwnProperty(noteId)){
       if (this.noteToLines[noteId].contains(lineId)){
         rmFromArr(this.noteToLines[noteId],lineId);
@@ -110,6 +114,11 @@ LineHandler = function(){
     log("done rmCxnLine()");
   }
 
+  this.toString = function(){
+    return strf("{}<br>+++++<br>{}",
+                [objToString(this.noteToLines),
+                 objToString(this.idToObj)]);
+  }
 }
 
 LineHandler.prototype = Object.create(Handler.prototype);
