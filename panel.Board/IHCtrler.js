@@ -4,20 +4,36 @@ function IHCtrler($scope, SharedService, $compile){
 
 	$scope.genLine = function(id1,id2){
 		//log("called genLine()");
-		ig.genLine(id1,id2,$scope.lineC);
+		var lineId = "line"+$scope.lineC.toString();
+
+		if (lh.lineExistsBetween(id1,id2)){
+			//log("exists");
+			return;
+		}
+
+		// create visual element
+		var newElem = strf("<img id = \"{}\" class = \"line hidden\" "+
+											 "src = \"pics/line.png\" "+
+											 "ng-dblclick = 'dblclickedLine($event)'" +
+											 ">",[lineId]);
+
+	 	var temp = $compile(newElem)($scope);
+	 	angular.element(document.getElementById("board")).prepend(temp);// so they are hidden under the notes
+
+		// create obj in memory
+		ig.genLine(id1,id2,lineId);
 		$scope.lineC++;
-		//log("finished genLine()");
 	}
 
 	$scope.genNote = function(x,y){
 		log("called genNote");
 		var id = "note" + $scope.noteC.toString();
 
-    // create visual
+    // create visual element
     var newElem = strf("<p id = '{}' class = 'note'  "+
     "ng-click = 'clickedBoardObj({})'  "+
     "ng-dblclick = 'dblclickedBoardObj({})'  "+
-		"ng-mousedown = 'mousedownObj()'  "+
+		"ng-mousedown = 'mousedownNote()'  "+
     "ondrag  = 'dragBoardObj(this.id)'  "+
     ">{}</p>",[id,"\""+id+"\"","\""+id+"\"",id]);
 
@@ -27,8 +43,8 @@ function IHCtrler($scope, SharedService, $compile){
 
     $("#"+id).css({left:x-40, top:y-80});
 
+		// create obj in memory
 		ig.genNote(id);
-
 		$scope.noteC++;
 	}
 
@@ -36,16 +52,16 @@ function IHCtrler($scope, SharedService, $compile){
 
 	$scope.selectedObjIds = [];
 
-	$scope.mousedownObj = function(){
+	$scope.mousedownNote = function(){
 		ig.returnForwardedNotes();
 		ig.hideAllLines();
 	}
 
 	$scope.clickedBoardObj = function(id){ // toggles between select and deselect of boardObj
-		log(id+"is dragging:"+nh.getObj(id).getDrag());
+		//log(id+"is dragging:"+nh.getObj(id).getDrag());
 		nh.getObj(id).updateRect();
 
-		logObj(nh.getObj(id));
+		//logObj(nh.getObj(id));
 
 	  // check if the click event is caused by dragging
 	  if (nh.getObj(id).getDrag() == true){
@@ -77,8 +93,12 @@ function IHCtrler($scope, SharedService, $compile){
 	  }/**/
 	}
 
-	$scope.clickedLine = function(lineId){
-		//TODO do stuff;
+	$scope.dblclickedLine = function(e){
+		e.stopPropagation(); // so the board doesn't get the dlb-click event
+		var cxnId = lh.getObj(e.target.id).getCxns();
+		alert(strf("n1: {}\n\nn2: {}",
+							[nh.getObj(cxnId[0]).getTitle(),
+							 nh.getObj(cxnId[1]).getTitle()])); // lines have exactly two note cxns
 	}
 
 	$scope.pressedKey = function(e){

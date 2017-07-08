@@ -1,24 +1,10 @@
 //log("started loading ig");
 
 function ItemGenerator(){
-  this.genLine = function(id1,id2,lineC){
-    var lineId = "line"+lineC.toString();
-
-    if (lh.lineExistsBetween(id1,id2)){
-      //log("exists");
-      return;
-    }
-
-    // creating visual component of line
-    var newElem = strf("<img id = \"{}\" class = \"line hidden\" "+
-                       "src = \"pics/line.png\" "+
-                       "ng-click = clickedLine(this.id)>"
-                      ,[lineId]);
-    $("#board").prepend(newElem);
-
+  
+  this.genLine = function(id1,id2,lineId){
     // creating obj in memory
     lh.addObj(lineId);
-
     lh.updateNoteToLines(id1,id2,lineId);
   }
 

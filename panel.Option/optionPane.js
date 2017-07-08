@@ -14,15 +14,18 @@ function OptionCtrler($scope, SharedService){
 	}/**/
 
 	$scope.clickedResult = function(e){
-		log("clicked: "+e.target.id.toString());
+		var id = e.target.id;
+		log("clicked: "+id.toString());
 
-		var clickedObj = nh.getObj(e.target.id.toString());
+		var clickedObj = nh.getObj(id.toString());
 
 		// shift the whole board so that the obj will be in view
 		$scope.boardCentreAtObj(clickedObj);
 
     // this will bring the note up to the front in case it was buried
-		$scope.data.tempBringForward(e.target.id);
+		if(!$("#"+id).hasClass("located")){
+			$scope.data.tempBringForward(id);
+		}
 	}
 
 	$scope.boardCentreAtObj = function(clickedObj){
