@@ -55,7 +55,7 @@ function IHCtrler($scope, SharedService, $compile){
 
 	  // click event not from dragging => normal clicking
 	  if ($scope.selectedObjIds.contains(id)){ // id already selected
-	    rmFromArr($scope.selectedObjIds,id);
+	    $scope.selectedObjIds.remove(id);
 	  } else {
 	    $scope.selectedObjIds.push(id);
 	  }
