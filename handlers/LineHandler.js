@@ -104,7 +104,7 @@ LineHandler = function(){
   this.rmLineFromNote = function(noteId,lineId){ // only alters the this.noteTolines
     if (this.noteToLines.hasOwnProperty(noteId)){
       if (this.noteToLines[noteId].contains(lineId)){
-        rmFromArr(this.noteToLines[noteId],lineId);
+        this.noteToLines[noteId].remove(lineId);
       } else {
         log("lh.rmCxn(): specified line with id: '"+lineId+"' DNE");
       }

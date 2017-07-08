@@ -17,7 +17,7 @@ NoteHandler = function(){
     for(var t in this.titleToId){
       currId = this.titleToId[t];
       if(currId == id){
-        rpFromArr(this.titles,t,newTitle); // args (arr,oldTitle,newTitle)
+        this.titles.replace(t,newTitle); // (oldTitle,newTitle)
         delete this.titleToId[t];
         this.titleToId[newTitle] = id;
         return;
@@ -51,6 +51,7 @@ NoteHandler = function(){
 
     log("done lines");
     this.rmObj(noteId); // rm the corresponding obj from memory
+
     $("#"+noteId).remove(); // rm the corresponding element
   }
 
@@ -59,7 +60,7 @@ NoteHandler = function(){
       var t = this.idToObj[id].getTitle();
 
       // update all three lists / collections
-      rmFromArr(this.titles,t);
+      this.titles.remove(t);
       delete this.titleToId[t];
       delete this.idToObj[id];
     } else {
