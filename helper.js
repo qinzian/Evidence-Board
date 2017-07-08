@@ -17,22 +17,6 @@ function range(p1,p2){
   return lst;
 }
 
-function rmFromArr(arr,t){
-  var i = arr.indexOf(t);
-
-  if (i > -1){
-    arr.splice(i,1);
-  }
-}
-
-function rpFromArr(arr,oldItem,newItem){
-  var i = arr.indexOf(oldItem);
-
-  if (i > -1){
-    arr[i] = newItem;
-  }
-}
-
 Array.prototype.contains = function(obj) {
     var i = this.length;
     while (i--) {
@@ -41,6 +25,29 @@ Array.prototype.contains = function(obj) {
         }
     }
     return false;
+}
+
+Array.prototype.replace = function(oldItem,newItem) {
+  var i = this.indexOf(oldItem);
+
+  if (i > -1){
+    arr[i] = newItem;
+  }
+}
+
+Array.prototype.remove = function(target) {
+  var i = this.indexOf(target);
+
+  if (i > -1){
+    this.splice(i,1);
+  }
+}
+
+Array.prototype.get = function(index) {
+  if (index < 0){
+    index = this.length + index;
+  }
+  return this[index];
 }
 
 function subString(s,begin, end){
