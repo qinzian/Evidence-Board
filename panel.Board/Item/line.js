@@ -37,10 +37,25 @@ function Line(id) {
       Math.pow(this.p1.x-this.p2.x,2) + Math.pow(this.p1.y-this.p2.y,2)));
   }
 
-  this.updateDraw = function(){
-    //$("#objInfo").html(strf("({},{}),({},{})",[this.p1.x,this.p1.y,this.p2.x,this.p2.y]));
-    // set length of line
+  this.gen2PtsFromCxns = function(){ // picks out two points, along the bottom side of rect
+    var tmp = [];
+    var currRect;
+    for(var cxnId in this.cxns){
+      currRect = nh.getObj(cxnId).getRect();
 
+      tmp.push({x:currRect.x+ parseInt(Math.random()*currRect.w),
+                y:currRect.y+ currRect.h});
+    }
+    return tmp;
+  }
+
+  this.updateDraw = function(){
+    var pts = this.gen2PtsFromCxns();
+
+    this.updatePt1(pts[0]);
+    this.updatePt2(pts[1]);
+
+    // set length of line
     this.h = this.absDistance(this.p1,this.p2);
     this.sf.css("height",this.h.toString()+"px");
 
@@ -59,11 +74,12 @@ function Line(id) {
     } else {
       this.orientation = 90- radToDeg(tmpRad);
     }
-    //this.sf.rotate({angle:0,animateTo:this.orientation,duration:10000});
     this.sf.rotate(this.orientation);
-    //log("ended with orientation:"+this.orientation);/**/
+
+    this.sf.removeClass("hidden");
   }
-  //log("done line init");
+
+
 }
 Line.prototype = Object.create(BoardObj.prototype);
 Line.prototype.constructor = Line;

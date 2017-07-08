@@ -28,54 +28,33 @@ function ItemGenerator(){
     lh.updateNoteToLines(noteId,noteId); // does the init for the note to lines obj
   }
 
-  this.gen2Pts = function(l1,l2){ // picks out two points along 2 lines
-    var tmp = [];
-    //log("picking");
-    tmp.push({x:l1.x+ parseInt(Math.random()*l1.w),y:l1.y+l1.h});
-    tmp.push({x:l2.x+ parseInt(Math.random()*l2.w),y:l2.y+l2.h});
-    return tmp;
-  }
-
   this.drawLines = function(noteId){
-    log("begun with noteId:"+noteId);
+    var lineIdsToDraw = lh.getLinesForNote(noteId);
 
-    var lineIds = lh.getLinesForNote(noteId)
-    var lineId;
-    var lineObj;
-
-    var currNote = nh.getObj(noteId);
-    var cxnIds = currNote.getCxns();
-    var currCxn;
-    var pts;
-
-    //logObj(lineIds);
-    var i = 0;
-    for (var currCxnId in cxnIds){
-      //log("in loop");
-      lineId = lineIds[i];
-
-      lineObj = lh.getObj(lineId);
-      //log("reached");
-      currCxn = nh.getObj(currCxnId);
-
-      pts = this.gen2Pts(currNote.getRect(),currCxn.getRect());
-
-      //log(strf("({},{}),({},{})",[pts[0].x,pts[0].y,pts[1].x,pts[1].y]));
-      lineObj.updatePt1(pts[0]);
-      lineObj.updatePt2(pts[1]);
-      lineObj.updateDraw();
-
-      lineObj.sf.removeClass("hidden");
-      i++;
+    for (var i = 0; i < lineIdsToDraw.length; i++){ // draw and bring out the cxn Lines
+      lh.getObj(lineIdsToDraw[i]).updateDraw();
+      this.bringForward(lineIdsToDraw[i]);
     } // loop ends
+
+    for (var cxnId in nh.getObj(noteId).getCxns()){ // bring out the cxn notes
+      this.bringForward(cxnId);
+    }
+    this.bringForward(noteId);  // bring out the note it self
+
     log("done drawLines()");
   }
 
+  this.bringForward = function(id){
+    $("#"+id.toString()).addClass("located");
+  }
+
+  this.returnForwardedNotes = function(){
+    $(".note.located").removeClass("located");
+  }
+
   this.hideAllLines = function(){
-    var dict = lh.getDict();
-    for (var lineId in dict){
-      dict[lineId].sf.addClass("hidden");
-    }
+    $(".line.located").addClass("hidden");
+    $(".line.located").removeClass("located");
   }
 }
 

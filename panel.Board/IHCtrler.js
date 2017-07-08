@@ -37,6 +37,7 @@ function IHCtrler($scope, SharedService, $compile){
 	$scope.selectedObjIds = [];
 
 	$scope.mousedownObj = function(){
+		ig.returnForwardedNotes();
 		ig.hideAllLines();
 	}
 

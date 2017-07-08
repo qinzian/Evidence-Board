@@ -27,6 +27,6 @@
 }
 
 .located{
-  background-color:pink;
+  background-color: rgba(270,240,180,1);
   z-index: 9;
 }
