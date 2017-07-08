@@ -1,7 +1,13 @@
 #debugZone{
   position: absolute;
-  left: 920px;
+  left: 1020px;
   top: 350px;
+}
+
+#testingButton{
+  position:relative;
+  left:110px;
+  top: -198px;
 }
 
 .info{

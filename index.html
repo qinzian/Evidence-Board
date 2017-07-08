@@ -13,12 +13,12 @@
 
 
   <body>
-    <div id = "superDiv" class = "zone">
+    <div id = "superDiv" class = "">
 
       <!--Zone where the objs are displayed-->
       <div id = "boardView" class = "zone" onmouseout = "mouseLeftBoard()">
-        <div id = "boardContainer" class = "zone">
-          <div id = "board" class = "zone" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
+        <div id = "boardContainer" class = "">
+          <div id = "board" class = "" ondrag = "dragBoard()" onmouseup = "mouseLeftBoard()"
            ng-controller = "IHCtrler" ng-dblclick = "dblclickedBoard($event)"
            ng-keypress = "pressedKey($event)">
           </div>
@@ -27,9 +27,10 @@
 
       <!--Zone that allows user to search and locate a particular note-->
       <div id = "optionView" class = "zone" ng-controller = "OptionCtrler">
-        Search: <input type="text" ng-model = "data.inputTxt"
-        ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">{{data.inputTxt}}
-        <ul id = "resultsContainer" class = "zone">
+        <br>
+        Search: <input id = "searchBox" type="text" ng-model = "data.inputTxt"
+        ng-focus = "focusBoard(false)" ng-blur = "focusBoard(true)">
+        <ul id = "resultsContainer" class = "">
           <li id = {{titleToId[title]}} class = "resultList" ng-click = "clickedResult($event)"
           ng-repeat = "title in resultsList | filter: data.inputTxt">
             {{title}}
@@ -38,18 +39,18 @@
       </div>
     </div>
 
-    <img id = "optionsToggleButton" class = "zone" src = "pics/num0.png" onclick = "toggleOptionsP()">
+    <img id = "optionsToggleButton" class = "" src = "pics/num0.png" onclick = "toggleOptionsP()">
 
     <!--for debugging-->
     <div id = "debugZone" class = "zone">
       <button id = "debugToggleButton" onclick = "toggleDebugP()">Debug On/Off</button>
-      <button id = "testingButton" onclick = "test()">Do stuff</button>
       <div id = "debugInfo">
         <input id = "debugInput1" class = "info"> <br>
         <textarea id = "debugInput2" class = "info"></textarea>
         <p id ="debug" class = "info">debug msg</p>
         <p id ="mousePos" class = "info">( , )</p>
         <p id = "objInfo" class = "info">display stuff from testingButton</p>
+        <button id = "testingButton" onclick = "test()">Do stuff</button>
       </div>
     </div>
 
@@ -68,7 +69,7 @@
         <div id = "imValView" class = "zone">
           <textarea id = "imTxtContainer" placeholder = "[Text Here]"></textarea>
         </div>
-        <img id = "imUpdateButton" class = "zone" src = "pics/num0.png" onclick = "exitIm(true)">
+        <img id = "imUpdateButton" class = "" src = "pics/num0.png" onclick = "exitIm(true)">
       </div>
     </div>
 
