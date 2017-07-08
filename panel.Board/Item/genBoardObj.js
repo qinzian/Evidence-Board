@@ -5,7 +5,6 @@ function BoardObj(t,id){
   this.val = "";
   this.cxns = []; // id to element obj
   this.sf = $("#"+id.toString());
-  this.title = id.toString(); // all title has default value
 
    // the rect of the obj
   this.left;
@@ -41,17 +40,6 @@ function BoardObj(t,id){
     } else {
       log("BoardObj.rmCxn(): the cxn to be removed from '"+this.id+"'dne: "+id);
     }
-  }
-
-  this.setTitle = function(s){
-    nh.updateObjTitle(this.id,s); // args: (id, newTitle)
-
-    this.title = s;
-    this.sf.html(this.title);
-  }
-
-  this.getTitle = function(){
-    return this.title;
   }
 
   this.getType = function(){

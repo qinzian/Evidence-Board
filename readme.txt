@@ -13,8 +13,6 @@ pictures credits / src:
   try to download the whole package or clone the repo to run it
 
 Next v3.10:
- - obj: change this.cxns from a type obj to a type list
-
  - use pictures and w/e
 
  - take picture of the board with all the connecting lines?
