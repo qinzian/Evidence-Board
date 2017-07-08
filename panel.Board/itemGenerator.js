@@ -36,8 +36,9 @@ function ItemGenerator(){
       this.bringForward(lineIdsToDraw[i]);
     } // loop ends
 
-    for (var cxnId in nh.getObj(noteId).getCxns()){ // bring out the cxn notes
-      this.bringForward(cxnId);
+    var noteCxns = nh.getObj(noteId).getCxns();
+    for (var i = 0; i < noteCxns.length; i++){ // bring out the cxn notes
+      this.bringForward(noteCxns[i]);
     }
     this.bringForward(noteId);  // bring out the note it self
 

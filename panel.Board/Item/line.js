@@ -24,15 +24,14 @@ function Line(id) {
 
   this.addCxn = function(id){
     log("Line.addCxn()");
-    if (!this.cxns.hasOwnProperty(id)){
-      this.cxns[id] = $("#"+id.toString());
+    if (!this.cxns.contains(id)){
+      this.cxns.push(id);
     } else {
       log("the cxn to be added to "+this.id+" already exists: "+id);
     }
   }
 
   this.absDistance = function(p1,p2){
-    //return 50;
     return Math.ceil(Math.sqrt(
       Math.pow(this.p1.x-this.p2.x,2) + Math.pow(this.p1.y-this.p2.y,2)));
   }
@@ -40,8 +39,8 @@ function Line(id) {
   this.gen2PtsFromCxns = function(){ // picks out two points, along the bottom side of rect
     var tmp = [];
     var currRect;
-    for(var cxnId in this.cxns){
-      currRect = nh.getObj(cxnId).getRect();
+    for(var i = 0; i< this.cxns.length; i++){
+      currRect = nh.getObj(this.cxns[i]).getRect();
 
       tmp.push({x:currRect.x+ parseInt(Math.random()*currRect.w),
                 y:currRect.y+ currRect.h});

@@ -46,15 +46,21 @@ function ItemMenu(){
 
     // load cxns table
     var tmp = "";
-    for (var cxnObjID in this.currObj.getCxns()) {
+    var noteCxns = this.currObj.getCxns();
+    var cxnObjID;
+    for (var i = 0; i< noteCxns.length; i++) {
+      cxnObjID = noteCxns[i];
+
       newDB = strf("<li id = \"db{}\" class = \"dbs\" onclick='imRmCxn(this.id)'>X </li>",
                     [cxnObjID.toString()] );
 
 
+      // ---------format-title-of-note-for-display------------------------------------
       tmp = nh.getObj(cxnObjID).getTitle().split("\n");
       if (tmp.length > 1){
         tmp = tmp[0] + "  ..."; // this keeps the display of each cxns' title to single line
       }
+      // ---------format-title-of-note-for-display-------------------------------------
 
 
       newCxn= strf("<li id = \"cxn{}\" class = \"cxns\" onclick='imCheckoutNewObj(this.id)'>{}</li>",

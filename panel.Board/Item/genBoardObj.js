@@ -3,7 +3,7 @@ function BoardObj(t,id){
   this.type = t;
   this.id = id;
   this.val = "";
-  this.cxns = {}; // id to element obj
+  this.cxns = []; // id to element obj
   this.sf = $("#"+id.toString());
   this.title = id.toString(); // all title has default value
 
@@ -25,8 +25,8 @@ function BoardObj(t,id){
   }
 
   this.addCxn = function(id){
-    if (!this.cxns.hasOwnProperty(id)){
-      this.cxns[id] = $("#"+id.toString());
+    if (!this.cxns.contains(id)){
+      this.cxns.push(id);
       nh.getObj(id).addCxn(this.id);
     } else {
       log("the cxn to be added to '"+this.id+"' already exists: "+id);
@@ -35,8 +35,8 @@ function BoardObj(t,id){
 
   this.rmCxn = function(id){
     //log(this.cxns.hasOwnProperty(id));
-    if (this.cxns.hasOwnProperty(id)){
-      delete this.cxns[id];
+    if (this.cxns.contains(id)){
+      this.cxns.remove(id);
       //log(id+" is removed from "+this.id+"s cxns");
     } else {
       log("BoardObj.rmCxn(): the cxn to be removed from '"+this.id+"'dne: "+id);

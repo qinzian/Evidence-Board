@@ -38,9 +38,10 @@ NoteHandler = function(){
 
   this.deleteNote = function(noteId){
     // this obj should also be rm from other's cxns
-    var noteObj = this.idToObj[noteId];
-    for (var cxnId in noteObj.getCxns()){
-      this.idToObj[cxnId].rmCxn(noteId);
+    var noteCxns = this.idToObj[noteId].getCxns();
+
+    for (var i = 0; i < noteCxns.length; i++){
+      this.idToObj[noteCxns[i]].rmCxn(noteId);
     }
     log("done cxn");
 

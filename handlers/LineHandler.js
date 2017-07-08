@@ -52,7 +52,7 @@ LineHandler = function(){
       var lineId = this.noteToLines[shorterList][i];
       var lineCxns = this.idToObj[lineId].getCxns();
 
-      if (lineCxns.hasOwnProperty(id1) && lineCxns.hasOwnProperty(id2)){
+      if (lineCxns.contains(id1) && lineCxns.contains(id2)){
         return lineId;
       }
     }
@@ -75,12 +75,11 @@ LineHandler = function(){
       for (var i = 0; i < linesToDelete.length; i++) {
         var lineId = linesToDelete[i];
 
-        for (var noteId in this.idToObj[lineId].getCxns()){// each line knows 2 notes
-          if (noteId !== deleteNoteId){
-            this.rmLineFromNote(noteId,lineId);
-            //alert(noteId+""+lineId);
-          }
-        }
+        var notesConnectedToLine = this.idToObj[lineId].getCxns();
+
+        this.rmLineFromNote(notesConnectedToLine[0],lineId);
+        this.rmLineFromNote(notesConnectedToLine[1],lineId);
+
         this.rmObj(lineId);
       } // loop through all cxnLines to delete
 
@@ -92,9 +91,8 @@ LineHandler = function(){
   }
 
   this.rmLineBetweenNotes = function(n1,n2){
-    //alert(n1+n2);
     var cxnLine = this.getConnectingLine(n1,n2);
-    //alert("lh.rmCxn():"+cxnLine);
+    
     this.rmLineFromNote(n1,cxnLine);
     this.rmLineFromNote(n2,cxnLine);
 
@@ -111,7 +109,6 @@ LineHandler = function(){
     } else {
       log("lh.rmCxn(): specified note with id: '"+noteId+"' DNE");
     }
-    log("done rmCxnLine()");
   }
 
   this.toString = function(){
