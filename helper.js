@@ -31,7 +31,7 @@ Array.prototype.replace = function(oldItem,newItem) {
   var i = this.indexOf(oldItem);
 
   if (i > -1){
-    arr[i] = newItem;
+    this[i] = newItem;
   }
 }
 

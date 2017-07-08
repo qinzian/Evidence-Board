@@ -12,8 +12,8 @@ function ItemMenu(){
 
   this.beforeB = $("#imBackButton");
   this.forwardB = $("#imForwardButton");
-  this.before;
-  this.after;
+  this.before =[];
+  this.after =[];
 
   this.enterIM = function(id){ // loads info based on obj's info
     this.before.length = 0; // clears both lists
@@ -93,7 +93,6 @@ function ItemMenu(){
   this.checkoutObj = function(nextNoteID,typeOfChange){
     if (typeOfChange == "forward new"){
       this.after.length = 0; // new path, so clear this.after list
-
       this.before.push(this.currObjId);
     } else if (typeOfChange == "forward old"){
       this.after.pop();
@@ -106,11 +105,12 @@ function ItemMenu(){
       return; // if none of the above, then shouldn't continue
     }
 
+    log("finished updating before/after lists");
     // the boolean arg determines whether the last obj viewed will save its changes
     this.clearCurrObj(true);
-    //log("done clearing");
+    log("done clearing");
     this.setupCurrObj(nextNoteID);
-    //log("done setup new obj"+newID);
+    log("done setup new obj"+this.currObjId);
   }
 
   this.checkoutNewObj = function(nextNoteId){
@@ -118,13 +118,23 @@ function ItemMenu(){
   }
 
   this.checkoutNextObj = function(){
+    if(this.after.length == 0){
+      log("IM.after is empty");
+      return; // do nothing if there isn't a next to go to
+    }
+
     this.checkoutObj(this.after.get(-1),"forward old");
-    alert(this.before.toString()+"\n"+this.after.toString());
+    //alert(strf("[{}]\n[{}]",[this.before.toString(),this.after.toString()]));
   }
 
   this.checkoutPreviousObj = function(){
+    if(this.before.length == 0){
+      log("IM.before is empty");
+      return; // do nothing if there isn't a previous to return to
+    }
+
     this.checkoutObj(this.before.get(-1),"backward"); // func(nextID,typeOfChange)
-    alert(this.before.toString()+"\n"+this.after.toString());
+    //alert(strf("[{}]\n[{}]",[this.before.toString(),this.after.toString()]));
   }
 }
 

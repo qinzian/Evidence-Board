@@ -11,11 +11,11 @@ function exitIm(doSave){
 }
 
 function imBackButton(){
-  im.checkoutNextObj();
+  im.checkoutPreviousObj();
 }
 
 function imForwardButton(){
-  im.checkoutPreviousObj();
+  im.checkoutNextObj();
 }
 
 $(document).keyup(function(e) {
