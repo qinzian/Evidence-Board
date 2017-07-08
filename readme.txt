@@ -12,9 +12,9 @@ pictures credits / src:
 * github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
   try to download the whole package or clone the repo to run it
 
-Next v3.8:
+Next v3.9:
  - IM: after hopping to another note via cxn table, can use a back button to go to previous note
 
- - bring to front all the lines and notes when viewing cxn lines
+ - obj: change this.cxns from a type obj to a type list
 
  - take picture of the board with all the connecting lines?

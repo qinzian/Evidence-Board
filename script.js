@@ -28,4 +28,7 @@ EBapp.factory("SharedService", SharedService);
 EBapp.controller("OptionCtrler", OptionCtrler);
 EBapp.controller("IHCtrler",IHCtrler);
 
+//-------------------------------------------------------------------------------------
+//log([1,23,4,"d",5,6,7].get(2));
+
 //log("done loading script.js");

@@ -1,15 +1,21 @@
-function imRmCxn(dbID,currObjId){
-  //log(strf("rm cxn with: {} and {}",[dbID,currObjId]));
-  im.rmCxn(subString(dbID,2),currObjId); // convert the dbId to corresponding cxnId
+function imRmCxn(dbID){
+  im.rmCxn(subString(dbID,2)); // convert the dbId to corresponding noteId
 }
 
-function imCheckoutObj(oldID,newID){
-  //log(strf("{} --cxn-->: {}",[oldID,newID]));
-  im.checkoutObj(oldID,subString(newID,3));
+function imCheckoutNewObj(cxnID){
+  im.checkoutNewObj(subString(cxnID,3)); // convert the cxnId to corresponding noteId
 }
 
 function exitIm(doSave){
   im.exitIM(doSave);
+}
+
+function imBackButton(){
+  im.checkoutNextObj();
+}
+
+function imForwardButton(){
+  im.checkoutPreviousObj();
 }
 
 $(document).keyup(function(e) {
