@@ -17,3 +17,9 @@ body{background-color:lightgrey; border:2px solid yellow;}
   height: 580px;
   width:1150px;
 }
+
+#help{
+  position:absolute;
+  top:5px;
+  left:20px;
+}
