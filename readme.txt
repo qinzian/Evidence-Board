@@ -1,6 +1,4 @@
 personal project3: evidence board
-rendered view:	
-http://htmlpreview.github.io/?https://github.com/qinzian/Evidence-Board/blob/master/index.html
 
 pictures credits / src:
 	-bg
@@ -9,8 +7,8 @@ pictures credits / src:
 	-pics
 		
 
-* github preview doesn't seem to work, it is likely that the angularJS script is not loading properly online,
-  try to download the whole package or clone the repo to run it
+* since github preview doesn't work with angular scripts, feel free to view this 
+  project by downloading the whole package and open up "index.html"
 
 Next v4.1:
  - take picture of the board with all the connecting lines?
